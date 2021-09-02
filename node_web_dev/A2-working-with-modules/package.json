@@ -1,0 +1,24 @@
+{
+  "name": "brettbloethner-assignment-2",
+  "version": "1.0.0",
+  "description": "Brett Bloethner's assignment 2 for CSCI-E31",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "develop": "node --inspect app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HarvardDCENode/assignment-2-working-with-modules-brettbl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HarvardDCENode/assignment-2-working-with-modules-brettbl/issues"
+  },
+  "homepage": "https://github.com/HarvardDCENode/assignment-2-working-with-modules-brettbl#readme",
+  "dependencies": {
+    "log-util": "^1.2.0"
+  }
+}

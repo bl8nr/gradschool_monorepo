@@ -1,0 +1,199 @@
+#### CUSTOM SCRIPT
+
+# Fail on wrong password
+# ERROR (125): LOGIN ROOT_USER FAILED, INCORRECT CREDENTIALS
+login root_user passcode
+
+# Fail on wrong username
+# ERROR (126): LOGIN ROOT_USE FAILED, FAILED TO FIND USER
+login root_use password
+
+# LOGGED IN USER { userId: root_user }
+login root_user password
+
+# NEW PERMISSION CREATED { Name: User Administrator, ID: auth_user_admin, Description: Create, Update, Delete Users }
+define_permission auth_user_admin "User Administrator" "Create, Update, Delete Users"
+
+# USER CREDENTIAL UPDATED { userID: root_user, credentialType: PASSWORD, credential: new_password }
+add_user_credential root_user password new_password
+
+# LOGGED OUT USER { userId: root_user }
+logout root_user
+
+# LOGGED IN USER { userId: root_user }
+login root_user new_password
+
+
+# LOGGED OUT USER { userId: root_user }
+logout root_user
+
+# Fail to define permission due to previous logout and auth token invalidation
+# ERROR (141): DEFINE_PERMISSION AUTH_ROLE_ENTITLEMENT_ADMIN FAILED, INVALID AUTH SERVICE ADMIN TOKEN
+define_permission auth_role_entitlement_admin "User Administrator" "Create, Update, Delete Entitlements"
+
+# LOGGED IN USER { userId: root_user }
+login root_user password
+
+# NEW PERMISSION CREATED { Name: x, ID: x, Description: x } x14
+define_permission auth_resource_admin "User Administrator" "Create, Update, Delete Resources"
+define_permission scms_control_robot "Control Robot" "Full Control of Robots"
+define_permission scms_drive_car "Drive Car" "Drive a car"
+define_permission scms_ride_bus "Ride Bus" "Ride a bus"
+define_permission scms_define_city "Define City" "Define a City"
+define_permission scms_manage_city "Create, Update City" "Create or update a City"
+define_permission scms_define_device "Define Device" "Define a Device"
+define_permission scms_manage_device "Create, Update Device" "Define a new City"
+define_permission scms_define_person "Define Person" "Define a Person"
+define_permission scms_manage_person "Create, Update Person" "Define a new Person"
+define_permission scms_create_sensor_event "Create" "Define a new Sensor Event"
+define_permission scms_create_sensor_output "Create" "Define a new Sensor Output"
+define_permission scms_read_city "Read" "Read a city"
+define_permission scms_read_person "Read" "Read a person"
+
+# create roles, the root user will automatically have permission to these as well, same with the public_admin for demo purposes
+# NEW ROLE CREATED { ID: x, Name: x, Description: x}
+define_role adult_role "Adult Role" "Has all permissions of an adult"
+define_role child "Child Role" "Has all permissions of a child"
+define_role public_administrator "Public Administrator Role" "Has all permissions of a public administrator"
+
+# PERMISSION ADDED TO ROLE { permissionId: public_administrator, roleId: x } x14
+add_permission_to_role public_administrator auth_role_entitlement_admin
+add_permission_to_role public_administrator auth_user_admin
+add_permission_to_role public_administrator auth_resource_admin
+add_permission_to_role public_administrator auth_user_admin
+add_permission_to_role public_administrator scms_control_robot
+add_permission_to_role public_administrator scms_drive_car
+add_permission_to_role public_administrator scms_define_city
+add_permission_to_role public_administrator scms_manage_city
+add_permission_to_role public_administrator scms_define_device
+add_permission_to_role public_administrator scms_manage_device
+add_permission_to_role public_administrator scms_manage_person
+add_permission_to_role public_administrator scms_create_sensor_event
+add_permission_to_role public_administrator scms_create_sensor_output
+add_permission_to_role public_administrator scms_read_city
+add_permission_to_role public_administrator scms_read_person
+
+# because of dependencies in the model service, children need to be able to manage devices to trigger them as results of sensor events
+# PERMISSION ADDED TO ROLE { permissionId: child, roleId: x } x5
+add_permission_to_role child scms_create_sensor_event
+add_permission_to_role child scms_create_sensor_output
+add_permission_to_role child scms_read_city
+add_permission_to_role child scms_read_person
+add_permission_to_role child scms_manage_device
+
+# Create a small city, a Resource and Resource Role be made as well
+# City Cambridge-MA created. ID: city_1
+define city city_1 name Cambridge-MA account cambridge-account lat 42.3766 long -71.1160 radius 100
+
+# Create Jane, the city public admin with public admin roles
+# NEW PERSON CREATED
+define resident resident_1 name jane bio-metric "voice-print='voiceprint-jane'" phone 781-222-3344 role PUBLIC_ADMINISTRATOR lat 42.3735 long -71.1205 account janes_account
+
+# LOGGED OUT USER { userId: root_user }
+logout root_user
+
+# LOGGED IN USER { userId: resident_1 }
+login resident_1 "voice-print='voiceprint-jane'"
+
+# error because Jane doesnt have access to make new permission
+# ERROR (196): DEFINE_PERMISSION SCMS_DEFINE_DEVICE FAILED, INVALID AUTH SERVICE ADMIN TOKEN
+define_permission scms_define_device "Define Device" "Define a Device"
+
+# error because Jane doesnt have access to make a new resident
+# ERROR (197): DEFINE RESIDENT FAILED, INVALID OR MISSING AUTH TOKEN
+define resident resident_2 name joe bio-metric "voice-print='voiceprint-joe',face-print='faceprint-joe'" phone 781-222-3345 role child lat 42.3735 long -71.1205 account joes_account
+
+# LOGGED OUT USER { userId: resident_1 }
+logout resident_1
+
+# LOGGED IN USER { userId: root_user }
+login root_user password
+
+# Create Joe as role child
+# NEW PERSON CREATED
+define resident resident_2 name joe bio-metric "voice-print='voiceprint-joe'" phone 781-222-3345 role child lat 42.3735 long -71.1205 account joes_account
+
+# ROLE ADDED TO USER { userId: resident_2, roleID: child }
+add_role_to_user resident_2 child
+
+# LOGGED OUT USER { userId: root_user }
+logout root_user
+
+# manually login with bio credential
+# LOGGED IN USER { userId: resident_2 }
+login resident_2 "voice-print='voiceprint-joe'"
+
+# fail to create a new device as a child
+# ERROR (210): DEFINE STREET-SIGN FAILED, INVALID OR MISSING AUTH TOKEN
+define street-sign city_1:ss_2 account city_1ss_2 lat 42.3736 long -71.1214 enabled  true  text "Brattle Theatre"
+
+# LOGGED OUT USER { userId: resident_2 }
+logout resident_2
+
+# LOGGED IN USER { userId: root_user }
+login root_user password
+
+# create 3 new devices as the root user
+# DEVICE CREATED IN CITY city_1 x3
+define street-sign city_1:ss_2 account city_1ss_2 lat 42.3736 long -71.1214 enabled  true  text "Brattle Theatre"
+define street-sign city_1:ss_1 account city_1ss_1 lat 42.3732 long -71.1202 enabled  true  text "Welcome to Harvard Square"
+define info-kiosk city_1:kiosk_1 account city_1ik_1 lat 42.3723 long -71.1230 enabled  true  image https://media-cdn.tripadvisor.com/media/photo-s/05/94/cc/10/charles-hotel.jpg
+
+# update one of the devices as the root user
+# STREET SIGN UPDATED IN city_1
+update street-sign city_1:ss_1  text "The time is now 9:00 pm"
+
+# add faceprint credential to public administrator resident_1
+# USER CREDENTIAL UPDATED { userID: resident_1, credentialType: BIOMETRIC, credential: face-print='faceprint-jane' }
+add_user_credential resident_1 biometric "face-print='faceprint-jane'"
+
+# LOGGED OUT USER { userId: root_user }
+logout root_user
+
+# login manually with faceprint
+# LOGGED IN USER { userId: resident_1 }
+login resident_1 "face-print='faceprint-jane'"
+
+# STREET SIGN UPDATED IN city_1
+update street-sign city_1:ss_2  text "Was playing, Casablanca"
+
+# LOGGED OUT USER { userId: resident_1 }
+logout resident_1
+
+# manually login with voiceprint
+# LOGGED IN USER { userId: resident_1 }
+login resident_1 "voice-print='voiceprint-jane'"
+
+# STREET SIGN UPDATED IN city_1
+update street-sign city_1:ss_2  text "Not playing, Casablanca"
+
+# LOGGED OUT USER { userId: resident_1 }
+logout resident_1
+
+# LOGGED IN USER { userId: root_user }
+login root_user password
+
+# define a street light
+# DEVICE CREATED IN CITY city_1,
+define street-light city_1:sl_1 account city_1sl_1 lat 42.3770 long  -71.1167 enabled  true  brightness 8
+
+# create a sensor event for a fire
+# SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+create sensor-event city_1:sl_1 type camera value "fire"
+
+# create a bus and simulate a bus sensor event on residents behalf, x3
+define vehicle city_1:bus_1 account city_1bus_1 lat 42.3736 long -71.1214 enabled  true  type  bus  activity "on route" capacity 30 fee 1
+create sensor-event city_1:bus_1 type microphone value "does this bus go to Central Square?" subject resident_1 credential "voice-print='voiceprint-jane'"
+create sensor-event city_1:bus_1 type microphone value "does this bus go to Central Square?" subject resident_1 credential "face-print='faceprint-jane'"
+create sensor-event city_1:bus_1 type microphone value "does this bus go to Central Square?" subject resident_2 credential "voice-print='voiceprint-joe'"
+
+# simulate a kiosk sensor event on joes behalf, who has a child role
+create sensor-event city_1:kiosk_1 type microphone value "what movies are showing tonight?" subject resident_2 credential "voice-print='voiceprint-joe'"
+
+logout resident_2
+
+login root_user password
+
+# Print Object Inventory
+print inventory
+

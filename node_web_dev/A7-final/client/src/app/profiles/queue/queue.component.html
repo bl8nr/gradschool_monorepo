@@ -1,0 +1,67 @@
+<!-- add the mid section top menu -->
+<app-mid-menu></app-mid-menu>
+
+<section class="py-0 overflow-y body" *ngIf="!isLoading">
+  <div class="container" style="padding-bottom: 200px;">
+
+    <!-- schedule new post component -->
+    <div class="row">
+      <div class="col-sm-1 text-center">
+        <div class="fa-3x">
+          <button data-target="#new-post" data-toggle="collapse" (click)="toggleIsNewPostCollapsed()" class="fa-layers fa-fw new-post-button">
+            <i class="fas fa-circle" style="color:#4582EC"></i>
+            <span *ngIf="isNewPostCollapsed">
+              <i class="fa-inverse far fa-plus" data-fa-transform="shrink-6"></i>
+            </span>
+            <span *ngIf="!isNewPostCollapsed">
+              <i class="fa-inverse far fa-times" data-fa-transform="shrink-6"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div class="col-sm-10">
+        <div [ngbCollapse]="isNewPostCollapsed">
+          <app-new-post-card (updateQueuedPostsList)="updateQueuedPostsList($event)"></app-new-post-card>
+        </div>
+      </div>
+    </div>
+    <!-- END schedule new post component -->
+
+    <!-- scheduled posts listing -->
+    <div *ngFor="let posts of postsByDate">
+      <span class="post-timeframe py-1 px-1 pb-2 d-inline-block">
+        <span class="fw-500">{{ posts.weekday }}</span> {{ posts.day }} {{ posts.month }}</span>
+      <app-queued-post-card *ngFor="let post of posts.posts" [post]="post" (updateQueuedPostsList)="updateQueuedPostsList($event)"></app-queued-post-card>
+    </div>
+    <!-- END scheduled posts listing -->
+
+    <!-- no scheduled posts notice well -->
+    <div class="row justify-content-center pt-4" *ngIf="isNewPostCollapsed && (postsByDate.length <= 0)">
+      <div class="col-7">
+        <div class="card card-lg text-center">
+          <div class="card-body">
+            <i class="icon-add-to-list display-4 opacity-20"></i>
+            <h1 class="h5">You haven't scheduled any posts yet</h1>
+            <p>
+              Start scheduling your Reddit posts by hitting the button below. Let's get you some up votes.
+            </p>
+            <button data-target="#new-post" data-toggle="collapse" class="btn btn-lg btn-primary" (click)="toggleIsNewPostCollapsed()">Schedule a post</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END no scheduled posts notice well -->
+
+  </div>
+</section>
+
+<!-- only display spinner if queue.component is loading -->
+<section class="height-70" *ngIf="isLoading">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 col-lg-5 text-center">
+        <i class="fas fa-spinner-third fa-spin fa-4x" style="color:#4582EC;"></i>
+      </div>
+    </div>
+  </div>
+</section>

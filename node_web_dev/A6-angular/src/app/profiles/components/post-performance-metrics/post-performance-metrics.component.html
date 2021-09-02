@@ -1,0 +1,55 @@
+<span class="performance-header">Post Performance</span>
+
+<div *ngIf="!isLoading" class="row" style="min-height: 80px;">
+  <div class="col-md-6">
+    <table class="performance-table">
+      <tbody>
+        <tr>
+          <th scope="row">Score</th>
+          <td>{{ post.data.score }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Down Votes</th>
+          <td>{{ post.data.downs }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Up Votes</th>
+          <td>{{ post.data.ups }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Upvote Ratio</th>
+          <td>{{ post.data.upvote_ratio }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <table class="performance-table">
+      <tbody>
+        <tr>
+          <th scope="row">Comments</th>
+          <td>{{ post.data.num_comments }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Crossposts</th>
+          <td>{{ post.data.num_crossposts }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Gold Received</th>
+          <td>{{ post.data.gilded }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- display spinner until the reddit post data has loaded -->
+<section *ngIf="isLoading" class="col-12 p-0" style="min-height: 80px;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 col-lg-5 text-center">
+        <i class="fas fa-spinner-third fa-spin fa-3x" style="color:#59626a;"></i>
+      </div>
+    </div>
+  </div>
+</section>

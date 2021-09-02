@@ -1,0 +1,33 @@
+<div class="row">
+
+  <!-- add all of the metrics components to the template but dead in the DOM via ngIf -->
+  <section class="col-md-8 performance-metrics-body p-0">
+    <div class="p-2">
+      <app-post-performance-metrics *ngIf="activeSelection === 'post_performance'" [postId]="postId" [subredditName]="subredditName"></app-post-performance-metrics>
+      <app-subreddit-performance-metrics *ngIf="activeSelection === 'subreddit_performance'" [postId]="postId" [subredditName]="subredditName"></app-subreddit-performance-metrics>
+    </div>
+  </section>
+
+ 
+  <!-- metrics selection menu to pick which component is in view ('Post Analysis' and 'Subreddit Analysis' are not functional) -->
+  <section class="col-md-4 r-performance p-0">
+    <div class="p-2">
+      <span class="performance-metrics-menu-header">Performance Metrics</span>
+      <div class="performance-menu pl-1">
+        <div>
+          <span class="performance-menu-item" (click)="handleChangeActiveSelection('post_performance')">Post Performance</span>
+        </div>
+        <div>
+          <span class="performance-menu-item" (click)="handleChangeActiveSelection('subreddit_performance')">Subreddit Performance</span>
+        </div>
+        <div>
+          <span class="disabled-menu-item"><i class="fas fa-lock" style="font-size:11px;"></i> Post Analysis</span>
+        </div>
+        <div>
+          <span class="disabled-menu-item"><i class="fas fa-lock" style="font-size:11px;"></i> Subreddit Analysis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+</div>

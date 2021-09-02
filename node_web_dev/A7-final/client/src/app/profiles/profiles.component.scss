@@ -1,0 +1,20 @@
+.background {
+  background: linear-gradient(
+    to right, 
+    #f8f9fa 0%, 
+    #f8f9fa 50%, 
+    #ffffff 50%, 
+    #ffffff 100%
+  );
+}
+
+.accounts-column {
+    border-right-style: solid;
+    border-right-width: 1px;
+    padding-right: 0px;
+    border-right-color: #e9ecef;
+}
+
+.main-column {
+  overflow-y: hidden;
+}

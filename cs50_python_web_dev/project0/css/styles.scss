@@ -1,0 +1,116 @@
+// VARIABLES
+$font-color: #202020;
+$header-color: #505050;
+$sub-header-color: #6c757d;
+// MEDIA QUERIES
+@media print {
+    .screen-only {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-brand::before {
+        content: "U.S.C. Articles";
+    }
+    .section-menu {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1000px) {
+    .navbar-brand::before {
+        content: "Articles of the US Constitution"
+    }
+}
+
+%paragraph {
+    color: $font-color;
+    font-family: 'Open Sans', sans-serif;
+}
+
+// target every paragraph tag used in the article_*.html pages
+h5+p {
+    @extend %paragraph;
+}
+
+// target the preamble on the index page (also inheritance)
+#preamble {
+    @extend %paragraph;
+    font-family: 'Italianno', cursive;
+    font-size: 24px;
+}
+
+// target the articles list/menu on the home page (also nesting)
+#articles-list {
+    ul {
+        list-style-type: none
+    }
+    li>a {
+        font-weight: 800;
+    }
+}
+
+.fit-to-parent {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+h3 {
+    color: $font-color;
+}
+
+h5>span {
+    color: $sub-header-color;
+}
+
+.card-title {
+    color: $header-color;
+}
+
+.tac {
+    text-align: center;
+}
+
+// the below shake animation was sourced from w3schools
+// https://www.w3schools.com/howto/howto_css_shake_image.asp
+.section-link:hover {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}

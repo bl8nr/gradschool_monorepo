@@ -1,0 +1,113 @@
+<section class="space-sm">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col text-center logo">
+        <span class="navbar-brand pointer" routerLink="/home">
+          <img class="navbar-logo" src="assets/images/logo-black.svg" alt="multiPost Logo">
+          <span class="navbar-logo-copy">Reply</span>
+          <span class="navbar-logo-copy navbar-logo-copy-as">as</span>
+        </span>
+      </div>
+    </div>
+    <div class="row flex-md-row card card-lg">
+      <div class="col-12 col-md-7 card-body bg-secondary">
+        <div class="text-center mb-4">
+          <h1 class="h2 mb-2">Let's build a reputation</h1>
+          <span>Accounts are free, create one to get started</span>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-9">
+            <form [formGroup]="registrationForm">
+              <div class="form-row form-group">
+                <div class="col">
+                  <input class="form-control form-control-lg" type="text" placeholder="Create a Username" formControlName="username">
+                </div>
+              </div>
+              <div class="form-row form-group">
+                <div class="col">
+                  <input class="form-control form-control-lg" type="text" placeholder="First Name" autocomplete='given-name' formControlName="firstName">
+                </div>
+                <div class="col">
+                  <input class="form-control form-control-lg" type="text" placeholder="Last Name" autocomplete='family-name' formControlName="lastName">
+                </div>
+              </div>
+              <div class="form-row form-group">
+                <div class="col">
+                  <input class="form-control form-control-lg" type="email" placeholder="Email Address" autocomplete='email' formControlName="email">
+                </div>
+              </div>
+              <div class="form-row form-group">
+                <div class="col">
+                  <input class="form-control form-control-lg" type="password" placeholder="Password" autocomplete='current-password' formControlName="password">
+                  <small>Password must be at least 7 characters</small>
+                </div>
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="isAlerted">
+                {{ alertText }}
+              </div>
+              <div class="form-row form-group">
+                <div class="col">
+                  <button class="btn btn-block btn-success btn-lg" type="button" (click)="handleSignupClicked(registrationForm.value)" [disabled]="registrationForm.invalid ||isCreatingAccount">
+                    <span *ngIf="!isCreatingAccount">Create Account</span>
+                    <span *ngIf="isCreatingAccount">
+                      <div class="loader">
+                        Creating Account
+                        <span class="loader__dot">.</span>
+                        <span class="loader__dot">.</span>
+                        <span class="loader__dot">.</span>
+                      </div>
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <div class="text-center">
+                <span class="text-small text-muted">By clicking 'Create Account' you agree 
+                  <a href="#">Nothing</a>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-5 card-body">
+        <div>
+          <div class="mb-5 text-center">
+            <h3 class="h2 mb-2">Features &amp; Benefits</h3>
+            <span>Lorem Ipsum</span>
+          </div>
+          <ul class="list-unstyled list-spacing-sm mb-4 ">
+            <li class="row">
+              <div class="col-2 col-md-1">
+                <i class="icon-check h5 text-muted"></i>
+              </div>
+              <div class="col-10">Some filler text</div>
+            </li>
+            <li class="row align-items-center">
+              <div class="col-2 col-md-1">
+                <i class="icon-check h5 text-muted"></i>
+              </div>
+              <div class="col-10">Some more filler text</div>
+            </li>
+            <li class="row">
+              <div class="col-2 col-md-1">
+                <i class="icon-check h5 text-muted"></i>
+              </div>
+              <div class="col-10">Even more filler text</div>
+            </li>
+            <li class="row align-items-center">
+              <div class="col-2 col-md-1">
+                <i class="icon-check h5 text-muted"></i>
+              </div>
+              <div class="col-10">Okay thats enough filler text</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <span class="text-small">Already have an account?
+        <a [routerLink]="['/login']">Log in here</a>
+      </span>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,107 @@
+# Sample script for the Smart City Model Service.
+# Please feel free to adjust the syntax.  This script is provided as a sample.
+#
+# City Commands
+# Define a city
+# define city <city_id> name <name> account <address> lat <float> long <float> radius <float>
+define city city_1 name Cambridge-MA account cambridge-account lat 42.3766 long -71.1160 radius 100
+
+# Show the details of a city. Print out the details of the city including the id, name, account, location, people, and IoT devices.
+show city city_1
+
+# successfully create each type of device, also show each device right after its created
+define street-sign city_1:ss_1 account ss_1_account lat 42.3732 long -71.1202 enabled  true  text "Welcome to Harvard Square"
+show device city_1:ss_1 account
+define info-kiosk city_1:kiosk_1 account ik_1_account lat 42.3723 long -71.1230 enabled true image https://media-cdn.tripadvisor.com/media/photo-s/05/94/cc/10/charles-hotel.jpg
+show device city_1:kiosk_1
+define street-light city_1:sl_1 account sl_1_account lat 42.3770 long  -71.1167 enabled  true  brightness 8
+show device city_1:sl_1
+define parking-space city_1:ps_1 account ps_1_account lat 42.3743 long -71.1202 enabled true  rate 25
+show device city_1:ps_1
+define robot city_1:bot_1 account r_1_account lat 42.3735 long -71.1205 enabled  true activity "cleaning"
+show device city_1:bot_1
+define vehicle city_1:car_1 account v_1_account lat 42.3725 long -71.1161 enabled true type car activity "parked" capacity 4 fee 10
+show device city_1:car_1
+
+show device city_1
+
+update street-sign city_1:ss_1 account ss_1_account enabled  true text "The time is now 9:00 pm"
+update info-kiosk city_1:kiosk_1 enabled false
+update street-light city_1:sl_1  brightness 4
+update street-light city_1:sl_1  enabled false brightness 5
+update parking-space city_1:ps_1  rate 50
+update robot city_1:bot_1 lat 42.3732 long -71.1195 activity "walking dog"
+update vehicle city_1:car_1 lat 42.3830 long -71.1125   activity "driving"  fee 20
+
+# successfully update each type of device
+#update street-sign city_1:ss_1  text "The time is now 9:00 pm"
+#update street-sign city_1:ss_2  text "Now playing, Cassablaca"
+
+# simulate sensor event
+create sensor-event city_1:car_1 type microphone value "does this bus go to Central Square?" subject jane
+create sensor-event city_1:car_1 type camera value "person boarding bus" subject jane
+create sensor-event city_1:sl_1 type thermometer value 80
+create sensor-event city_1:sl_1 type co2meter value 500
+create sensor-event city_1:bot_1 type thermometer  value 98.6 subject joe
+create sensor-event city_1 type thermometer  value 98.6 subject joe
+
+create sensor-output city_1:bot_1 type speaker value "your temperature is normal"
+create sensor-output city_1 type speaker value "severe weather alert, please take shelter"
+
+# successfully create each typeof person then display them
+define resident resident_1 name jone bio-metric "voice-print='voiceprint-jane',face-print='faceprint-jane'" phone 781-222-3344 role adult lat 42.3735 long -71.1205 account janes_account
+define visitor visitor_1 bio-metric "iris-print='irisprint-visitor_1'" lat 42.3744 long -71.1203
+show person resident_1
+show person visitor_1
+
+update resident resident_1 name jane lat 42.3830 long -71.1125
+update visitor visitor_1  lat 42.3830 long -71.1125 bio-metric "testbiomewtricor_1'"
+
+# show the city and all of its devices and persons
+show city city_1
+
+# Should fail to define another city since it confilcts with Cambridges location
+define city city_2 name Boston-MA account boston-account lat 49.3766 long -73.1160 radius 4000
+
+# Should fail to define another city since a city with id city_1 already exists
+define city city_1 name Boston-MA account boston-account lat 49.3766 long -73.1160 radius 40
+
+# Should define another city since it now has the correct location now, then show the new city
+define city city_2 name Boston-MA account boston-account lat 49.3766 long -73.1160 radius 40
+show city city_2
+
+# Should fail to show a city that does not exist
+show city city_8
+
+# Should file to create all these becaue of duplicates or becuase of no city existing
+define street-sign city_11:ss_12 account ss_1_account lat 42.3732 long -71.1202 enabled  true  text "Welcome to Harvard Square"
+define info-kiosk city_1:kiosk_1 account ik_1_account lat 42.3723 long -71.1230 enabled true image https://media-cdn.tripadvisor.com/media/photo-s/05/94/cc/10/charles-hotel.jpg
+define street-light city_21:sl_16 account sl_1_account lat 42.3770 long  -71.1167 enabled  true  brightness 8
+define parking-space city_1:ps_1 account ps_1_account lat 42.3743 long -71.1202 enabled true  rate 25
+define robot city_1:bot_1 account r_1_account lat 42.3735 long -71.1205 enabled  true activity "cleaning"
+define vehicle city_11:car_19 account v_1_account lat 42.3725 long -71.1161 enabled true type car activity "parked" capacity 4 fee 10
+define street-sign city_1:ss_1 account ss_1_account lat 42.3732 long -71.1202 enabled  true  text "Welcome to Harvard Square"
+
+# should fail to show these because the citys or devices ids dont exist
+show device city_1:ss_11 account
+show device city_11:kiosk_1
+show device city_1:sl_11
+show device city_11:ps_1
+show device city_1:bot_11
+show device city_11:car_1
+
+# should fail to register sensor events and outputs when device or city doesnt exist
+create sensor-event city_11:car_1 type microphone value "does this bus go to Central Square?" subject jane
+create sensor-event city_1:car_11 type camera value "person boarding bus" subject jane
+create sensor-event city_1:sl_11 type thermometer value 80
+create sensor-event city_11:sl_1 type co2meter value 500
+create sensor-event city_1:bot_11 type thermometer  value 98.6 subject joe
+create sensor-event city_11 type thermometer  value 98.6 subject joe
+
+# these should fail but the failure should appear after the event/output is registered
+create sensor-output city_1:bot_11 type speaker value "your temperature is normal"
+create sensor-output city_11 type speaker value "severe weather alert, please take shelter"
+
+# these should fail to create duplicate residents
+define resident resident_1 name jone bio-metric "voice-print='voiceprint-jane',face-print='faceprint-jane'" phone 781-222-3344 role adult lat 42.3735 long -71.1205 account janes_account
+define visitor visitor_1 bio-metric "iris-print='irisprint-visitor_1'" lat 42.3744 long -71.1203

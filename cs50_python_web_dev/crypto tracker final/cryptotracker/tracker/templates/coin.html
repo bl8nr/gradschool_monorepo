@@ -1,0 +1,322 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <!-- BEGIN header -->
+    <div class="dashhead">
+        <div class="dashhead-titles">
+            <h6 class="dashhead-subtitle">Crypto Tracker</h6>
+            <h2 class="dashhead-title">{{ coin.name }}</h2>
+        </div>
+        <div class="btn-toolbar dashhead-toolbar">
+            <div class="btn-toolbar-item">
+                {% if isWatched == True %}
+                    <form method="POST" action="{% url 'watchlist' %}">
+                        {% csrf_token %}
+                        <input type="hidden" id="coinId" name="coinId" value="{{ coin.id }}">
+                        <input type="hidden" id="method" name="method" value="delete">
+                        <button type="submit" class="btn btn-outline-primary px-3">Remove from Watchlist</button>
+                    </form>
+                {% else %}
+                    <form method="POST" action="{% url 'watchlist' %}">
+                        {% csrf_token %}
+                        <input type="hidden" id="coinId" name="coinId" value="{{ coin.id }}">
+                        <input type="hidden" id="method" name="method" value="post">
+                        <button type="submit" class="btn btn-outline-primary px-3">Add to Watchlist</button>
+                    </form>
+                {% endif %}
+            </div>
+            <div class="btn-toolbar-item">
+                <button type="submit" class="btn btn-outline-primary px-3" data-toggle="modal"
+                        data-target="#shareCoinModal">
+                    <i class="fas fa-share-square"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- END header -->
+
+    <hr class="mt-3">
+
+    <canvas id="priceChart" class="chartjs" width="1540" height="770"
+            style="display: block; height: 385px; width: 770px;"></canvas>
+
+    <div class="hr-divider my-4">
+        <ul class="nav nav-pills hr-divider-content hr-divider-nav" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a href="javascript;" onclick="changeChartData('price')" class="nav-link active" role="tab"
+                   data-toggle="tab" aria-controls="sales"
+                   aria-expanded="true">Price</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a href="javascript;" onclick="changeChartData('volume')" class="nav-link" role="tab" data-toggle="tab"
+                   aria-controls="inventory"
+                   aria-expanded="false">Volume</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a href="javascript;" onclick="changeChartData('market_cap')" class="nav-link" role="tab"
+                   data-toggle="tab" aria-controls="profit"
+                   aria-expanded="false">Market Cap</a>
+            </li>
+        </ul>
+    </div>
+
+    <section>
+        <div class="row pt-4 pb-4">
+            <div class="col-sm-12">
+                <div class="hr-divider">
+                    <h3 class="hr-divider-content hr-divider-heading">
+                        Overview
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <!-- BEING market data | half width -->
+            <div class="col-sm-12 col-md-6">
+                <div class="list-group mb-3">
+                    <h6 class="list-group-header">
+                        Market Data
+                    </h6>
+                    <span class="list-group-item list-group-item-action justify-content-between clear-hover">
+                    <span>Current Price</span>
+                    <span class="text-muted">{{ coin.market_data.current_price.usd }}</span>
+                </span>
+                    <span class="list-group-item list-group-item-action justify-content-between clear-hover">
+                    <span>Market Cap</span>
+                    <span class="text-muted">{{ coin.market_data.market_cap.usd }}</span>
+                </span>
+                    <span class="list-group-item list-group-item-action justify-content-between clear-hover">
+                    <span>Total Volume</span>
+                    <span class="text-muted">{{ coin.market_data.total_volume.usd }}</span>
+                </span>
+                    <span class="list-group-item list-group-item-action justify-content-between clear-hover">
+                    <span>24hr High</span>
+                    <span class="text-muted">{{ coin.market_data.high_24h.usd }}</span>
+                </span>
+                    <span class="list-group-item list-group-item-action justify-content-between clear-hover">
+                    <span>24hr Low</span>
+                    <span class="text-muted">{{ coin.market_data.low_24h.usd }}</span>
+                </span>
+                </div>
+            </div>
+            <!-- END market data | half width -->
+
+            <!-- BEGIN all time data | half width -->
+            <div class="col-sm-12 col-md-6">
+                <div class="list-group mb-3">
+                    <h6 class="list-group-header">
+                        Historical & Coin Data
+                    </h6>
+                    <span class="list-group-item list-group-item-action justify-content-between clear-hover">
+                    <span>All Time High</span>
+                    <span class="text-muted">{{ coin.market_data.ath.usd }}</span>
+                </span>
+                    <span class="list-group-item list-group-item-action justify-content-between clear-hover">
+                    <span>All Time Low</span>
+                    <span class="text-muted">{{ coin.market_data.atl.usd }}</span>
+                </span>
+                    <span class="list-group-item list-group-item-action justify-content-between clear-hover">
+                    <span>Genesis Date</span>
+                    <span class="text-muted">{{ coin.genesis_date }}</span>
+                </span>
+                    <span class="list-group-item list-group-item-action justify-content-between clear-hover">
+                    <span>Total Coin Supply</span>
+                    <span class="text-muted">{{ coin.market_data.total_supply }}</span>
+                </span>
+                    <span class="list-group-item list-group-item-action justify-content-between clear-hover">
+                    <span>Circulating Supply</span>
+                    <span class="text-muted">{{ coin.market_data.circulating_supply }}</span>
+                </span>
+                </div>
+            </div>
+            <!-- END all time data | half width -->
+
+        </div>
+    </section>
+
+    <!-- BEGIN about this coin section -->
+    <section>
+        <div class="row pt-4 pb-4">
+            <div class="col-sm-12">
+                <div class="hr-divider">
+                    <h3 class="hr-divider-content hr-divider-heading">
+                        About this Coin
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="standard-container-padding">
+                    {{ coin.description.en|safe }}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END about this coin section -->
+
+
+    <!-- BEGIN sharing modal -->
+    <div class="modal fade" id="shareCoinModal" tabindex="-1" role="dialog" aria-labelledby="shareCoinModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Share Coin</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="shareCoinForm" method="POST" action="{% url 'shareCoin' coin_id=coin.id %}">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <input type="hidden" id="shareCoinModalCoinId" name="coinId" value="{{ coin.id }}">
+                        <input class="form-control my-3" type="text" id="shareCoinModalEmail" name="email" value=""
+                               placeholder="Email Address">
+                        <input class="form-control my-3" type="text" id="shareCoinModalMessage" name="message"
+                               value="{{ user.username }} wants so share {{ coin.name }} coin stats with you! Click here to check it out..."
+                               placeholder="Personal Message">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button id="shareCoinModalSendButton" type="submit" class="btn btn-outline-primary px-3">Send
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- END sharing modal -->
+
+    <script>
+
+        // dom handler for the send email form
+        $("#shareCoinModal").on('submit', function () {
+            $.ajax({
+                type: "POST",
+                url: "{% url 'shareCoin' coin_id=coin.id %}",
+                data: $("#shareCoinForm").serialize(),
+                cache: false,
+                success: function (result) {
+                    $("#shareCoinModalSendButton").attr("disabled", true);
+                    $("#shareCoinModalSendButton").html('Sent!');
+                }
+            });
+
+            return false;
+        });
+
+        // get chart data from the server/api
+        function getChartData(coinId) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", coinId + '/chart', false);
+            xmlHttp.send(null);
+            return JSON.parse(xmlHttp.responseText);
+        }
+
+        chartData = getChartData("{{ coin.id }}");
+
+        // parse out the coin price data for the charting library
+        priceLabels = [];
+        priceValues = [];
+        chartData.prices.forEach((priceDataPoint) => {
+            priceLabels.push(priceDataPoint[0]);
+            priceValues.push(priceDataPoint[1]);
+        });
+
+        // parse out the coin volume data for the charting library
+        volumeLabels = [];
+        volumeValues = [];
+        chartData.total_volumes.forEach((volumeDataPoint) => {
+            volumeLabels.push(volumeDataPoint[0]);
+            volumeValues.push(volumeDataPoint[1]);
+        });
+
+        // parse out the coin market cap data for the charting library
+        marketCapLabels = [];
+        marketCapValues = [];
+        chartData.market_caps.forEach((marketCapDataPoint) => {
+            marketCapLabels.push(marketCapDataPoint[0]);
+            marketCapValues.push(marketCapDataPoint[1]);
+        });
+
+        // init empty chart with the correct axis and labels
+        var chart = new Chart(document.getElementById("priceChart"), {
+            "type": "line",
+            "data": {
+                "labels": [ /* init empty chart */],
+                "datasets": [ /* init empty chart */]
+            },
+            "options": {
+                legend: {
+                    display: false
+                },
+                elements: {
+                    point: {
+                        radius: 0
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            callback: function (value) {
+                                var months = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sept.', 'Oct.', 'Nov.', 'Dec.'];
+
+                                date = new Date(value);
+                                return `${months[date.getMonth()]} ${date.getDay()} ${date.getFullYear()}`;
+                            }
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            callback: function (value) {
+                                return '$' + value;
+                            }
+                        }
+                    }]
+                }
+            }
+        });
+
+        // chart mode change handler (to change to price, volume, market cap display etc...)
+        function changeChartData(type) {
+            var labels;
+            var values;
+            var tooltiplabel;
+
+            if (type == 'price') {
+                labels = priceLabels;
+                values = priceValues;
+                tooltiplabel = 'Price';
+            } else if (type == 'volume') {
+                labels = volumeLabels;
+                values = volumeValues;
+                tooltiplabel = 'Total Volume Traded';
+            } else if (type == 'market_cap') {
+                labels = marketCapLabels;
+                values = marketCapValues;
+                tooltiplabel = 'Total Market Cap';
+            }
+
+            chart.data.labels = labels;
+            chart.data.datasets = [
+                {
+                    "label": tooltiplabel,
+                    "data": values,
+                    "fill": false,
+                    "borderColor": "#1997c6",
+                    "lineTension": 0.1
+                }
+            ];
+
+            chart.update()
+        }
+
+        // set the chart display mode to price initially
+        changeChartData('price');
+
+    </script>
+
+{% endblock %}

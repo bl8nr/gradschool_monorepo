@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <!-- simple centered form to allow for login for the app -->
+    <!-- built using design ideas from a few tutorials available in the README.md -->
+    <div class="row mb-2">
+        <div class="col-md-6 ml-auto mr-auto pt-5">
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
+                <div class="col p-4 d-flex flex-column position-static text-center">
+                    <h3 class="mb-0">Sign In</h3>
+                    <form method="post" action="{% url 'login' %}" class="pt-4">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="form-group">
+                                <input
+                                        {% if field.html_name == 'password' %}
+                                            type="password"
+                                        {% else %}
+                                            type="text"
+                                        {% endif %}
+                                            class="form-control"
+                                            id="{{ field.id_for_label }}"
+                                            placeholder="{{ field.label }}"
+                                            name="{{ field.html_name }}">
+                                {% if field.errors %}
+                                    {% for error in field.errors %}
+                                        <span class="f-10 text-left text-danger">
+                                            {{ error }}
+                                        </span>
+                                    {% endfor %}
+                                {% else %}
+                                    <span class="f-10 text-left text-muted">
+                                        {{ field.help_text }}
+                                    </span>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                        {% if form.errors %}
+                            <p class="f-10 text-left text-danger">Your username and password didn't match. Please try
+                                again.</p>
+                        {% endif %}
+                        <button type="submit" class="btn btn-outline-dark" value="login">Sign In</button>
+                        <input type="hidden" name="next" value="{{ next }}"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

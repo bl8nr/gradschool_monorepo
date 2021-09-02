@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div id="menu" xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:spring="http://www.springframework.org/tags"
+     version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8" />
+    <jsp:output omit-xml-declaration="yes" />
+
+    <!-- add spring messaging for i18n -->
+    <spring:message code="menu_title" var="menuTitle"/>
+    <spring:message code="menu_all_books" var="menuAllBooks" />
+    <spring:message code="menu_add_book" var="menuAddBook"/>
+
+    <!-- add spring urls for listing and adding books -->
+    <spring:url value="/books" var="listBooksUrl"/>
+    <spring:url value="/books?form" var="addBookUrl"/>
+
+    <!-- create sidebar menu that links to all books and create a new book -->
+    <div class="card">
+        <div class="card-header">
+            ${menuTitle}
+        </div>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="${listBooksUrl}">${menuAllBooks}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="${addBookUrl}">${menuAddBook}</a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+Truth Table Solutions for Problem Set 1
+Brett Bloethner | CSCI E-93
+
+1.17
+  This is the truth table for question 1.17 where A and B represent the first
+  2-bit number, C and D represent the second 2-bit while o0, o1 and o2
+  represent the 3-bit sum of AB and CD.
+
+  A  |  B  |  C  |  D  ||    o0     |    o1     |    o2     |
+=====|=====|=====|=====||===========|===========|===========|
+  0  |  0  |  0  |  0  ||     0     |     0     |     0     |
+  0  |  0  |  0  |  1  ||     0     |     0     |     1     |
+  0  |  0  |  1  |  0  ||     0     |     1     |     0     |
+  0  |  0  |  1  |  1  ||     0     |     1     |     1     |
+  0  |  1  |  0  |  0  ||     0     |     0     |     1     |
+  0  |  1  |  0  |  1  ||     0     |     1     |     0     |
+  0  |  1  |  1  |  0  ||     0     |     1     |     1     |
+  0  |  1  |  1  |  1  ||     1     |     0     |     0     |
+  1  |  0  |  0  |  0  ||     0     |     1     |     0     |
+  1  |  0  |  0  |  1  ||     0     |     1     |     1     |
+  1  |  0  |  1  |  0  ||     1     |     0     |     0     |
+  1  |  0  |  1  |  1  ||     1     |     0     |     1     |
+  1  |  1  |  0  |  0  ||     0     |     1     |     1     |
+  1  |  1  |  0  |  1  ||     1     |     0     |     0     |
+  1  |  1  |  1  |  0  ||     1     |     0     |     1     |
+  1  |  1  |  1  |  1  ||     1     |     1     |     0     |
+
+2.40 Part A - 2-bit Wide Shifter Truth Table
+
+ SHIFT |  i0   |  i1   ||  o0   |  o1   |
+=======|=======|=======||=======|=======|
+   0   |   0   |   0   ||   0   |   0   |
+   0   |   0   |   1   ||   0   |   1   |
+   0   |   1   |   0   ||   1   |   0   |
+   0   |   1   |   1   ||   1   |   1   |
+   1   |   0   |   X   ||   0   |   0   |
+   1   |   0   |   X   ||   0   |   0   |
+   1   |   1   |   X   ||   0   |   1   |
+   1   |   1   |   X   ||   0   |   1   |
+
+   Input i1 is not routed anywhere when SHIFT is true. So we don't care about
+   its values.
+
+2.40 Part B - 1-bit Demultiplexer Truth Table
+
+ SELECT | IN  ||  o0   |  o1   |
+========|=====||=======|=======|
+   0    |  0  ||   0   |   0   |
+   0    |  1  ||   1   |   0   |
+   1    |  0  ||   0   |   0   |
+   1    |  1  ||   0   |   1   |
+
+2.40 Part C - 2-bit Multiplexer Truth Table
+
+ SELECT |  i0   |  i1   ||  OUT   |
+========|=======|=======||========|
+   0    |   0   |   X   ||   0    |
+   0    |   0   |   X   ||   0    |
+   0    |   1   |   X   ||   1    |
+   0    |   1   |   X   ||   1    |
+   1    |   X   |   0   ||   0    |
+   1    |   X   |   1   ||   1    |
+   1    |   X   |   0   ||   0    |
+   1    |   X   |   1   ||   1    |
+
+   Input i1 is not routed anywhere when SELECT is false, so we don't care about
+   i1's value. Input i0 is not routed anywhere when SELECT is true, so we don't
+   care about it's value.
+
+2.46 Part A - 2-bit Binary Subtractor Truth Table
+
+    N1     |     N2    ||
+  A     B  |  C     D  ||  F  |  G  |
+=====|=====|=====|=====||=====|=====|
+  0  |  0  |  0  |  0  ||  0  |  0  |
+  0  |  0  |  0  |  1  ||  X  |  X  |
+  0  |  0  |  1  |  0  ||  X  |  X  |
+  0  |  0  |  1  |  1  ||  X  |  X  |
+  0  |  1  |  0  |  0  ||  0  |  1  |
+  0  |  1  |  0  |  1  ||  0  |  0  |
+  0  |  1  |  1  |  0  ||  X  |  X  |
+  0  |  1  |  1  |  1  ||  X  |  X  |
+  1  |  0  |  0  |  0  ||  1  |  0  |
+  1  |  0  |  0  |  1  ||  0  |  1  |
+  1  |  0  |  1  |  0  ||  0  |  0  |
+  1  |  0  |  1  |  1  ||  X  |  X  |
+  1  |  1  |  0  |  0  ||  1  |  1  |
+  1  |  1  |  0  |  1  ||  1  |  0  |
+  1  |  1  |  1  |  0  ||  0  |  1  |
+  1  |  1  |  1  |  1  ||  0  |  0  |

@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    {# search bar #}
+    <div class="row mb-5">
+        <div class="col-sm-12 mx-auto text-center">
+            <div class="row">
+                <div class="col-sm-12 mt-5 mb-3 pt-3">
+                    <h1 class="font-weight-bold">Search for Books</h1>
+                </div>
+            </div>
+
+            {# form makes request to GET books route with a query parameter #}
+            <form action="{{ url_for('books.books') }}" method="GET">
+                <div class="row">
+                    <div class="col-sm-6 mx-auto">
+                        <div class="input-group mb-3">
+                            <input class="form-control" type="text" name="searchQuery"
+                                   placeholder="Search by Title, Author or ISBN" required/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 text-center mx-auto">
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    {# end search bar #}
+
+    {# search results (only shown if searchQuery param exists ie, search was made) #}
+    {% if searchQuery %}
+        <hr/>
+        <div class="row">
+
+            <div class="col-sm-9 mx-auto">
+                <h3 class="font-weight-bold mb-3 pt-3">Showing {{ bookResults|length }} of {{ bookResults|length }} Results <span
+                        class="font-weight-light">for "{{ searchQuery }}"</span></h3>
+                <div class="list-group">
+                    {% for result in bookResults %}
+                        <a href="{{ url_for('books.bookByIsbn', book_isbn=result.isbn) }}"
+                           class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{ result.title }}</h5>
+                                <small>{{ result.year }}</small>
+                            </div>
+                            <p class="mb-1">by {{ result.author }}</p>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    {# end search results #}
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <!-- BEING page header -->
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Orders History</h1>
+        <p class="lead">Click on an order to view its details</p>
+    </div>
+    <!-- END page header -->
+
+    <!-- BEING Tickets table -->
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Order Date</th>
+                <th scope="col">Order Username</th>
+                <th scope="col">Item Count</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col">Status</th>
+                <th scope="col">Details</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <!-- for each submitted Ticket (ie not a shopping cart), render a row in the table -->
+            {% for ticket in tickets %}
+                {% if ticket.isSubmitted == True %}
+                    <tr>
+                        <td>{{ ticket.submittedOn }}</td>
+                        <td>{{ ticket.customerId.username }}</td>
+                        <td>{{ ticket.orderItems.all|length }}</td>
+                        <td>{{ ticket.subTotal }}</td>
+                        <td>
+                            {% if ticket.isCompleted %}
+                                COMPLETED
+                            {% else %}
+                                IN PROGRESS
+                            {% endif %}
+                        </td>
+                        <td>
+                            <!-- add a link allowing the user to view that Tickets details -->
+                            <a href="{% url 'ticket' ticket_id=ticket.id %}">Details</a>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <!-- END Tickets table -->
+
+{% endblock %}

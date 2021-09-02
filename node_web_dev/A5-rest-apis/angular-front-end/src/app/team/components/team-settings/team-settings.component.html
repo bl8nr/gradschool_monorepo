@@ -1,0 +1,162 @@
+<div class="container">
+
+  <!-- ********* -->
+  <!-- team logo -->
+  <!-- ********* -->
+  <div class="row">
+    <div class="col-12">
+      <div class="media flex-wrap mb-0 align-items-center">
+        <img alt="Image" src="assets/images/placeholder.svg" class="avatar avatar-lg mb-3 mb-md-0">
+        <div class="media-body">
+          <form>
+            <label class="custom-file mb-2" for="file2">
+              <input type="file" id="file2" class="custom-file-input height-0">
+              <span class="btn btn-primary disabled">
+                <i class="icon-upload-to-cloud">&nbsp;</i>Upload (Not implement)</span>
+            </label>
+            <div>
+              <small>For best results, use an image at least 256px by 256px in either .jpg or .png format</small>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ************* -->
+  <!-- END team logo -->
+  <!-- ************* -->
+
+  <hr>
+
+  <!-- ***************** -->
+  <!-- team details form -->
+  <!-- ***************** -->
+  <div class="row mb-4">
+    <div class="col">
+      <h5>Team Details</h5>
+    </div>
+  </div>
+  <div class="row">
+    <!-- <div class="col-12 col-md-4 order-md-2">
+      <div class="alert alert-info text-small" role="alert">
+        <i class="icon-shield"></i>
+        <span>
+          Your information is always kept encrypted and can never be accessed by third parties.
+        </span>
+        <a href="#">See our privacy policy</a>
+      </div>
+    </div> -->
+    <div class="col-12 col-md-8 order-md-1">
+      <form class="row" [formGroup]="teamSettingsForm">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="team-name">Team Name:
+              <span class="text-red">*</span>
+            </label>
+            <input class="form-control form-control-lg" type="text" id="team-name" formControlName="teamName">
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="admin-email">Administrative Email:</label>
+              <span class="text-red">*</span>
+            <input class="form-control form-control-lg" type="text" id="admin-email" formControlName="adminEmail">
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label for="team-description">Team Description:
+              <span class="text-red">*</span>
+            </label>
+            <input class="form-control form-control-lg" type="text" id="team-description" formControlName="teamDescription">
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label for="emailaddress">Team ID:
+            </label>
+            <input class="form-control form-control-lg" type="email" id="team-id" formControlName="teamId">
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <button class="btn btn-primary" type="button" (click)="onSaveChangesClicked(teamSettingsForm.value)" [disabled]="teamSettingsForm.invalid || isTeamDetailsBeingSaved">
+              <span *ngIf="!isTeamDetailsBeingSaved">Save changes</span>
+              <span *ngIf="isTeamDetailsBeingSaved">
+                <div class="loader">
+                  Saving changes
+                  <span class="loader__dot">.</span>
+                  <span class="loader__dot">.</span>
+                  <span class="loader__dot">.</span>
+                </div>
+              </span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- ********************* -->
+  <!-- END team details form -->
+  <!-- ********************* -->
+
+  <hr>
+
+  <!-- *********** -->
+  <!-- delete team -->
+  <!-- *********** -->
+  <div class="row">
+    <div class="col-12 col-md-8 order-md-1">
+      <form class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#deleteTeamModal">Delete this team</button>
+          </div>
+          <small>Once you delete a team, there is no going back. Please be certain.</small>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- *************** -->
+  <!-- END delete team -->
+  <!-- *************** -->
+
+  <!-- ***************** -->
+  <!-- delete team modal -->
+  <!-- ***************** -->
+  <div class="modal fade" id="deleteTeamModal" tabindex="-1" role="dialog" aria-labelledby="deleteTeamModalLabel" aria-hidden="true" data-backdrop="static"
+  data-keyboard="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Are you absolutely sure?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" *ngIf="!teamHasBeenDeleted && !teamIsBeingDeleted">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          This action cannot be undone. This will permanently delete the
+          <strong>{{ team.teamName }}</strong> team and remove all member associations.
+          <br/>
+          <br/> Please type in the name of the team to confirm.
+          <div class="form-group mb-0 mt-1">
+            <input class="form-control form-control-md" type="text" name="lastName" [(ngModel)]="deleteConfirm">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger w-100" (click)="handleDeleteTeam()" [disabled]="team.teamName !== deleteConfirm"
+            *ngIf="!teamHasBeenDeleted">
+            I understand the consequences, delete this team
+          </button>
+          <button type="button" class="btn btn-success w-100" [routerLink]="['/home']" *ngIf="teamHasBeenDeleted" data-dismiss="modal">
+            Team successfully deleted. Click here to return home.
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ********************* -->
+  <!-- END delete team modal -->
+  <!-- ********************* -->
+
+</div>

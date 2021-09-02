@@ -1,0 +1,342 @@
+Last login: Mon Nov 16 21:50:13 on ttys001
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+Bretts-MacBook-Pro:submisson 2 brett$ javac com/cscie97/smartcity/controller/*.java com/cscie97/smartcity/model/*.java com/cscie97/smartcity/authentication/*.java com/cscie97/smartcity/ledger/*.java com/cscie97/smartcity/test/*.java
+Bretts-MacBook-Pro:submisson 2 brett$ java -cp . com.cscie97.smartcity.test.TestDriver Assignment_4_custom_script.script
+Creating administrative user "root_user"
+SmartCityModelService Initialized
+SmartCityLedgerService Initialized
+SmartCityControllerService Initialized
+
+LOGGED IN USER { userId: smcs }
+AUTH TOKEN CREATED { userId: smcs, token: 54f621c2-5062-46bc-9da6-eb846b96c169 }
+com.cscie97.smartcity.controller.SmartCityControllerService@65b3120a has been registered as an Observer of the SmartCityModelService
+ERROR (5): LOGIN ROOT_USER FAILED, INCORRECT CREDENTIALS
+ERROR (9): LOGIN ROOT_USE FAILED, FAILED TO FIND USER
+
+LOGGED IN USER { userId: root_user }
+AUTH TOKEN CREATED { userId: root_user, token: 88778a65-e635-4df0-8ad4-ef6f8b466c50 }
+
+NEW PERMISSION CREATED { Name: User Administrator, ID: auth_user_admin, Description: Create, Update, Delete Users }
+USER CREDENTIAL UPDATED { userID: root_user, credentialType: PASSWORD, credential: new_password }
+
+LOGGED OUT USER { userId: root_user }
+
+LOGGED IN USER { userId: root_user }
+AUTH TOKEN CREATED { userId: root_user, token: 53c8ab34-b85b-4dd9-828c-75dee42ac805 }
+
+LOGGED OUT USER { userId: root_user }
+ERROR (32): DEFINE_PERMISSION AUTH_ROLE_ENTITLEMENT_ADMIN FAILED, INVALID AUTH SERVICE ADMIN TOKEN
+
+LOGGED IN USER { userId: root_user }
+AUTH TOKEN CREATED { userId: root_user, token: a40746e5-a5cf-4712-9092-c67969be3c33 }
+
+NEW PERMISSION CREATED { Name: User Administrator, ID: auth_resource_admin, Description: Create, Update, Delete Resources }
+
+NEW PERMISSION CREATED { Name: Control Robot, ID: scms_control_robot, Description: Full Control of Robots }
+
+NEW PERMISSION CREATED { Name: Drive Car, ID: scms_drive_car, Description: Drive a car }
+
+NEW PERMISSION CREATED { Name: Ride Bus, ID: scms_ride_bus, Description: Ride a bus }
+
+NEW PERMISSION CREATED { Name: Define City, ID: scms_define_city, Description: Define a City }
+
+NEW PERMISSION CREATED { Name: Create, Update City, ID: scms_manage_city, Description: Create or update a City }
+
+NEW PERMISSION CREATED { Name: Define Device, ID: scms_define_device, Description: Define a Device }
+
+NEW PERMISSION CREATED { Name: Create, Update Device, ID: scms_manage_device, Description: Define a new City }
+
+NEW PERMISSION CREATED { Name: Define Person, ID: scms_define_person, Description: Define a Person }
+
+NEW PERMISSION CREATED { Name: Create, Update Person, ID: scms_manage_person, Description: Define a new Person }
+
+NEW PERMISSION CREATED { Name: Create, ID: scms_create_sensor_event, Description: Define a new Sensor Event }
+
+NEW PERMISSION CREATED { Name: Create, ID: scms_create_sensor_output, Description: Define a new Sensor Output }
+
+NEW PERMISSION CREATED { Name: Read, ID: scms_read_city, Description: Read a city }
+
+NEW PERMISSION CREATED { Name: Read, ID: scms_read_person, Description: Read a person }
+NEW ROLE CREATED { ID: adult_role, Name: Adult Role, Description: Has all permissions of an adult }
+NEW ROLE CREATED { ID: child, Name: Child Role, Description: Has all permissions of a child }
+NEW ROLE CREATED { ID: public_administrator, Name: Public Administrator Role, Description: Has all permissions of a public administrator }
+PERMISSION ADDED TO ROLE { permissionId: auth_role_entitlement_admin, roleId: public_administrator }
+PERMISSION ADDED TO ROLE { permissionId: auth_user_admin, roleId: public_administrator }
+PERMISSION ADDED TO ROLE { permissionId: auth_resource_admin, roleId: public_administrator }
+PERMISSION ADDED TO ROLE { permissionId: auth_user_admin, roleId: public_administrator }
+PERMISSION ADDED TO ROLE { permissionId: scms_control_robot, roleId: public_administrator }
+PERMISSION ADDED TO ROLE { permissionId: scms_drive_car, roleId: public_administrator }
+PERMISSION ADDED TO ROLE { permissionId: scms_define_city, roleId: public_administrator }
+PERMISSION ADDED TO ROLE { permissionId: scms_manage_city, roleId: public_administrator }
+PERMISSION ADDED TO ROLE { permissionId: scms_define_device, roleId: public_administrator }
+PERMISSION ADDED TO ROLE { permissionId: scms_manage_device, roleId: public_administrator }
+PERMISSION ADDED TO ROLE { permissionId: scms_manage_person, roleId: public_administrator }
+PERMISSION ADDED TO ROLE { permissionId: scms_create_sensor_event, roleId: public_administrator }
+PERMISSION ADDED TO ROLE { permissionId: scms_create_sensor_output, roleId: public_administrator }
+PERMISSION ADDED TO ROLE { permissionId: scms_read_city, roleId: public_administrator }
+PERMISSION ADDED TO ROLE { permissionId: scms_read_person, roleId: public_administrator }
+PERMISSION ADDED TO ROLE { permissionId: scms_create_sensor_event, roleId: child }
+PERMISSION ADDED TO ROLE { permissionId: scms_create_sensor_output, roleId: child }
+PERMISSION ADDED TO ROLE { permissionId: scms_read_city, roleId: child }
+PERMISSION ADDED TO ROLE { permissionId: scms_read_person, roleId: child }
+PERMISSION ADDED TO ROLE { permissionId: scms_manage_device, roleId: child }
+
+City Cambridge-MA created. ID: city_1
+NEW RESOURCE CREATED { id: city_1, description: CAMBRIDGE-MA_CITY_1 }
+NEW RESOURCE ROLE CREATED { id: city_1_public_administrator, roleId: public_administrator, resourceId: city_1
+
+NEW PERSON CREATED
+Resident{name='jane', phoneNumber='781-222-3344', blockchainAddress='janes_account', role=PUBLIC_ADMINISTRATOR}
+Person{personId='resident_1', biometricId='voice-print='voiceprint-jane''}
+USER CREDENTIAL UPDATED { userID: resident_1, credentialType: PASSWORD, credential: password }
+NEW USER CREATED { ID: resident_1, Name: jane }
+USER CREDENTIAL UPDATED { userID: resident_1, credentialType: BIOMETRIC, credential: voice-print='voiceprint-jane' }
+ROLE ADDED TO USER { userId: resident_1, roleID: public_administrator }
+ERROR (90): DEFINE RESIDENT FAILED, FILED TO CREATE USER OR ASSOCIATE ROLE IN AUTH SERVICE
+
+LOGGED OUT USER { userId: root_user }
+
+LOGGED IN USER { userId: resident_1 }
+AUTH TOKEN CREATED { userId: resident_1, token: 3db8a609-37e4-40c4-8c10-7dace5dfd205 }
+ERROR (100): DEFINE_PERMISSION SCMS_DEFINE_DEVICE FAILED, AN ENTITLEMENT WITH THIS ID ALREADY EXISTS
+ERROR (104): DEFINE RESIDENT FAILED, INVALID OR MISSING AUTH TOKEN
+
+LOGGED OUT USER { userId: resident_1 }
+
+LOGGED IN USER { userId: root_user }
+AUTH TOKEN CREATED { userId: root_user, token: c9fc6866-b11a-459b-aaa0-d8943aebfa51 }
+
+NEW PERSON CREATED
+Resident{name='joe', phoneNumber='781-222-3345', blockchainAddress='joes_account', role=CHILD}
+Person{personId='resident_2', biometricId='voice-print='voiceprint-joe''}
+USER CREDENTIAL UPDATED { userID: resident_2, credentialType: PASSWORD, credential: password }
+NEW USER CREATED { ID: resident_2, Name: joe }
+USER CREDENTIAL UPDATED { userID: resident_2, credentialType: BIOMETRIC, credential: voice-print='voiceprint-joe' }
+ROLE ADDED TO USER { userId: resident_2, roleID: child }
+
+LOGGED OUT USER { userId: root_user }
+
+LOGGED IN USER { userId: resident_2 }
+AUTH TOKEN CREATED { userId: resident_2, token: 768dd3b3-dfda-47f1-ac9d-6ff773f81529 }
+ERROR (128): DEFINE STREET-SIGN FAILED, INVALID OR MISSING AUTH TOKEN
+
+LOGGED OUT USER { userId: resident_2 }
+
+LOGGED IN USER { userId: root_user }
+AUTH TOKEN CREATED { userId: root_user, token: 7414af06-4758-4422-8e83-61e6ba355c1d }
+
+DEVICE CREATED IN CITY city_1,
+StreetSign{text='Brattle Theatre'}
+Device{deviceId='ss_2', blockchainAddress='city_1ss_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+NEW RESOURCE CREATED { id: ss_2, description: SS_2_CITY_1 }
+NEW RESOURCE ROLE CREATED { id: ss_2_public_administrator, roleId: public_administrator, resourceId: ss_2
+
+DEVICE CREATED IN CITY city_1,
+StreetSign{text='Welcome to Harvard Square'}
+Device{deviceId='ss_1', blockchainAddress='city_1ss_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+NEW RESOURCE CREATED { id: ss_1, description: SS_1_CITY_1 }
+NEW RESOURCE ROLE CREATED { id: ss_1_public_administrator, roleId: public_administrator, resourceId: ss_1
+
+DEVICE CREATED IN CITY city_1,
+InformationKiosk{imageUri='https://media-cdn.tripadvisor.com/media/photo-s/05/94/cc/10/charles-hotel.jpg']
+Device{deviceId='kiosk_1', blockchainAddress='city_1ik_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+NEW RESOURCE CREATED { id: kiosk_1, description: KIOSK_1_CITY_1 }
+NEW RESOURCE ROLE CREATED { id: kiosk_1_public_administrator, roleId: public_administrator, resourceId: kiosk_1
+
+STREET SIGN UPDATED IN city_1
+StreetSign{text='The time is now 9:00 pm'}
+Device{deviceId='ss_1', blockchainAddress='city_1ss_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+USER CREDENTIAL UPDATED { userID: resident_1, credentialType: BIOMETRIC, credential: face-print='faceprint-jane' }
+
+LOGGED OUT USER { userId: root_user }
+
+LOGGED IN USER { userId: resident_1 }
+AUTH TOKEN CREATED { userId: resident_1, token: e2593530-3155-4bbc-a298-b81db0b4f1a1 }
+
+STREET SIGN UPDATED IN city_1
+StreetSign{text='Was playing, Casablanca'}
+Device{deviceId='ss_2', blockchainAddress='city_1ss_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+LOGGED OUT USER { userId: resident_1 }
+
+LOGGED IN USER { userId: resident_1 }
+AUTH TOKEN CREATED { userId: resident_1, token: 98afaf1a-4fb7-4e15-bd18-f36527d7451e }
+
+STREET SIGN UPDATED IN city_1
+StreetSign{text='Not playing, Casablanca'}
+Device{deviceId='ss_2', blockchainAddress='city_1ss_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+LOGGED OUT USER { userId: resident_1 }
+
+LOGGED IN USER { userId: root_user }
+AUTH TOKEN CREATED { userId: root_user, token: 58d7e7e8-3f0c-4f1a-ba13-5c0a63037dc0 }
+
+DEVICE CREATED IN CITY city_1,
+StreetLight{brightness=8}
+Device{deviceId='sl_1', blockchainAddress='city_1sl_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+NEW RESOURCE CREATED { id: sl_1, description: SL_1_CITY_1 }
+NEW RESOURCE ROLE CREATED { id: sl_1_public_administrator, roleId: public_administrator, resourceId: sl_1
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:sl_1, type, camera, value, fire]
+Controller Command created with Auth Token 54f621c2-5062-46bc-9da6-eb846b96c169
+Executing EmergencyOne command...
+SIMULATED SPEAKER OUTPUT FROM DEVICE kiosk_1: There is a FIRE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE ss_1: There is a FIRE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE ss_2: There is a FIRE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE sl_1: There is a FIRE emergency in Cambridge-MA, please find shelter immediately
+END SENSOR EVENT PROCESSING
+
+
+DEVICE CREATED IN CITY city_1,
+Vehicle{type=BUS, activity='on route', capacity=30, fee=1}
+Device{deviceId='bus_1', blockchainAddress='city_1bus_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+NEW RESOURCE CREATED { id: bus_1, description: BUS_1_CITY_1 }
+NEW RESOURCE ROLE CREATED { id: bus_1_public_administrator, roleId: public_administrator, resourceId: bus_1
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bus_1, type, microphone, value, does this bus go to Central Square?, subject, resident_1, credential, voice-print='voiceprint-jane']
+
+LOGGED IN USER VIA BIOMETRICS { userId: resident_1 }
+AUTH TOKEN CREATED { userId: resident_1, token: 999c1064-e9d9-4ea9-874f-058a8dadb5e0 }
+Controller Command created with Auth Token 999c1064-e9d9-4ea9-874f-058a8dadb5e0
+Executing BusRoute command...
+Executing speaker output from origin sensing device with dialog: Yes, this bus goes to Central Square
+SIMULATED SPEAKER OUTPUT FROM DEVICE bus_1: Yes, this bus goes to Central Square
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bus_1, type, microphone, value, does this bus go to Central Square?, subject, resident_1, credential, face-print='faceprint-jane']
+
+LOGGED IN USER VIA BIOMETRICS { userId: resident_1 }
+AUTH TOKEN CREATED { userId: resident_1, token: 04c6f1a9-1080-4a04-a65e-b166c3349ae5 }
+Controller Command created with Auth Token 04c6f1a9-1080-4a04-a65e-b166c3349ae5
+Executing BusRoute command...
+Executing speaker output from origin sensing device with dialog: Yes, this bus goes to Central Square
+SIMULATED SPEAKER OUTPUT FROM DEVICE bus_1: Yes, this bus goes to Central Square
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bus_1, type, microphone, value, does this bus go to Central Square?, subject, resident_2, credential, voice-print='voiceprint-joe']
+
+LOGGED IN USER VIA BIOMETRICS { userId: resident_2 }
+AUTH TOKEN CREATED { userId: resident_2, token: 6a80bbd7-8ed9-45c2-aaf1-49d10a6ae1a8 }
+Controller Command created with Auth Token 6a80bbd7-8ed9-45c2-aaf1-49d10a6ae1a8
+Executing BusRoute command...
+Executing speaker output from origin sensing device with dialog: Yes, this bus goes to Central Square
+SIMULATED SPEAKER OUTPUT FROM DEVICE bus_1: Yes, this bus goes to Central Square
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:kiosk_1, type, microphone, value, what movies are showing tonight?, subject, resident_2, credential, voice-print='voiceprint-joe']
+
+LOGGED IN USER VIA BIOMETRICS { userId: resident_2 }
+AUTH TOKEN CREATED { userId: resident_2, token: b434ec7d-40fd-43bb-a71f-fb0e1f17b277 }
+Controller Command created with Auth Token b434ec7d-40fd-43bb-a71f-fb0e1f17b277
+Executing MovieInfo command...
+Executing speaker output from origin sensing device with dialog: Casablanca is showing at 9 pm
+SIMULATED SPEAKER OUTPUT FROM DEVICE kiosk_1: Casablanca is showing at 9 pm
+END SENSOR EVENT PROCESSING
+
+
+LOGGED OUT USER { userId: resident_2 }
+
+LOGGED IN USER { userId: root_user }
+AUTH TOKEN CREATED { userId: root_user, token: f80d9ea9-318c-4fdc-b3fb-c2bd03a12e84 }
+********** BEGIN INVENTORY **********
+
+********** PRINTING ENTITLEMENTS **********
+Role {id=rootRole, name=rootRole, description=root role}
+PERMISSION OF rootRole: Permission {id=scms_define_device, name=Define Device, description=Define a Device}
+PERMISSION OF rootRole: Permission {id=rootPermission, name=rootPermission, description=root permission}
+PERMISSION OF rootRole: Permission {id=scms_drive_car, name=Drive Car, description=Drive a car}
+PERMISSION OF rootRole: Permission {id=scms_read_city, name=Read, description=Read a city}
+PERMISSION OF rootRole: Permission {id=auth_user_admin, name=User Administrator, description=Create, Update, Delete Users}
+PERMISSION OF rootRole: Permission {id=scms_ride_bus, name=Ride Bus, description=Ride a bus}
+PERMISSION OF rootRole: Permission {id=scms_manage_device, name=Create, Update Device, description=Define a new City}
+ROLE OF rootRole: Role {id=adult_role, name=Adult Role, description=Has all permissions of an adult}
+PERMISSION OF rootRole: Permission {id=scms_create_sensor_event, name=Create, description=Define a new Sensor Event}
+PERMISSION OF rootRole: Permission {id=scms_create_sensor_output, name=Create, description=Define a new Sensor Output}
+PERMISSION OF rootRole: Permission {id=auth_resource_admin, name=User Administrator, description=Create, Update, Delete Resources}
+PERMISSION OF rootRole: Permission {id=scms_define_city, name=Define City, description=Define a City}
+PERMISSION OF rootRole: Permission {id=scms_read_person, name=Read, description=Read a person}
+PERMISSION OF rootRole: Permission {id=scms_manage_city, name=Create, Update City, description=Create or update a City}
+PERMISSION OF rootRole: Permission {id=scms_define_person, name=Define Person, description=Define a Person}
+PERMISSION OF rootRole: Permission {id=scms_control_robot, name=Control Robot, description=Full Control of Robots}
+ROLE OF rootRole: Role {id=public_administrator, name=Public Administrator Role, description=Has all permissions of a public administrator}
+PERMISSION OF public_administrator: Permission {id=scms_define_device, name=Define Device, description=Define a Device}
+RESOURCEROLE OF public_administrator: ResourceRole {id=bus_1_public_administrator, name=bus_1_public_administrator, description=bus_1_public_administrator}
+RESOURCE OF bus_1_public_administrator: Resource {id='bus_1, description='BUS_1_CITY_1}
+PERMISSION OF public_administrator: Permission {id=scms_drive_car, name=Drive Car, description=Drive a car}
+PERMISSION OF public_administrator: Permission {id=scms_read_city, name=Read, description=Read a city}
+RESOURCEROLE OF public_administrator: ResourceRole {id=sl_1_public_administrator, name=sl_1_public_administrator, description=sl_1_public_administrator}
+RESOURCE OF sl_1_public_administrator: Resource {id='sl_1, description='SL_1_CITY_1}
+PERMISSION OF public_administrator: Permission {id=auth_user_admin, name=User Administrator, description=Create, Update, Delete Users}
+PERMISSION OF public_administrator: Permission {id=scms_manage_device, name=Create, Update Device, description=Define a new City}
+PERMISSION OF public_administrator: Permission {id=scms_create_sensor_event, name=Create, description=Define a new Sensor Event}
+PERMISSION OF public_administrator: Permission {id=scms_create_sensor_output, name=Create, description=Define a new Sensor Output}
+PERMISSION OF public_administrator: Permission {id=auth_resource_admin, name=User Administrator, description=Create, Update, Delete Resources}
+PERMISSION OF public_administrator: Permission {id=scms_define_city, name=Define City, description=Define a City}
+RESOURCEROLE OF public_administrator: ResourceRole {id=city_1_public_administrator, name=city_1_public_administrator, description=city_1_public_administrator}
+RESOURCE OF city_1_public_administrator: Resource {id='city_1, description='CAMBRIDGE-MA_CITY_1}
+PERMISSION OF public_administrator: Permission {id=scms_read_person, name=Read, description=Read a person}
+PERMISSION OF public_administrator: Permission {id=scms_manage_city, name=Create, Update City, description=Create or update a City}
+RESOURCEROLE OF public_administrator: ResourceRole {id=ss_1_public_administrator, name=ss_1_public_administrator, description=ss_1_public_administrator}
+RESOURCE OF ss_1_public_administrator: Resource {id='ss_1, description='SS_1_CITY_1}
+PERMISSION OF public_administrator: Permission {id=scms_control_robot, name=Control Robot, description=Full Control of Robots}
+RESOURCEROLE OF public_administrator: ResourceRole {id=ss_2_public_administrator, name=ss_2_public_administrator, description=ss_2_public_administrator}
+RESOURCE OF ss_2_public_administrator: Resource {id='ss_2, description='SS_2_CITY_1}
+RESOURCEROLE OF public_administrator: ResourceRole {id=kiosk_1_public_administrator, name=kiosk_1_public_administrator, description=kiosk_1_public_administrator}
+RESOURCE OF kiosk_1_public_administrator: Resource {id='kiosk_1, description='KIOSK_1_CITY_1}
+PERMISSION OF public_administrator: Permission {id=auth_role_entitlement_admin, name=User Administrator, description=Create, Update, Delete Entitlements}
+PERMISSION OF public_administrator: Permission {id=scms_manage_person, name=Create, Update Person, description=Define a new Person}
+PERMISSION OF rootRole: Permission {id=auth_role_entitlement_admin, name=User Administrator, description=Create, Update, Delete Entitlements}
+PERMISSION OF rootRole: Permission {id=scms_manage_person, name=Create, Update Person, description=Define a new Person}
+ROLE OF rootRole: Role {id=child, name=Child Role, description=Has all permissions of a child}
+PERMISSION OF child: Permission {id=scms_read_city, name=Read, description=Read a city}
+PERMISSION OF child: Permission {id=scms_read_person, name=Read, description=Read a person}
+PERMISSION OF child: Permission {id=scms_manage_device, name=Create, Update Device, description=Define a new City}
+PERMISSION OF child: Permission {id=scms_create_sensor_event, name=Create, description=Define a new Sensor Event}
+PERMISSION OF child: Permission {id=scms_create_sensor_output, name=Create, description=Define a new Sensor Output}
+********** END PRINTING ENTITLEMENTS **********
+
+********** PRINTING USERS AND CREDENTIALS **********
+User {id='resident_2', name='joe', credentials=2, entitlements=1}
+CREDENTIAL of resident_2: Credential {id='d8d472a9-4bc6-4ca9-af2d-520a1c6f77c0', credential='d6c95b2dacd14e690e769cecb44b62f92673e019935069c071657b0c9f205b90', type=BIOMETRIC}
+CREDENTIAL of resident_2: Credential {id='84e704a7-8179-4fda-952d-d9cbc4d66c85', credential='5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', type=PASSWORD}
+User {id='resident_1', name='jane', credentials=3, entitlements=1}
+CREDENTIAL of resident_1: Credential {id='6037f019-dc70-4fe1-a704-6e1a0107d18b', credential='5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', type=PASSWORD}
+CREDENTIAL of resident_1: Credential {id='e5d42f65-37d7-4941-9138-85f8a4b1f6a9', credential='476278621664c811d2f02df0f4eda8e328b041b3108cb2c082a5311504b2cdb6', type=BIOMETRIC}
+CREDENTIAL of resident_1: Credential {id='5581c1fb-652f-4e91-9c76-5c28ffe96ff5', credential='0c4183787e5d3cbe0e687d3e62a2280ae61920314521eb1e9de33b7f122ad119', type=BIOMETRIC}
+User {id='root_user', name='root_user', credentials=2, entitlements=1}
+CREDENTIAL of root_user: Credential {id='544de382-60a7-400e-a801-39fa1b294618', credential='00b9e6622317a2fb628d5514b866d4e7c52b5b149027825645ae3fd72827e84e', type=PASSWORD}
+CREDENTIAL of root_user: Credential {id='29bcd50c-d87d-4961-a1e6-f400b06c75c9', credential='5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', type=PASSWORD}
+User {id='smcs', name='smcs', credentials=1, entitlements=1}
+CREDENTIAL of smcs: Credential {id='82cd427e-93d1-446c-8830-d145ed3d0c31', credential='576b8b33e6ac10a0dc336b5bba488c9c0505bcf37f05cfe44e1e44667aa0db9d', type=PASSWORD}
+
+********** PRINTING AUTH TOKENS **********
+AuthToken {id='f6381c97-12be-48d1-9d25-7e9edeae07bf', expirationTime=Mon Nov 16 23:51:53 MST 2020, state=INACTIVE, user=resident_2, token='768dd3b3-dfda-47f1-ac9d-6ff773f81529', entitlements=1}
+AuthToken {id='39d85ba7-e1ee-4809-a72a-d4cd2a1f0071', expirationTime=Mon Nov 16 23:51:53 MST 2020, state=INACTIVE, user=resident_2, token='b434ec7d-40fd-43bb-a71f-fb0e1f17b277', entitlements=1}
+AuthToken {id='6dd15e08-cc50-4ffe-aa13-a2d4c6c6c33b', expirationTime=Mon Nov 16 23:51:53 MST 2020, state=ACTIVE, user=root_user, token='58d7e7e8-3f0c-4f1a-ba13-5c0a63037dc0', entitlements=1}
+AuthToken {id='a523e027-d647-4b24-9a30-46a632df6022', expirationTime=Mon Nov 16 23:51:53 MST 2020, state=INACTIVE, user=root_user, token='88778a65-e635-4df0-8ad4-ef6f8b466c50', entitlements=1}
+AuthToken {id='3f05cfe7-626b-416f-9e89-dcd14dffedc5', expirationTime=Mon Nov 16 23:51:53 MST 2020, state=INACTIVE, user=root_user, token='7414af06-4758-4422-8e83-61e6ba355c1d', entitlements=1}
+AuthToken {id='0d5a8ea1-6671-4363-af6b-0f479ac1a94e', expirationTime=Mon Nov 16 23:51:53 MST 2020, state=INACTIVE, user=root_user, token='c9fc6866-b11a-459b-aaa0-d8943aebfa51', entitlements=1}
+AuthToken {id='24becdb6-42d3-490b-80ee-bc33c807b3dd', expirationTime=Mon Nov 16 23:51:53 MST 2020, state=ACTIVE, user=resident_1, token='999c1064-e9d9-4ea9-874f-058a8dadb5e0', entitlements=1}
+AuthToken {id='8c28ccfc-b9bd-474a-8812-555f2f54e8ca', expirationTime=Mon Nov 16 23:51:53 MST 2020, state=INACTIVE, user=resident_2, token='6a80bbd7-8ed9-45c2-aaf1-49d10a6ae1a8', entitlements=1}
+AuthToken {id='c3c7989a-3aaf-4699-a970-329defa17271', expirationTime=Mon Nov 16 23:51:53 MST 2020, state=ACTIVE, user=smcs, token='54f621c2-5062-46bc-9da6-eb846b96c169', entitlements=1}
+AuthToken {id='c3ac8c94-0f8c-4d45-90a5-95b7dd0c4f23', expirationTime=Mon Nov 16 23:51:53 MST 2020, state=INACTIVE, user=root_user, token='a40746e5-a5cf-4712-9092-c67969be3c33', entitlements=1}
+AuthToken {id='a064b0f1-8703-46d6-aded-f25477334022', expirationTime=Mon Nov 16 23:51:53 MST 2020, state=INACTIVE, user=resident_1, token='98afaf1a-4fb7-4e15-bd18-f36527d7451e', entitlements=1}
+AuthToken {id='793792b9-ab98-41d7-8a9c-ee53a6f968be', expirationTime=Mon Nov 16 23:51:53 MST 2020, state=INACTIVE, user=resident_1, token='e2593530-3155-4bbc-a298-b81db0b4f1a1', entitlements=1}
+AuthToken {id='13be6212-1716-4032-af3a-f4f271dbee99', expirationTime=Mon Nov 16 23:51:53 MST 2020, state=ACTIVE, user=resident_1, token='04c6f1a9-1080-4a04-a65e-b166c3349ae5', entitlements=1}
+AuthToken {id='3863a3ab-0495-47e1-8556-394a9f23d22e', expirationTime=Mon Nov 16 23:51:53 MST 2020, state=ACTIVE, user=root_user, token='f80d9ea9-318c-4fdc-b3fb-c2bd03a12e84', entitlements=1}
+AuthToken {id='3ab5a2c3-6a61-447a-9d19-1a0549aa2b46', expirationTime=Mon Nov 16 23:51:53 MST 2020, state=INACTIVE, user=resident_1, token='3db8a609-37e4-40c4-8c10-7dace5dfd205', entitlements=1}
+AuthToken {id='b107f910-6b14-4ab5-b693-a1546e7a9def', expirationTime=Mon Nov 16 23:51:53 MST 2020, state=INACTIVE, user=root_user, token='53c8ab34-b85b-4dd9-828c-75dee42ac805', entitlements=1}
+
+********** END INVENTORY **********
+Bretts-MacBook-Pro:submisson 2 brett$

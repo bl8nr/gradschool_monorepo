@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="dashhead">
+        <div class="dashhead-titles">
+            <h6 class="dashhead-subtitle">Crypto Tracker</h6>
+            <h2 class="dashhead-title">Login</h2>
+        </div>
+    </div>
+    <hr class="mt-3">
+    <div class="row">
+        <div class="offset-3 col-md-6 mb-5">
+            <div class="list-group mb-3 standard-container-border">
+                <form method="post" action="{% url 'login' %}" class="pt-4">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-group">
+                            <input
+                                    {% if field.html_name == 'password' %}
+                                        type="password"
+                                    {% else %}
+                                        type="text"
+                                    {% endif %}
+                                        class="form-control"
+                                        id="{{ field.id_for_label }}"
+                                        placeholder="{{ field.label }}"
+                                        name="{{ field.html_name }}">
+                            {% if field.errors %}
+                                {% for error in field.errors %}
+                                    <span class="f-10 text-left text-danger">
+                                            {{ error }}
+                                        </span>
+                                {% endfor %}
+                            {% else %}
+                                <span class="f-10 text-left text-muted">
+                                        {{ field.help_text }}
+                                    </span>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    {% if form.errors %}
+                        <p class="f-10 text-left text-danger">Your username and password didn't match. Please try
+                            again.</p>
+                    {% endif %}
+                    <button type="submit" class="btn btn-outline-primary px-3" value="login">Sign In</button>
+                    <a class="m-2" href="{% url 'signup' %}">or Signup</a>
+                    <input type="hidden" name="next" value="{{ next }}"/>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

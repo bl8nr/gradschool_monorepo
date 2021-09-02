@@ -1,0 +1,37 @@
+<span class="performance-header">Subreddit Performance</span>
+
+<div *ngIf="!isLoading" class="row" style="min-height: 80px;">
+  <div class="col-md-12">
+    <table class="performance-table">
+      <tbody>
+        <tr>
+          <th scope="row">Title</th>
+          <td>{{ subreddit.data.title }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Ad Category</th>
+          <td>{{ subreddit.data.advertiser_category }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Subscribers</th>
+          <td>{{ subreddit.data.subscribers }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Subscribers Online</th>
+          <td>{{ subreddit.data.active_user_count }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- display spinner until the subreddit data has loaded -->
+<section *ngIf="isLoading" class="col-12 p-0" style="min-height: 80px;">
+  <div class="container">
+    <div class="row justify-content-center pt-1">
+      <div class="col-12 col-md-6 col-lg-5 text-center">
+        <i class="fas fa-spinner-third fa-spin fa-3x" style="color:#59626a;"></i>
+      </div>
+    </div>
+  </div>
+</section>

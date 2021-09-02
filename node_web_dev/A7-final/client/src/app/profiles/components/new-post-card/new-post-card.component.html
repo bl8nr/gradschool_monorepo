@@ -1,0 +1,166 @@
+<div class="row">
+  <div class="col-sm-12 mt-3">
+
+    <!-- new post type selection menu -->
+    <form [formGroup]="newPostForm" class="pb-2">
+      <div class="btn-group-sm btn-group-toggle" ngbRadioGroup name="radioBasic" formControlName="type">
+        <label ngbButtonLabel class="btn-outline-primary">
+          <input ngbButton type="radio" value="linkPost"> Link Post
+        </label>
+        <label ngbButtonLabel class="btn-outline-primary">
+          <input ngbButton type="radio" value="textPost"> Text Post
+        </label>
+        <label ngbButtonLabel class="btn-outline-primary">
+          <input ngbButton type="radio" value="linkPostWithComment"> Link Post with Comment
+        </label>
+      </div>
+    </form>
+    <!-- END new post type selection menu -->
+
+    <!-- new post card body -->
+    <div>
+      <div class="card">
+        <div class="card-header card-header-borderless d-flex justify-content-between">
+          <small class="text-muted">
+            <i class="icon-add-to-list mr-1"></i> Schedule a new
+            <span *ngIf="newPostForm.value.type === 'linkPost'">link post</span>
+            <span *ngIf="newPostForm.value.type === 'textPost'">text post</span>
+            <span *ngIf="newPostForm.value.type === 'linkPostWithComment'">link post with comment</span>
+          </small>
+          <small class="text-muted">
+            u/{{ selectedProfile.accountInfo.name }}
+          </small>
+        </div>
+
+        <!-- new post form -->
+        <div class="card-body">
+          <div class="media">
+            <div class="media-body">
+              <form [formGroup]="newPostForm">
+                <div class="row">
+                  <div class="col-8">
+                    <label class="form-label">Schedule a Post</label>
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-md" placeholder="Default Title" formControlName="title" [ngClass]="newPostForm.controls.title.invalid === true ? 'is-invalid' : 'is-valid'">
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <span *ngIf="searching === true">
+                              <i class="fas fa-spinner fa-pulse"></i>
+                            </span>
+                            <span *ngIf="searching === false">
+                              /r
+                            </span>
+                          </span>
+                        </div>
+                        <input id="typeahead-http" type="text" class="form-control" formControlName="subreddit" [ngbTypeahead]="search" placeholder="Subreddit search"
+                          [ngClass]="newPostForm.controls.subreddit.invalid === true ? 'is-invalid' : 'is-valid'" />
+                      </div>
+                    </div>
+                  </div>
+                  <section class="col-4 p-0">
+                    <div class="px-2 pt-2">
+                      <span class="performance-metrics-menu-header">Trending Subreddits</span>
+                      <div class="performance-menu pl-1">
+                        <div *ngFor="let subreddit of trendingSubreddits">
+                          <span class="performance-menu-item" (click)="handleSubredditClicked(subreddit)">r/{{ subreddit }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                  <div class="col-12">
+                    <div class="form-group" *ngIf="newPostForm.value.type !== 'textPost'">
+                      <input type="text" class="form-control form-control-md" placeholder="Link" formControlName="link" [ngClass]="newPostForm.controls.link.invalid === true ? 'is-invalid' : 'is-valid'">
+                    </div>
+                    <div class="form-group" *ngIf="newPostForm.value.type !== 'linkPost'">
+                      <textarea class="form-control form-control-md" placeholder="Text post body / Link comment body" rows="4" formControlName="body"
+                        [ngClass]="newPostForm.controls.body.invalid === true ? 'is-invalid' : 'is-valid'"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- END new post form -->
+
+        <!-- new post schedule section -->
+        <div class="collapse container" id="new-post-schedule">
+          <div class="row schedule">
+            <div class="col-6 pt-2 px-3">
+              <ul class="row feature-list feature-list-sm">
+                <div class="col-12 pb-2">
+                  <span class="schedule-header">Scheduling strategy</span>
+                </div>
+                <li class="col-12">
+                  <button (click)="schedulingStrategy = 'nextbest24h'" class="btn text-center py-0" disabled="true" [ngClass]="schedulingStrategy === 'nextbest24h' ? 'btn-primary' : 'btn-outline-primary'">
+                    <div class="card-body p-2">
+                      <i class="fas fa-lock mr-1" style="font-size:0.875rem;"></i>
+                      <span class="schedule-btn-label">Best time in next 24 hrs</span>
+                    </div>
+                  </button>
+                </li>
+                <li class="col-12">
+                  <button (click)="schedulingStrategy = 'nextbest7d'" class="btn text-center py-0" disabled="true" [ngClass]="schedulingStrategy === 'nextbest7d' ? 'btn-primary' : 'btn-outline-primary'">
+                    <div class="card-body p-2">
+                      <i class="fas fa-lock mr-1" style="font-size:0.875rem;"></i>
+                      <span class="schedule-btn-label">Best time in next 7 days</span>
+                    </div>
+                  </button>
+                </li>
+                <li class="col-12">
+                  <button (click)="schedulingStrategy = 'custom'" class="btn text-center py-0" [ngClass]="schedulingStrategy === 'custom' ? 'btn-primary' : 'btn-outline-primary'">
+                    <div class="card-body p-2">
+                      <span class="schedule-btn-label">Custom Time</span>
+                    </div>
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="col-6 datepicker text-center px-3 py-3 mb-0" [ngClass]="schedulingStrategy !== 'custom' ? 'schedule-not-custom' : 'schedule-custom'">
+              <div *ngIf="schedulingStrategy === 'nextbest24h'" class="pt-5">This post will go live at the best available time within 24 hours.</div>
+              <div *ngIf="schedulingStrategy === 'nextbest7d'" class="pt-5">This post will go live at the best available time within 7 days.</div>
+              <div *ngIf="schedulingStrategy === 'custom'">
+                <ngb-datepicker #dp [(ngModel)]="targetDate" (navigate)="date = $event.next" style="border:none;"></ngb-datepicker>
+                <div class="d-inline-block text-center pt-2">
+                  <ngb-timepicker [(ngModel)]="targetTime" [seconds]="false" [spinners]="false" [meridian]="true" [hourStep]="1" [minuteStep]="15"></ngb-timepicker>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END new post schedule section -->
+
+        <!-- new post card footer -->
+        <div class="card-footer d-flex justify-content-between">
+          <div>
+            <button class="btn btn-sm btn-outline-secondary" [disabled]="isSavingPost" data-target="#new-post-schedule" data-toggle="collapse"
+              aria-expanded="false">Scheduling Strategy</button>
+          </div>
+          <div>
+            <button class="btn btn-sm btn-outline-warning" disabled="true" *ngIf="newPostForm.invalid">
+              Please fill out all of the required fields
+            </button>
+            <button class="btn btn-sm btn-success" *ngIf="isSavingPost === false" [disabled]="newPostForm.invalid" (click)="handleAddToQueuePressed()"
+              aria-expanded="false">
+              Add to Queue
+            </button>
+            <button class="btn btn-sm btn-success" *ngIf="isSavingPost === true" aria-expanded="false" disabled="true">
+              Adding to Queue
+              <span class="loader__dot">.</span>
+              <span class="loader__dot">.</span>
+              <span class="loader__dot">.</span>
+            </button>
+
+          </div>
+        </div>
+        <!-- END new post card footer -->
+
+      </div>
+    </div>
+    <!-- END new post card body -->
+
+  </div>
+</div>

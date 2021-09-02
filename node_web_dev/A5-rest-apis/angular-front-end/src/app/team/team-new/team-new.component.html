@@ -1,0 +1,225 @@
+<section class="space-sm">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col text-center">
+        <a [routerLink]="['/home']">
+          <img alt="Image" src="assets/images/logo-black.svg" class="logo">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
+        <div class="card card-lg">
+          <div class="card-body">
+
+            <form class="wizard sw-main sw-theme-default" [formGroup]="newTeamForm">
+
+              <!-- ***************** -->
+              <!-- wizard step quide -->
+              <!-- ***************** -->
+              <ul class="nav nav-tabs text-center row justify-content-center step-anchor">
+                <li class="col-3 col-md-2" [ngClass]="currentStep >= 1 ? 'done' : ''">
+                  <a href="#first" class="step-circle step-circle-sm">1</a>
+                </li>
+                <li class="col-3 col-md-2" [ngClass]="currentStep >= 2 ? 'done' : ''">
+                  <a href="#second" class="step-circle step-circle-sm">2</a>
+                </li>
+                <li class="col-3 col-md-2" [ngClass]="currentStep >= 3 ? 'done' : ''">
+                  <a href="#third" class="step-circle step-circle-sm">3</a>
+                </li>
+                <li class="col-3 col-md-2" [ngClass]="currentStep >= 4 ? 'done' : ''">
+                  <a href="#fourth" class="step-circle step-circle-sm">4</a>
+                </li>
+              </ul>
+              <!-- ********************* -->
+              <!-- END wizard step guide -->
+              <!-- ********************* -->
+
+              <div class="tab-content sw-container" style="min-height: 318px;">
+
+                <!-- ********************** -->
+                <!-- step one card/template -->
+                <!-- ********************** -->
+                <div id="first" class="step-content" [ngClass]="currentStep === 1 ? 'display-step' : 'hide-step'">
+                  <div class="row justify-content-around align-items-center">
+                    <div class="col-8 col-md-6 col-lg-4 mb-4">
+                      <i class="fal fa-id-card fa-10x theme-blue w-100"></i>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-5 mb-4">
+                      <div>
+                        <h6 class="title-decorative mb-2">Create a New Team</h6>
+                        <h4 class="mb-2">First think of a good name</h4>
+                        <p>Great team names are short and memorable. Your company name is a good place to start.</p>
+                        <div class="form-group">
+                          <input type="text" placeholder="Eg: 'Pumpernickel'" name="name" class="form-control form-control-lg" formControlName="teamName"
+                            autocomplete="off">
+                        </div>
+                      </div>
+                      <button class="btn btn-success sw-btn-next" type="button" [disabled]="newTeamForm.controls.teamName.invalid" (click)="handleStepOneFinished()">
+                        Next Step
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- ************************** -->
+                <!-- END step one card/template -->
+                <!-- ************************** -->
+
+                <!-- ********************** -->
+                <!-- step two card/template -->
+                <!-- ********************** -->
+                <div id="second" class="step-content" [ngClass]="currentStep === 2 ? 'display-step' : 'hide-step'">
+                  <div class="row justify-content-around align-items-center">
+                    <div class="col-8 col-md-6 col-lg-4 mb-4">
+                      <i class="fal fa-tasks fa-10x theme-blue w-100"></i>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-5 mb-4">
+                      <div>
+                        <h6 class="title-decorative mb-2">Step 2.</h6>
+                        <h4 class="mb-2">Just a few more data points...</h4>
+                        <div class="form-group">
+                          <input type="text" placeholder="Team Description" name="name" class="form-control form-control-lg" formControlName="teamDescription"
+                            autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                          <label for="admin-email">Administrative Email:</label>
+                          <input type="text" placeholder="Administrative Email" name="admin-email" class="form-control form-control-lg" formControlName="adminEmail"
+                            autocomplete="off">
+                        </div>
+                      </div>
+                      <button class="btn btn-success sw-btn-next mt-1" type="button" [disabled]="(newTeamForm.controls.teamDescription.invalid && newTeamForm.controls.teamDescription.invalid) || isSavingTeam"
+                        (click)="handleStepTwoFinished()">
+                        <span *ngIf="!isSavingTeam">Next Step</span>
+                        <span *ngIf="isSavingTeam">
+                          <div class="loader">
+                            Saving Progress
+                            <span class="loader__dot">.</span>
+                            <span class="loader__dot">.</span>
+                            <span class="loader__dot">.</span>
+                          </div>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- ************************** -->
+                <!-- END step two card/template -->
+                <!-- ************************** -->
+
+                <!-- ************************ -->
+                <!-- step three card/temaplte -->
+                <!-- ************************ -->
+                <div id="third" class="step-content" [ngClass]="currentStep === 3 ? 'display-step' : 'hide-step'">
+                  <div class="row justify-content-around align-items-center">
+                    <div class="col-8 col-md-6 col-lg-4 mb-4">
+                      <i class="fal fa-users fa-10x theme-blue w-100"></i>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-5 mb-4">
+                      <div>
+                        <h6 class="title-decorative mb-2">Step 3.</h6>
+                        <h4 class="mb-2">Add Team Members</h4>
+                        <p>Invite team members by username. Once they accpet your invite, they're on your team.</p>
+                      </div>
+                      <button class="btn btn-success sw-btn-next mt-4" type="button" (click)="handleStepThreeFinished()">Skip Step (not yet implemented)</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- **************************** -->
+                <!-- END step three card/template -->
+                <!-- **************************** -->
+
+                <!-- *********************** -->
+                <!-- step four card/template -->
+                <!-- *********************** -->
+                <div id="fourth" class="step-content" [ngClass]="currentStep === 4 ? 'display-step' : 'hide-step'">
+                  <div class="row justify-content-around align-items-center">
+                    <div class="col-8 col-md-6 col-lg-5 mb-4">
+                      <div class="row mb-4">
+
+                        <!-- integrate with reddit button -->
+                        <div class="col-6 text-center" (click)="handleIntegrateRedditClicked()">
+                          <span *ngIf="!isIntegratedWithReddit">
+                            <i class="fab fa-reddit reddit-color fa-6x"></i>
+                          </span>
+                          <span class="fa-layers fa-fw fa-6x" *ngIf="isIntegratedWithReddit">
+                            <i class="fab fa-reddit reddit-color faded"></i>
+                            <i class="fa-inverse fas fa-check" style="color:green" data-fa-transform="shrink-6"></i>
+                          </span>
+                        </div>
+                        <!-- END integrate with reddit button -->
+
+                        <!-- integrate with quora button -->
+                        <div class="col-6 text-center" (click)="handleIntegrateQuoraClicked()">
+                          <span *ngIf="!isIntegratedWithQuora">
+                            <i class="fab fa-quora quora-color fa-6x"></i>
+                          </span>
+                          <span class="fa-layers fa-fw fa-6x" *ngIf="isIntegratedWithQuora">
+                            <i class="fab fa-quora quora-color faded"></i>
+                            <i class="fa-inverse fas fa-check" style="color:green" data-fa-transform="shrink-6"></i>
+                          </span>
+                        </div>
+                        <!-- END integrate with quora button -->
+
+                      </div>
+                      <div class="row mt-4">
+
+                        <!-- integrate with stack exchange buttons -->
+                        <!-- stack exchange and stack overflow arethe same thing but were decoupleing them in the ui to make it look more feature rich -->
+                        <div class="col-6 text-center" (click)="handleIntegrateStackExchangeClicked()">
+                          <span *ngIf="!isIntegratedWithStackExchange">
+                            <i class="fab fa-stack-overflow stack-overflow-color fa-6x"></i>
+                          </span>
+                          <span class="fa-layers fa-fw fa-6x" *ngIf="isIntegratedWithStackExchange">
+                            <i class="fab fa-stack-overflow stack-overflow-color faded"></i>
+                            <i class="fa-inverse fas fa-check" style="color:green" data-fa-transform="shrink-6"></i>
+                          </span>
+                        </div>
+
+                        <div class="col-6 text-center" (click)="handleIntegrateStackExchangeClicked()">
+                          <span *ngIf="!isIntegratedWithStackExchange">
+                            <i class="fab fa-stack-exchange stack-exchange-color fa-6x"></i>
+                          </span>
+                          <span class="fa-layers fa-fw fa-6x" *ngIf="isIntegratedWithStackExchange">
+                            <i class="fab fa-stack-exchange stack-exchange-color faded"></i>
+                            <i class="fa-inverse fas fa-check" style="color:green" data-fa-transform="shrink-6"></i>
+                          </span>
+                        </div>
+                        <!-- END integrate with stack exchange buttons -->
+
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-5 mb-4">
+                      <div>
+                        <h6 class="title-decorative mb-2">Step 4.</h6>
+                        <h4 class="mb-2">Add Integrations</h4>
+                        <p>Click a social icon (left) to connect one of your teams social accounts. It really is that easy.</p>
+                      </div>
+                      <button class="btn btn-success btn-lg mt-4" type="submit" (click)="handleStepFourFinished()">Skip Step (not yet implemented)</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- **************************** -->
+                <!-- END step four card/temaplate -->
+                <!-- **************************** -->
+
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- bottom menu -->
+        <div class="text-center">
+          <span class="text-small">Made a mistake? That's okay!
+            <span class="pointer" style="color: #4582EC;" (click)="handleGoBackClicked()">Go Back a Step</span>
+            or
+            <span class="pointer" style="color: #4582EC;" (click)="handleGoHomeClicked()">Go Home</span> (no pun intended)
+          </span>
+        </div>
+        <!-- END bottom menu -->
+
+      </div>
+    </div>
+  </div>
+</section>

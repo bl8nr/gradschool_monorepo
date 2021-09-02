@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:spring="http://www.springframework.org/tags"
+     version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <!-- add spring messaging for i18n -->
+    <spring:message code="label_books_table" var="labelBooksTable"/>
+    <spring:message code="label_book_title" var="labelBookTitle"/>
+    <spring:message code="label_book_publisher" var="labelBookPublisher"/>
+    <spring:message code="label_book_price" var="labelBookPrice"/>
+    <spring:message code="label_book_category" var="labelBookCategory"/>
+    <spring:message code="label_book_isbn" var="labelBookISBN"/>
+
+    <!-- add spring url for show book page -->
+    <spring:url value="/books" var="showBookUrl"/>
+
+    <!-- javascript code used to powered jpGrid -->
+    <script type="text/javascript">
+        $(function(){
+            $("#list").jqGrid({
+                url:'${showBookUrl}/listgrid',
+                datatype: 'json',
+                mtype: 'GET',
+                colNames:['${labelBookTitle}', '${labelBookISBN}', '${labelBookCategory}', '${labelBookPublisher}', '${labelBookPrice}'],
+                colModel :[
+                    {name:'title', index:'title', width:250, classes: 'grid-pointer'},
+                    {name:'isbn', index:'isbn', width:100, classes: 'grid-pointer'},
+                    {name:'category', index:'category', width:200, classes: 'grid-pointer'},
+                    {name:'publisher', index:'publisher', width:200, classes: 'grid-pointer'},
+                    {name:'price', index:'price', width:50, classes: 'grid-pointer'}
+                ],
+                jsonReader : {
+                    root:"bookData",
+                    page: "currentPage",
+                    total: "totalPages",
+                    records: "totalRecords",
+                    repeatitems: false,
+                    id: "id"
+                },
+                pager: '#pageManager',
+                rowNum:10,
+                rowList:[10,20,30],
+                sortname: 'title',
+                sortorder: 'asc',
+                viewrecords: true,
+                gridview: true,
+                height: 250,
+                caption: '${labelBooksTable}',
+                onSelectRow: function(id){
+                    document.location.href ="${showBookUrl}/" + id;
+                }
+            });
+        });
+    </script>
+
+    <c:if test="${not empty message}">
+        <div id="message" class="alert alert-primary" role="alert">
+            ${message.message}
+        </div>
+    </c:if>
+
+    <!-- determine where the jpgrid list grid will be placed -->
+    <div>
+        <table id="list"><tr><td/></tr></table>
+    </div>
+    <div id="pageManager"></div>
+
+</div>

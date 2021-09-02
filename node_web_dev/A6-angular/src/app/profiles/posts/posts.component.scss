@@ -1,0 +1,17 @@
+.overflow-y {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 0px; 
+  background: transparent;
+}
+
+.post-timeframe {
+  font-size: 18px;
+  line-height: 1.5em;
+  color: #59626a;
+  word-wrap: break-word;
+  width: 100%;
+}

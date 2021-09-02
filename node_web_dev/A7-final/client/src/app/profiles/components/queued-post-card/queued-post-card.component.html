@@ -1,0 +1,197 @@
+<div class="row">
+
+  <!-- card icon, determines whether post is of link or text kind -->
+  <div class="col-sm-1 text-center">
+    <div class="fa-3x mt-2">
+      <span class="fa-layers fa-fw">
+        <i class="fas fa-circle" style="color:#e9ecef"></i>
+        <i *ngIf="post.type === 'linkPost' || post.type === 'linkPostWithComment'" class="fa-inverse fal fa-link" data-fa-transform="shrink-6"></i>
+        <i *ngIf="post.type === 'textPost'" class="fa-inverse fas fa-comment-lines" data-fa-transform="shrink-6"></i>
+      </span>
+    </div>
+  </div>
+  <!-- END card icon -->
+
+  <!-- card body, contains the post information and edit form -->
+  <div class="col-sm-10">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between py-1 px-3" style="background: #e9ecef; border: none;">
+        <small class="text-muted">
+          <span class="badge badge-primary p-1">Scheduled</span>
+          <a href="https://www.reddit.com/r/{{ post.subreddit }}" target="_blank">
+            <span class="badge badge-info p-1">r/{{ post.subreddit }}</span>
+          </a>
+          <a class="fw-500" href="https://www.reddit.com/u/{{ profile.accountInfo.name }}" target="_blank">
+            <span class="badge badge-info p-1">u/{{ profile.accountInfo.name }}</span>
+          </a>
+        </small>
+      </div>
+
+      <!-- card info body -->
+      <div class="card-body pt-1" [ngClass]="isEditingPost ? 'background-grey' : 'background-white'">
+        <div class="media">
+          <div class="media-body mr-5">
+            <span class="h5 mb-0 card-title">{{ post.title }}</span>
+            <span class="card-subtitle">
+              Submitting to
+              <a class="fw-500" href="https://www.reddit.com/r/{{ post.subreddit }}" target="_blank">
+                r/{{ post.subreddit }}
+              </a> as
+              <a class="fw-500" href="https://www.reddit.com/u/{{ profile.accountInfo.name }}" target="_blank">
+                u/{{ profile.accountInfo.name }}
+              </a>
+            </span>
+            <span class="d-block card-subsubtitle">
+              Scheduled for {{ post.targetPostTimeReadable }}
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- END card info body -->
+
+      <!-- card edit body -->
+      <span class="collapse" id="edit-{{ post._id }}">
+        <div class="card-body">
+          <div class="media">
+            <div class="media-body">
+              <form [formGroup]="editPostForm">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="row">
+                      <label class="form-label col">Edit Post</label>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 pb-2">
+                        <div class="btn-group-sm btn-group-toggle" ngbRadioGroup name="radioBasic" formControlName="type">
+                          <label ngbButtonLabel class="btn-outline-primary">
+                            <input ngbButton type="radio" value="linkPost"> Link Post
+                          </label>
+                          <label ngbButtonLabel class="btn-outline-primary">
+                            <input ngbButton type="radio" value="textPost"> Text Post
+                          </label>
+                          <label ngbButtonLabel class="btn-outline-primary">
+                            <input ngbButton type="radio" value="linkPostWithComment"> Link Post with Comment
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col-7">
+                        <input type="text" class="form-control form-control-md" placeholder="Default Title" formControlName="title" [ngClass]="editPostForm.controls.title.invalid === true ? 'is-invalid' : ''">
+                      </div>
+                      <div class="col-5">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">/r</span>
+                          </div>
+                          <input type="text" class="form-control" disabled="true" formControlName="subreddit" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group" *ngIf="editPostForm.value.type !== 'textPost'">
+                      <input type="text" class="form-control form-control-md" placeholder="Link" formControlName="link" [ngClass]="editPostForm.controls.link.invalid === true ? 'is-invalid' : ''">
+                    </div>
+                    <div class="form-group" *ngIf="editPostForm.value.type !== 'linkPost'">
+                      <textarea class="form-control form-control-md" placeholder="Text post body / Link comment body" rows="4" formControlName="body"
+                        [ngClass]="editPostForm.controls.body.invalid === true ? 'is-invalid' : ''"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </span>
+      <!-- END card edit body -->
+
+      <!-- post content section -->
+      <div *ngIf="!isEditingPost && !hasExpandedDelete" class="collapse container px-0" id="postbody-{{ post._id }}">
+        <div class="card-body pt-0">
+          <div class="media">
+            <div class="media-body">
+              <p *ngIf="editPostForm.value.type === 'linkPost' || editPostForm.value.type === 'linkPostWithComment'">Link: {{ post.link }}</p>
+              <p *ngIf="editPostForm.value.type === 'textPost' || editPostForm.value.type === 'linkPostWithComment'">Body: {{ post.body }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END post content section -->
+
+      <!-- delete post alert -->
+      <div class="collapse container px-0" id="delete-{{ post._id }}">
+        <div class="alert alert-danger mb-0 delete-alert" role="alert">
+          <p style="font-size:12px;">Are you certain you want to remove this post from your scheduled posts queue?
+            <button *ngIf="isDeletingPost === false" class="btn btn-sm btn-outline-danger ml-5 delete-button" (click)="deletePost(post._id)">
+              Delete Post
+            </button>
+            <button *ngIf="isDeletingPost === true" class="btn btn-sm btn-outline-danger ml-5 delete-button" disabled="true">
+              <div class="loader">
+                Deleting
+                <span class="loader__dot">.</span>
+                <span class="loader__dot">.</span>
+                <span class="loader__dot">.</span>
+              </div>
+            </button>
+          </p>
+        </div>
+      </div>
+      <!-- END delete post alert -->
+
+      <!-- card footer button section -->
+      <div class="card-footer d-flex justify-content-between p-1 px-3">
+        <div>
+          <button *ngIf="!isEditingPost && !isSavingPost && !hasExpandedDelete" class="btn btn-sm btn-outline-secondary" [attr.data-target]="'#postbody-' + post._id"
+            data-toggle="collapse">
+            <span>View Body</span>
+          </button>
+        </div>
+        <!-- buttons displayed when post is not being edited -->
+        <div *ngIf="!isEditingPost && !isSavingPost">
+          <button class="btn btn-sm btn-outline-secondary" [attr.data-target]="'#delete-' + post._id" data-toggle="collapse" *ngIf="hasExpandedDelete === false"
+            (click)="hasExpandedDelete = true">
+            <i class="fa fa-times"></i>
+            <span>Delete</span>
+          </button>
+          <button class="btn btn-sm btn-outline-secondary" [attr.data-target]="'#delete-' + post._id" data-toggle="collapse" *ngIf="hasExpandedDelete === true"
+            (click)="hasExpandedDelete = false">
+            <i class="fa fa-ban"></i>
+            <span>Cancel</span>
+          </button>
+          <button *ngIf="!hasExpandedDelete" class="btn btn-sm btn-outline-secondary" [attr.data-target]="'#edit-' + post._id" data-toggle="collapse"
+            (click)="isEditingPost = true">
+            <i class="fa fa-pencil"></i>
+            Edit
+          </button>
+        </div>
+        <!-- buttons displayed when post is being edited -->
+        <div *ngIf="isEditingPost && !isSavingPost">
+          <button class="btn btn-sm btn-outline-danger" [attr.data-target]="'#edit-' + post._id" data-toggle="collapse" (click)="handleDiscardChanges()">
+            <i class="fa fa-times"></i>
+            Discard Changes
+          </button>
+          <button class="btn btn-sm btn-outline-success" (click)="handleSaveChanges()" [attr.data-target]="'#edit-' + post._id" data-toggle="collapse"
+            [disabled]="editPostForm.invalid">
+            <i class="fa fa-save"></i>
+            Save Changes
+          </button>
+        </div>
+        <div *ngIf="isSavingPost">
+          <button class="btn btn-sm btn-outline-success" [disabled]="true">
+            <div class="loader">
+              Saving Changes
+              <span class="loader__dot">.</span>
+              <span class="loader__dot">.</span>
+              <span class="loader__dot">.</span>
+            </div>
+          </button>
+        </div>
+      </div>
+      <!-- END card footer button section -->
+
+    </div>
+  </div>
+  <!-- end card body -->
+
+</div>

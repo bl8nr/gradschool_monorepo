@@ -1,0 +1,31 @@
+<div>
+  <div class="list-group list-group-chat list-group-flush">
+    <div class="card-header d-none d-lg-block py-1 pr-2">
+      <h5>
+        Accounts
+        <span (click)="handleAddProfile()">
+          <i class="fal fa-plus-square my-1 float-right pointer"></i>
+        </span>
+      </h5>
+    </div>
+    <span>
+      <!-- clickable profile list -->
+      <a (click)="handleProfileClick(profile._id)" *ngFor="let profile of profiles" class="list-group-item list-group-item-action"
+        [ngClass]="selectedProfileId == profile._id ? 'account-active' : 'account-inactive'">
+        <div class="media">
+          <img alt="Image" src="{{ profile.accountInfo.icon_img }}" class="avatar avatar-sm m-0 account-image">
+          <div class="media-body d-none d-lg-block ml-2">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="mb-0 account-header">
+                u/{{ profile.accountInfo.name }}
+              </h6>
+            </div>
+            <span class="text-muted account-sub-header">K {{ profile.accountInfo.comment_karma }}</span>
+            <span class="text-muted text-small col-11 p-0 text-truncate d-block"></span>
+          </div>
+        </div>
+      </a>
+      <!-- END clickable profile list -->
+    </span>
+  </div>
+</div>

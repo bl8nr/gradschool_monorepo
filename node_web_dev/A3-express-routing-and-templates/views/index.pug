@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1= title
+  p Click 'View' to view a workspace, or 'New Workspace' to add a new one
+  
+  .row.pt-3
+    .col-sm-12
+      .card
+        .card-body
+          h5.card-title All Workspaces
+            table.table.mt-3
+              thead
+                tr
+                  th(scope='col') Name
+                  th(scope='col') description
+                  th(scope='col') File Format
+                  th(scope='col') Actions
+              tbody
+                each workspace in workspaces
+                  tr
+                    th(scope='row') #{ workspace.name }
+                    td #{ workspace.description }
+                    td #{ workspace.format }
+                    td
+                      a(href='/workspaces/' + workspace.id): button.btn.btn-primary.mx-2(type='button') View

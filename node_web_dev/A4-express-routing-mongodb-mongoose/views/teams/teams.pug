@@ -1,0 +1,73 @@
+extends ../layout/layout
+
+include ../layout/authedNavbar
+include ../layout/footer
+
+
+block content
+    //- load the navbar with the logout button
+    +authedNavbar
+
+    .main-container
+        nav.bg-primary.text-white(aria-label='breadcrumb', role='navigation')
+            .container
+                .row.justify-content-center
+                    .col
+                        ol.breadcrumb
+                            li.breadcrumb-item.active Teams
+    //- if teams exist render this
+    - if (teams.length > 0)
+        section
+            .container
+                .row.justify-content-center
+                    .col
+                        h1.h2.mb-2 Your Teams
+                        span View teams you've created or are a memeber of
+                    .col-auto.text-right
+                        a.btn.btn-success(href="/teams/new") Create a new team
+            section.flush-with-above
+                .container
+                    .row
+                        .col
+                            .d-flex.justify-content-between.align-items-center.mb-4
+                                div
+                                    span.text-muted.text-small Results 1 - #{teams.length} of #{teams.length}
+                    .row
+                        .col
+                            table.table.table-borderless.table-hover.align-items-center
+                                thead
+                                    tr
+                                        th(scope='col') Name
+                                        th(scope='col') Organizer
+                                        th(scope='col') Description
+                                        th(scope='col')
+                                tbody
+                                    each team in teams
+                                        tr.bg-white
+                                            th(scope='row')
+                                                a.media.align-items-center(href='#')
+                                                    img.avatar.rounded.avatar-sm(alt='Image', src=team.teamLogo photo.imageurl)
+                                                    .media-body
+                                                        span.h6.mb-0 #{team.teamName}
+                                                        span.text-muted #{team.organizationName}
+                                            td #{team.ownerUsername}
+                                            td #{team.teamDescription}
+                                            td
+                                                a(href='/teams/' + team._id)
+                                                    button#dropdownMenuButton-1.btn.btn-sm.btn-outline-primary.dropdown-toggle.dropdown-toggle-no-arrow(type='button', href='/') view
+                                        tr.table-divider
+    //- else if no teams exist render this
+    - else
+        section.height-70
+            .container
+                .row.justify-content-center
+                    .col-12.col-md-6.col-lg-5
+                        .card.card-lg.text-center
+                            .card-body
+                                i.icon-add-to-list.display-4.opacity-20
+                                h1.h5 You haven't created any teams yet
+                                p
+                                    | Click 'Create a team' to create your first team
+                                a.btn.btn-lg.btn-primary(href='/teams/new') Create a team
+    //- render footer
+    +footer

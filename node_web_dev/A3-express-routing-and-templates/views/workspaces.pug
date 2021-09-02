@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  .row.pt-3
+    .col-sm-12 
+      .card
+        .card-body
+          .h5.card-title New Workspace
+          form(method='POST' action='/workspaces').form-horizontal.my-5
+            .form-group
+              label.col-sm-2.control-label Name
+              .col-sm-10
+                input#workspaceName.form-control(type='text', placeholder='Workspace Name' name='name')
+            .form-group
+              label.col-sm-2.control-label.d-block Description
+              .col-sm-7.d-inline-block
+                input#description.form-control(type='text', placeholder='Workspace Description' name='description')
+              .col-sm-2.col-sm-offset-1.d-inline-block
+                select#format.custom-select(name="format")
+                  option(value='xml') XML
+                  option(value='csv') CSV
+                  option(value='json') JSON
+            .form-group
+              .col-sm-offset-2.col-sm-10
+                button(type='submit').btn.btn-outline-primary Add Workspace
+  .row.pt-3
+    .col-sm-12
+      .card
+        .card-body
+          h5.card-title All Workspaces
+            table.table.mt-3
+              thead
+                tr
+                  th(scope='col') Name
+                  th(scope='col') description
+                  th(scope='col') File Format
+                  th(scope='col') Actions
+              tbody
+                each workspace in workspaces
+                  tr
+                    th(scope='row') #{ workspace.name }
+                    td #{ workspace.description }
+                    td #{ workspace.format }
+                    td
+                      a(href='/workspaces/' + workspace.id): button.btn.btn-primary.mx-2(type='button') View

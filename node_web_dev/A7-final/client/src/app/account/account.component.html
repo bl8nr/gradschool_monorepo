@@ -1,0 +1,20 @@
+<!-- add the main app navbar component -->
+<app-navbar></app-navbar>
+
+<div class="main-container background h-100" style="padding-top:70px;">
+  <section class="space-sm py-0 h-100">
+    <div class="container h-100">
+      <div class="row h-100">
+
+        <!-- add the sidebar that lists all the users available profiles -->
+        <app-account-sidebar class="col-12 col-md-2 mb-4 mb-md-0 py-4 accounts-column"></app-account-sidebar>
+
+        <!-- router outlet for all of /profiles/* child routes -->
+        <div class="col-12 col-md-9 main-column bg-white py-4 h-100">
+          <router-outlet></router-outlet>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>

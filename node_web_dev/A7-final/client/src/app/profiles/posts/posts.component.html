@@ -1,0 +1,27 @@
+<!-- add the mid section top menu -->
+<app-mid-menu></app-mid-menu>
+
+<!-- profile posts body -->
+<section class="py-0 overflow-y body" *ngIf="!isLoading">
+  <div class="container" style="padding-bottom: 200px;">
+
+    <!-- iterate over the postsByDate in order to present the correct formatted date and post-card -->
+    <div *ngFor="let posts of postsByDate">
+      <span class="post-timeframe py-1 px-1 pb-2 d-inline-block">
+        <span class="fw-500">{{ posts.weekday }}</span> {{ posts.day }} {{ posts.month }}</span>
+      <app-post-card *ngFor="let post of posts.posts" [post]="post"></app-post-card>
+    </div>
+  </div>
+</section>
+<!-- END profile posts body -->
+
+<!-- only display spinner if posts.component is loading -->
+<section class="height-70" *ngIf="isLoading">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 col-lg-5 text-center">
+        <i class="fas fa-spinner-third fa-spin fa-4x" style="color:#4582EC;"></i>
+      </div>
+    </div>
+  </div>
+</section>

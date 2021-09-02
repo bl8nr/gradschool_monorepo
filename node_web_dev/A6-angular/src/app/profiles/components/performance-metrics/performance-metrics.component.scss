@@ -1,0 +1,34 @@
+.performance-metrics-body {
+  border-right: 1px solid #e9ecef;
+  border-top: 1px solid #e9ecef;
+}
+
+.performance-metrics-menu-header {
+  font-size: 14px;
+  line-height: 1.5em;
+  color: #59626a;
+  font-weight: 500;
+}
+
+.r-performance {
+  border-top: 1px solid #e9ecef;
+}
+
+.performance-menu {
+  border-left: 1px dotted #e9ecef;
+  font-size: 12px;
+  line-height: 1.5em;
+  font-weight: 500;
+}
+
+.performance-menu-item {
+  color: #4582eC;
+  cursor: pointer;
+  &:hover {
+    color: #1559cf
+  }
+}
+
+.disabled-menu-item {
+  color: #a6afb7;
+}

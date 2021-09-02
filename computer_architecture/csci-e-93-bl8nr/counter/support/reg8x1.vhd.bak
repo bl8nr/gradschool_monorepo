@@ -1,0 +1,19 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity reg8x1 is
+  port (writeEnable: in std_ulogic;
+        d: in bit_vector(7 downto 0);
+        q: out bit_vector(7 downto 0));
+end entity reg8x1;
+
+architecture behavior of reg8x1 is
+begin
+  reg8x1_behavior: process is
+  begin
+    wait until rising_edge(clk);
+    if en = '1' then
+      q <= d;
+    end if;
+  end process reg8x1_behavior;
+end architecture behavior;

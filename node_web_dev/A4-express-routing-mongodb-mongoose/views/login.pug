@@ -1,0 +1,35 @@
+extends layout/layout
+
+block content
+    .main-container
+    section.space-sm
+        .container.align-self-start
+            .row.mb-3
+                .col.text-center
+                    a(href='/index')
+                        span.icon.icon-feather(style='font-size:3rem')
+            .row.justify-content-center
+                .col-12.col-md-8.col-lg-7
+                    .card.card-lg.text-center
+                        .card-body
+                            .mb-5
+                                h1.h2.mb-2 Welcome back
+                                span Sign in to your account to continue
+                            .row.no-gutters.justify-content-center
+                                //- user login form
+                                form.text-left.col-lg-8(role='form', action="/login",method="post")
+                                    .form-group
+                                        label(for='login-username') Username
+                                        input#login-username.form-control.form-control-lg(type='text', name='username', placeholder='Username')
+                                    .form-group
+                                        label(for='login-password') Password
+                                        input#login-password.form-control.form-control-lg(type='password', name='password', placeholder='Enter a password')
+                                    if (error && error.length > 0)
+                                        .alert.alert-danger.alert-dismissible(role="alert", style='font-size:12px;')= error
+                                            a.close(href="#" data-dismiss="alert" aria-label="close") &times;
+                                    .text-center.mt-3
+                                        button.btn.btn-lg.btn-primary(type='submit') Log in
+                    .text-center
+                        span.text-small
+                            | Don't have an account yet?
+                            a(href='/') Create one

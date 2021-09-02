@@ -1,0 +1,99 @@
+extends ../layout/layout
+
+include ../layout/authedNavbar
+include ../layout/footer
+
+block content
+    //- load the navbar with the logout button
+    +authedNavbar
+
+    .main-container
+        nav.bg-primary.text-white(aria-label='breadcrumb', role='navigation')
+            .container
+                .row.justify-content-center
+                    .col
+                        ol.breadcrumb
+                            li.breadcrumb-item
+                                a(href="/teams") Teams
+                            li.breadcrumb-item.active #{team.teamName}
+        section.bg-white.space-sm.pb-4
+            .container
+                .row.justify-content-between.align-items-center
+                    .col-auto
+                        h1.h2 #{team.teamName}'s Settings
+                    .col-auto.text-right
+                        a.btn.btn-danger(href='/teams/delete/' + team.id) Delete Team
+
+        section.flush-with-above.space-0
+            .bg-white
+                .container
+                    .row
+                        .col
+                            ul#myTab.nav.nav-tabs(role='tablist')
+                                li.nav-item
+                                    a#overview-tab.nav-link.active(data-toggle='tab', href='#general', role='tab', aria-controls='general', aria-selected='true') General
+        section.flush-with-above.height-80.d-block
+            //- update team form
+            form.tab-content(method='POST' enctype='multipart/form-data' action='/teams/update/' + team._id)
+                #general.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='general-tab')
+                    .container
+                        .row
+                            .col-12
+                                .media.flex-wrap.mb-0.align-items-center
+                                    img.avatar.avatar-lg.mb-3.mb-md-0(alt='Image', src=team.teamLogo)
+                                    .media-body
+                                        label.custom-file.mb-2(for='teamLogo')
+                                            input#teamLogo.custom-file-input.height-0(type='file', name='image')
+                                            span.btn.btn-primary
+                                                i.icon-upload-to-cloud  
+                                                | Upload
+                                        div
+                                            small
+                                                | Logo changes aren't reflected until 'save changes' is pressed. Max image upload size: 2mb
+                        hr
+                        .row.mb-4
+                            .col
+                                h5 Team Details
+                        .row
+                            .col-12.col-md-4.order-md-2
+                                .alert.alert-info.text-small(role='alert')
+                                    i.icon-shield
+                                    span
+                                        |   As the team administrator, only you can change these fields.
+                            .col-12.col-md-8.order-md-1
+                                .row
+                                    .col-6
+                                        .form-group
+                                            label(for='teamName')
+                                                | Team Name:
+                                                span.text-red *
+                                            input#teamName.form-control.form-control-lg(type='text', required="true", name='teamName', value=team.teamName)
+                                    .col-6
+                                        .form-group
+                                            label(for='organizationName')
+                                                | Organization Name:
+                                                span.text-red *
+                                            input#organizationName.form-control.form-control-lg(type='text', required="true", name='organizationName', value=team.organizationName)
+                                    .col-8
+                                        .form-group
+                                            label(for='teamDescription')
+                                                | Description:
+                                            input#teamDescription.form-control.form-control-lg(type='text', name='teamDescription', value=team.teamDescription)
+                                    .col-4
+                                        .form-group
+                                            label(for='ownerUsername')
+                                                | Creator & Administrator:
+                                            input#ownerUsername.form-control.form-control-lg(type='text', value=team.ownerUsername, disabled='true')
+                                    .col-12
+                                        .form-group
+                                            label(for='emailaddress')
+                                                | Email Address:
+                                                span.text-red *
+                                            input#emailaddress.form-control.form-control-lg(type='email', required="true", name='billingEmail', value=team.billingEmail)
+                                            small We'll never share your email with anyone else.
+                                            input#name.form-control(type='hidden', value=team._id, name='_id')
+                                    .col-12
+                                        .form-group
+                                            button.btn.btn-primary(type='submit') Save changes
+    //- render footer
+    +footer

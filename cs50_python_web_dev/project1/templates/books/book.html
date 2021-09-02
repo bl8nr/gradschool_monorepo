@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="row mt-4">
+        <div class="col-sm-12 mx-auto">
+            <div class="jumbotron">
+                <p class="lead mb-0">{{ book.author }} | {{ book.year }} | {{ book.isbn }}</p>
+                <h1 class="display-4">{{ book.title }}</h1>
+                <p class="font-weight-light mt-4">Rated {{ goodReads.average_rating }}/5
+                    by {{ goodReads.ratings_count }} readers on Goodreads.com </p>
+
+                <hr class="mb-4">
+
+                {# book reviews #}
+                <div class="row mb-3">
+                    <div class="col-sm-12">
+                        <span class="font-weight-bold">
+                            Showing {{ reviews|length }} of {{ reviews|length }} Reviews
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-sm-12 col-md-10">
+                        <div class="row">
+                            {% for review in reviews %}
+                                <div class="card col-sm-5 m-3">
+                                    <div class="card-body">
+                                    {# if users review is present, show 'Your Review' text #}
+                                    {% if review.user_id == user.id %}
+                                        <h5 class="card-title text-success">
+                                            Your Review
+                                        </h5>
+                                        {% endif %}
+                                        <p class="card-text">{{ review.review }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                {# end book reviews #}
+
+                <hr/>
+
+                {# review form (only shown if user can leave a review ie, they havent already left one) #}
+                {% if userCanLeaveReview %}
+                <div class="row">
+                    <div class="col-sm-12">
+                        You haven't left a review yet. Leave your review here.
+                        <form action="{{ url_for('books.reviews', book_isbn=book.isbn) }}" method="post">
+                            <textarea
+                                    type="review"
+                                    name="review"
+                                    id="review"
+                                    class="form-control my-3"
+                                    placeholder="What did you think?"
+                                    required
+                                    autofocus></textarea>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                {% else %}
+                {#  show this if user has already left a review #}
+                <div>You've already left a review. You cannot leave two reviews.</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,157 @@
+			Last revised 9-Jan-19
+
+			  Questionnaire for
+
+		 Harvard Extension School CSCI E-93:
+			Computer Architecture
+
+			     Spring 2019
+
+
+Name: Brett Bloethner
+Home/Cellular phone number: (303) 726-1559
+E-mail: brett@bl8nr.com
+Work phone number: N/A
+
+
+Where are you located?  What is your time zone?
+I'm located in Denver, Colorado and my time zone is mountain time.
+
+
+So that we can meet on-line, if necessary, what is your Skype name
+and/or your Google Hangouts name?  And, which do you prefer to use?
+My google hangouts name is brett@bl8nr.com and I prefer to use google hangouts.
+
+
+Occupation (If an undergraduate student, please specify your major and
+year and at which school; If a graduate student, please specify your
+department, field, and year and at which school).
+I'm a software engineer and I'm taking graduate classes although I'm not a matriculated grad student yet.
+My aim is to earn a masters in software engineering as well as a graduate certificate in web technologies.
+
+
+Have you taken:
+  CSCI E-10a (Formerly CSCI E-50a) (Introduction to Computer Science
+      Using Java I),
+  CSCI E-10b (Formerly CSCI E-50b) (Introduction to Computer Science
+      Using Java II),
+  CSCI E-28 (Formerly CSCI E-215) (Unix/Linux Systems Programming),
+  CSCI E-50 (Formerly CSCI E-52) (Intensive Introduction to Computer
+      Science),
+  ENSC E-123 or CSCI E-123 (Laboratory Electronics: Digital Circuit
+      Design),
+  PHYS E-123a (Laboratory Electronics: Analog Circuit Design),
+  CSCI E-124 (Data Structures and Algorithms),
+  or equivalents
+(specify which)?
+
+I have taken none of these.
+
+
+Have you taken CSCI E-22 (Formerly CSCI E-119) (Data Structures)?
+
+	If not, how do you meet the prerequisite?
+
+	I haven't taken CSCI E-22 but I have been doing software engineering professionally for the past few years.
+
+
+Are you currently working toward a degree in a degree program?  If so,
+which program and what degree?
+
+I'm not a matriculated graduate student but I hope to become one after taking this course and the CRWS test later this year.
+Otherwise im working towards a graduate certificate in web technologies.
+
+
+Are you taking any other classes concurrently with this one?
+I am not.
+
+
+Do you have experience implementing many different data structures
+from scratch?  If yes, please describe.  If not, how do you meet the
+prerequisite?
+Not from scratch but I have experience using all the data structures available in Javascript as well as using hashmaps
+and maps.
+
+
+Do you have experience using Unix?  Do you have experience programming
+using Unix system calls?  If yes, please describe.
+I have experience using unix but not programming using unix system calls yet.
+
+Do you have experience using Windows?  If so, as a user or as a
+programmer?
+I have experience using windows and programming on windows but mainly creating web apps using windows machines.
+
+
+Do you have experience designing digital logic circuits?  If yes,
+please describe.
+I have a little bit of experience from undergrad in creating digital logic circuits with gates.
+
+
+Are you already registered for this class?  -- If not, do you intend
+to register?  Also, are you registered as a distance student?  Do you
+intend to attend classes in person?
+Yes and I am a distance student attending remotely.
+
+
+This class has a proctored midterm exam.  Distance students are
+required to make arrangements for a proctor.  See
+https://www.extension.harvard.edu/resources-policies/exams-grades-transcripts/exams-online-courses
+for information about proctors.  If you live within the six-state New
+England area (Connecticut, Maine, Massachusetts, New Hampshire, Rhode
+Island, and Vermont) you must come to campus to take your exam.  Are
+you taking the midterm exam on campus?  If not, have you already made
+arrangements for a proctor?
+I have not made arrangements yet but I will soon.
+
+
+Do you plan to purchase your own Altera/Terasic DE2-115 Development
+Board?
+I've already purchased one!
+
+
+If you are planning to purchase your own Altera/Terasic DE2-115
+Development Board, have you already ordered and/or received it?  If
+you are a distance student (i.e., if you are unable to borrow the
+hardware and return the hardware in person), you must purchase your
+own hardware.
+I've purchased and received it.
+
+
+Are you taking the course for undergraduate credit, graduate credit,
+or noncredit?
+Graduate credit.
+
+
+What additional appropriate course or work experience do you have?
+A few comp sci classes in undergrad, a Java/Spring course last semester, a couple of years experience
+in professional software engineering and an intense motivation to learn and succeed in this course!
+
+What is your math background?
+Up to calc.
+
+
+What computer languages do you know (please include assembler and
+high-level languages)?  Have you programmed in the C Programming
+Language, C++, or Java?
+Java, Javascript, TypeScript and a little bit of C++
+
+
+What operating systems have you used (e.g. Windows, Mac OS, Linux,
+iOS, Android, etc.)?
+Mac OS, Linux, Window, iOS
+
+
+What computers have you used (i.e., which machine language instruction
+sets)?
+Pretty much just x86 based machines.
+
+
+What is your motivation for taking this course?
+To learn more and work my way toward becoming a masters student.
+
+
+If the class needs to be rescheduled, is Thursday evening acceptable?
+Sure
+
+Other comments:
+None here!

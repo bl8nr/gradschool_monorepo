@@ -1,0 +1,288 @@
+/Users/brett/Library/Java/JavaVirtualMachines/openjdk-15/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=51935:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -classpath /Users/brett/IdeaProjects/cscie97-assignment2/out/production/CSCIE97 SmartCityModel com.cscie97.smartcity.model.test.TestDriver test.script
+City Cambridge-MA created. ID: city_1
+
+---------- Cambridge-MA ----------
+
+City{, cityId='city_1', name='Cambridge-MA', location=com.cscie97.smartcity.model.Location@5b6f7412}
+
+---DEVICES IN Cambridge-MA
+---PERSONS IN Cambridge-MA
+---------- END Cambridge-MA ----------
+
+STREET SIGN CREATED IN CITY city_1,
+StreetSign{text='Welcome to Harvard Square'}
+Device{deviceId='ss_1', blockchainAddress='ss_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1:ss_1
+StreetSign{text='Welcome to Harvard Square'}
+Device{deviceId='ss_1', blockchainAddress='ss_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+INFORMATION KIOSK CREATED IN CITY city_1,
+InformationKiosk{imageUri='https://media-cdn.tripadvisor.com/media/photo-s/05/94/cc/10/charles-hotel.jpg']
+Device{deviceId='kiosk_1', blockchainAddress='ik_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1:kiosk_1
+InformationKiosk{imageUri='https://media-cdn.tripadvisor.com/media/photo-s/05/94/cc/10/charles-hotel.jpg']
+Device{deviceId='kiosk_1', blockchainAddress='ik_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+STREET LIGHT CREATED IN CITY city_1,
+StreetLight{brightness=8}
+Device{deviceId='sl_1', blockchainAddress='sl_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1:sl_1
+StreetLight{brightness=8}
+Device{deviceId='sl_1', blockchainAddress='sl_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+PARKING SPACE CREATED IN CITY city_1,
+ParkingSpace{rate=25}
+Device{deviceId='ps_1', blockchainAddress='ps_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1:ps_1
+ParkingSpace{rate=25}
+Device{deviceId='ps_1', blockchainAddress='ps_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+ROBOT CREATED IN CITY city_1,
+Robot{activity='cleaning'}
+Device{deviceId='bot_1', blockchainAddress='r_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1:bot_1
+Robot{activity='cleaning'}
+Device{deviceId='bot_1', blockchainAddress='r_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+VEHICLE CREATED IN CITY city_1,
+Vehicle{type=CAR, activity='parked', capacity=4, fee=10}
+Device{deviceId='car_1', blockchainAddress='v_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1:car_1
+Vehicle{type=CAR, activity='parked', capacity=4, fee=10}
+Device{deviceId='car_1', blockchainAddress='v_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1. Device 1 of 6
+Robot{activity='cleaning'}
+Device{deviceId='bot_1', blockchainAddress='r_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1. Device 2 of 6
+ParkingSpace{rate=25}
+Device{deviceId='ps_1', blockchainAddress='ps_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1. Device 3 of 6
+InformationKiosk{imageUri='https://media-cdn.tripadvisor.com/media/photo-s/05/94/cc/10/charles-hotel.jpg']
+Device{deviceId='kiosk_1', blockchainAddress='ik_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1. Device 4 of 6
+StreetSign{text='Welcome to Harvard Square'}
+Device{deviceId='ss_1', blockchainAddress='ss_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1. Device 5 of 6
+Vehicle{type=CAR, activity='parked', capacity=4, fee=10}
+Device{deviceId='car_1', blockchainAddress='v_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1. Device 6 of 6
+StreetLight{brightness=8}
+Device{deviceId='sl_1', blockchainAddress='sl_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+STREET SIGN UPDATED IN city_1
+StreetSign{text='The time is now 9:00 pm'}
+Device{deviceId='ss_1', blockchainAddress='ss_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+INFORMATION KIOSK UPDATED IN city_1
+InformationKiosk{imageUri='https://media-cdn.tripadvisor.com/media/photo-s/05/94/cc/10/charles-hotel.jpg']
+Device{deviceId='kiosk_1', blockchainAddress='ik_1_account', status=OFFLINE, enabled=false, lastDeviceEvent=null}
+
+STREET LIGHT UPDATED IN city_1
+StreetLight{brightness=4}
+Device{deviceId='sl_1', blockchainAddress='sl_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+STREET LIGHT UPDATED IN city_1
+StreetLight{brightness=5}
+Device{deviceId='sl_1', blockchainAddress='sl_1_account', status=OFFLINE, enabled=false, lastDeviceEvent=null}
+
+PARKING SPACE UPDATED IN city_1
+ParkingSpace{rate=50}
+Device{deviceId='ps_1', blockchainAddress='ps_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+ROBOT UPDATED IN city_1
+Robot{activity='walking dog'}
+Device{deviceId='bot_1', blockchainAddress='r_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+VEHICLE UPDATED IN city_1
+Vehicle{type=CAR, activity='driving', capacity=4, fee=20}
+Device{deviceId='car_1', blockchainAddress='v_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+SENSOR EVENT REGISTERED FOR DEVICE car_1 IN city_1
+SensorEvent{type=MICROPHONE, value='does this bus go to Central Square?', subject='jane'}
+
+SENSOR EVENT REGISTERED FOR DEVICE car_1 IN city_1
+SensorEvent{type=CAMERA, value='person boarding bus', subject='jane'}
+
+SENSOR EVENT REGISTERED FOR DEVICE sl_1 IN city_1
+SensorEvent{type=THERMOMETER, value='80', subject='null'}
+
+SENSOR EVENT REGISTERED FOR DEVICE sl_1 IN city_1
+SensorEvent{type=CO2METER, value='500', subject='null'}
+
+SENSOR EVENT REGISTERED FOR DEVICE bot_1 IN city_1
+SensorEvent{type=THERMOMETER, value='98.6', subject='joe'}
+
+SENSOR EVENT REGISTERED FOR ALL DEVICES city_1
+SensorEvent{type=THERMOMETER, value='98.6', subject='joe'}
+
+SENSOR OUTPUT REGISTERED FOR DEVICE bot_1 IN city_1
+SensorOutput{type=SPEAKER, value='your temperature is normal'}
+
+SPEAKER OUTPUT FROM DEVICE bot_1
+your temperature is normal
+
+SENSOR EVENT REGISTERED FOR ALL DEVICES city_1
+SensorOutput{type=SPEAKER, value='severe weather alert, please take shelter'}
+
+SPEAKER OUTPUT FROM DEVICE bot_1
+severe weather alert, please take shelter
+
+SPEAKER OUTPUT FROM DEVICE ps_1
+severe weather alert, please take shelter
+
+SPEAKER OUTPUT FROM DEVICE kiosk_1
+severe weather alert, please take shelter
+
+SPEAKER OUTPUT FROM DEVICE ss_1
+severe weather alert, please take shelter
+
+SPEAKER OUTPUT FROM DEVICE car_1
+severe weather alert, please take shelter
+
+SPEAKER OUTPUT FROM DEVICE sl_1
+severe weather alert, please take shelter
+
+RESIDENT CREATED
+Resident{name='jone', phoneNumber='781-222-3344', blockchainAddress='janes_account', role=ADULT}
+Person{personId='resident_1', biometricId='voice-print='voiceprint-jane',face-print='faceprint-jane''}
+
+
+VISITOR CREATED
+Visitor{}
+Person{personId='visitor_1', biometricId='iris-print='irisprint-visitor_1''}
+
+
+SHOWING PERSON INFO FOR ID resident_1
+Resident{name='jone', phoneNumber='781-222-3344', blockchainAddress='janes_account', role=ADULT}
+Person{personId='resident_1', biometricId='voice-print='voiceprint-jane',face-print='faceprint-jane''}
+
+
+SHOWING PERSON INFO FOR ID visitor_1
+Visitor{}
+Person{personId='visitor_1', biometricId='iris-print='irisprint-visitor_1''}
+
+
+RESIDENT UPDATED ID:resident_1
+Resident{name='jane', phoneNumber='781-222-3344', blockchainAddress='janes_account', role=ADULT}
+Person{personId='resident_1', biometricId='voice-print='voiceprint-jane',face-print='faceprint-jane''}
+
+VISITOR UPDATED ID:visitor_1
+Visitor{}
+Person{personId='visitor_1', biometricId='testbiomewtricor_1''}
+
+---------- Cambridge-MA ----------
+
+City{, cityId='city_1', name='Cambridge-MA', location=com.cscie97.smartcity.model.Location@5b6f7412}
+
+---DEVICES IN Cambridge-MA
+Robot{activity='walking dog'}
+Device{deviceId='bot_1', blockchainAddress='r_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=
+SensorEvent{type=THERMOMETER, value='98.6', subject='joe'}
+}
+
+ParkingSpace{rate=50}
+Device{deviceId='ps_1', blockchainAddress='ps_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=
+SensorEvent{type=THERMOMETER, value='98.6', subject='joe'}
+}
+
+InformationKiosk{imageUri='https://media-cdn.tripadvisor.com/media/photo-s/05/94/cc/10/charles-hotel.jpg']
+Device{deviceId='kiosk_1', blockchainAddress='ik_1_account', status=OFFLINE, enabled=false, lastDeviceEvent=
+SensorEvent{type=THERMOMETER, value='98.6', subject='joe'}
+}
+
+StreetSign{text='The time is now 9:00 pm'}
+Device{deviceId='ss_1', blockchainAddress='ss_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=
+SensorEvent{type=THERMOMETER, value='98.6', subject='joe'}
+}
+
+Vehicle{type=CAR, activity='driving', capacity=4, fee=20}
+Device{deviceId='car_1', blockchainAddress='v_1_account', status=OFFLINE, enabled=true, lastDeviceEvent=
+SensorEvent{type=THERMOMETER, value='98.6', subject='joe'}
+}
+
+StreetLight{brightness=5}
+Device{deviceId='sl_1', blockchainAddress='sl_1_account', status=OFFLINE, enabled=false, lastDeviceEvent=
+SensorEvent{type=THERMOMETER, value='98.6', subject='joe'}
+}
+
+---PERSONS IN Cambridge-MA
+Resident{name='jane', phoneNumber='781-222-3344', blockchainAddress='janes_account', role=ADULT}
+Person{personId='resident_1', biometricId='voice-print='voiceprint-jane',face-print='faceprint-jane''}
+
+Visitor{}
+Person{personId='visitor_1', biometricId='testbiomewtricor_1''}
+
+---------- END Cambridge-MA ----------
+ERROR (64): DEFINE CITY FAILED, NEW CITY LOCATION CONFLICTS WITH ANOTHER CITY LOCATION
+ERROR (67): DEFINE CITY FAILED, NEW CITY ID CONFLICTS WITH ANOTHER CITY ID
+City Boston-MA created. ID: city_2
+
+---------- Boston-MA ----------
+
+City{, cityId='city_2', name='Boston-MA', location=com.cscie97.smartcity.model.Location@6267c3bb}
+
+---DEVICES IN Boston-MA
+---PERSONS IN Boston-MA
+---------- END Boston-MA ----------
+ERROR (74): SHOW CITY FAILED, CITY WITH THAT ID DOEST NOT EXIST
+ERROR (77): DEFINE STREET-SIGN FAILED, CITY WITH THAT ID DOEST NOT EXIST
+ERROR (78): DEFINE INFO-KIOSK FAILED, DEVICE ID ALREADY EXISTS
+ERROR (79): DEFINE STREET-LIGHT FAILED, CITY WITH THAT ID DOEST NOT EXIST
+ERROR (80): DEFINE PARKING-SPACE FAILED, DEVICE ID ALREADY EXISTS
+ERROR (81): DEFINE ROBOT FAILED, DEVICE ID ALREADY EXISTS
+ERROR (82): DEFINE VEHICLE FAILED, CITY WITH THAT ID DOEST NOT EXIST
+ERROR (83): DEFINE STREET-SIGN FAILED, DEVICE ID ALREADY EXISTS
+ERROR (86): SHOW DEVICE FAILED, DEVICE WITH THAT CITY/DEVICE ID DOES NOT EXIST
+ERROR (87): SHOW DEVICE FAILED, CITY WITH THAT ID DOEST NOT EXIST
+ERROR (88): SHOW DEVICE FAILED, DEVICE WITH THAT CITY/DEVICE ID DOES NOT EXIST
+ERROR (89): SHOW DEVICE FAILED, CITY WITH THAT ID DOEST NOT EXIST
+ERROR (90): SHOW DEVICE FAILED, DEVICE WITH THAT CITY/DEVICE ID DOES NOT EXIST
+ERROR (91): SHOW DEVICE FAILED, CITY WITH THAT ID DOEST NOT EXIST
+ERROR (94): CREATE SENSOR-EVENT FAILED, CITY WITH THAT ID DOEST NOT EXIST
+ERROR (95): CREATE SENSOR-EVENT FAILED, DEVICE WITH THAT CITY/DEVICE ID DOES NOT EXIST
+ERROR (96): CREATE SENSOR-EVENT FAILED, DEVICE WITH THAT CITY/DEVICE ID DOES NOT EXIST
+ERROR (97): CREATE SENSOR-EVENT FAILED, CITY WITH THAT ID DOEST NOT EXIST
+ERROR (98): CREATE SENSOR-EVENT FAILED, DEVICE WITH THAT CITY/DEVICE ID DOES NOT EXIST
+ERROR (99): CREATE SENSOR-EVENT FAILED, CITY WITH THAT ID DOEST NOT EXIST
+
+SENSOR OUTPUT REGISTERED FOR DEVICE bot_11 IN city_1
+SensorOutput{type=SPEAKER, value='your temperature is normal'}
+ERROR (102): CREATE SENSOR-OUTPUT FAILED, DEVICE WITH THAT CITY/DEVICE ID DOES NOT EXIST
+
+SENSOR EVENT REGISTERED FOR ALL DEVICES city_11
+SensorOutput{type=SPEAKER, value='severe weather alert, please take shelter'}
+ERROR (103): CREATE SENSOR-OUTPUT FAILED, CITY WITH THAT ID DOEST NOT EXIST
+ERROR (106): DEFINE RESIDENT FAILED, PERSON WITH THAT ID ALREADY EXISTS
+ERROR (107): DEFINE VISITOR FAILED, PERSON WITH THAT ID ALREADY EXISTS
+
+Process finished with exit code 0

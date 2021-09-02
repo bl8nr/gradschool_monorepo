@@ -1,0 +1,20 @@
+  [
+    {
+      "name": "Test Workspace One",
+      "description": "Test workspace one description",
+      "format": "xml",
+      "id": "4b6c7b11-340a-4a0b-b99b-8c209b950f35"
+    },
+    {
+      "name": "Workspace 3",
+      "description": "Test workspace 3 description",
+      "format": "csv",
+      "id": "8cb2cad5-13cb-473a-b490-a007128199be"
+    },
+    {
+      "name": "Workspace 2",
+      "description": "Test workspace 2 description",
+      "format": "json",
+      "id": "8bc3129f-4e59-47f1-87ac-32dbab237696"
+    }
+  ]

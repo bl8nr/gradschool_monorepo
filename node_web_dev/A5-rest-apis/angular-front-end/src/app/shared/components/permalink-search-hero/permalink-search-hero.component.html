@@ -1,0 +1,31 @@
+<section class="bg-primary text-light">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-auto text-center">
+        <span class="title-decorative">Peramlink Search Feature</span>
+        <h1 class="display-4">let's get started</h1>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8">
+        <form class="card card-sm" [formGroup]="searchForm">
+          <div class="card-body row no-gutters align-items-center">
+            <div class="col-auto">
+              <i class="icon-magnifying-glass h4 text-body"></i>
+            </div>
+            <div class="col">
+              <input 
+                class="form-control form-control-lg form-control-borderless" 
+                type="search" 
+                placeholder="begin by pasting a Reddit, Quora, or Stack permalnk. Then click 'go'"
+                formControlName="permalink"/>
+            </div>
+            <div class="col-auto">
+              <button class="btn btn-lg btn-success" type="submit" (click)="handleGoClicked()">Go (Not Implemented)</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

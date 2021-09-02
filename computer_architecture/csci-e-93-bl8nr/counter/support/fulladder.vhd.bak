@@ -1,0 +1,14 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity fulladder is
+	Port ( a: in integer;
+				b: in integer;
+				s: in integer);
+end fulladder;
+
+architecture Behavioral of fulladder is
+	signal a, b: integer;
+begin
+	s = a + b;
+end Behavioral;

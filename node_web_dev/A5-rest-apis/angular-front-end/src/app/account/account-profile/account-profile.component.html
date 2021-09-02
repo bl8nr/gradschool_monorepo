@@ -1,0 +1,117 @@
+<app-breadcrumbs [breadcrumbs]='breadcrumbs'></app-breadcrumbs>
+<section class="space-sm">
+  <div class="container">
+    <!-- account page body -->
+    <div class="row">
+      <div class="col-12 col-md-9 mb-1 order-md-2">
+        <!-- begin header row -->
+        <div class="row justify-content-center">
+          <div class="col">
+            <h1 class="h2 mb-2">Your Profile</h1>
+          </div>
+        </div>
+        <hr style="margin-top:.125rem;" />
+        <!-- end header row -->
+        <div class="row">
+          <div class="col-12 col-md-4 order-md-2">
+            <div class="row">
+              <div class="col-12">
+                <div class="media flex-wrap mb-0 align-items-center">
+                  <i class="fas fa-user fa-9x profile-icon"></i>
+                  <!-- <img alt="Image" src="assets/img/avatar-male-3.jpg" class="avatar avatar-lg mb-3 mb-md-0"> -->
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="media-body">
+                  <form>
+                    <label class="custom-file mb-2 upload-button-container">
+                      <input id="file2" class="custom-file-input height-0">
+                      <span class="btn btn-primary disabled">
+                        <i class="icon-upload-to-cloud"></i>Upload</span>
+                    </label>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-8 order-md-1">
+            <form class="row" [formGroup]="profileForm">
+              <div class="col-8">
+                <div class="form-group">
+                  <label for="display-name">Display Name:
+                    <span class="text-red">*</span>
+                  </label>
+                  <input class="form-control form-control-lg" type="text" id="display-name" formControlName="displayName">
+                  <small>This will be displayed when someone sends you a team invite</small>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-group">
+                  <label for="username">Username:
+                    <span class="text-red">*</span>
+                  </label>
+                  <input class="form-control form-control-lg" type="text" id="username" [disabled]='true' value="{{ userService.user.username }}">
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="first-name">First Name:
+                    <span class="text-red">*</span>
+                  </label>
+                  <input class="form-control form-control-lg" type="text" id="first-name" formControlName="firstName" autocomplete='given-name'>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="last-name">Last Name:
+                    <span class="text-red">*</span>
+                  </label>
+                  <input class="form-control form-control-lg" type="text" id="last-name" formControlName="lastName" autocomplete='family-name'>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="emailaddress">Email Address:
+                    <span class="text-red">*</span>
+                  </label>
+                  <input class="form-control form-control-lg" type="email" id="emailaddress" formControlName="email" autocomplete='email'>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="bio">Bio:</label>
+                  <textarea class="form-control form-control-lg" rows="4" id="bio" formControlName="bio"></textarea>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="company">Company:
+                  </label>
+                  <input class="form-control form-control-lg" type="text" id="company" formControlName="company" autocomplete='organization'>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <button class="btn btn-primary" type="button" [disabled]='isSavingChanges' (click)="handleUpdateProfileClicked(profileForm.value)">
+                    <span *ngIf="!isSavingChanges">Update Profile</span>
+                    <span *ngIf="isSavingChanges">
+                      <div class="loader">
+                        Saving Changes
+                        <span class="loader__dot">.</span>
+                        <span class="loader__dot">.</span>
+                        <span class="loader__dot">.</span>
+                      </div>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!--end of col-->
+        </div>
+      </div>
+      <!-- <app-account-sidebar class="col-12 col-md-3 mb-1 order-md-1"></app-account-sidebar> -->
+    </div>
+    <!-- end account page body -->
+  </div>
+</section>

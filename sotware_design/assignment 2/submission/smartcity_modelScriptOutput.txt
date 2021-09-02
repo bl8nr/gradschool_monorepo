@@ -1,0 +1,329 @@
+/Users/brett/Library/Java/JavaVirtualMachines/openjdk-15/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=51942:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -classpath /Users/brett/IdeaProjects/cscie97-assignment2/out/production/CSCIE97 SmartCityModel com.cscie97.smartcity.model.test.TestDriver smartcity_model.script
+City Cambridge-MA created. ID: city_1
+
+---------- Cambridge-MA ----------
+
+City{, cityId='city_1', name='Cambridge-MA', location=com.cscie97.smartcity.model.Location@5b6f7412}
+
+---DEVICES IN Cambridge-MA
+---PERSONS IN Cambridge-MA
+---------- END Cambridge-MA ----------
+
+STREET SIGN CREATED IN CITY city_1,
+StreetSign{text='Welcome to Harvard Square'}
+Device{deviceId='ss_1', blockchainAddress='city_1ss_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+STREET SIGN CREATED IN CITY city_1,
+StreetSign{text='Brattle Theatre'}
+Device{deviceId='ss_2', blockchainAddress='city_1ss_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+STREET SIGN UPDATED IN city_1
+StreetSign{text='The time is now 9:00 pm'}
+Device{deviceId='ss_1', blockchainAddress='city_1ss_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+STREET SIGN UPDATED IN city_1
+StreetSign{text='Now playing, Cassablaca'}
+Device{deviceId='ss_2', blockchainAddress='city_1ss_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+INFORMATION KIOSK CREATED IN CITY city_1,
+InformationKiosk{imageUri='https://media-cdn.tripadvisor.com/media/photo-s/05/94/cc/10/charles-hotel.jpg']
+Device{deviceId='kiosk_1', blockchainAddress='city_1kiosk_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+INFORMATION KIOSK CREATED IN CITY city_1,
+InformationKiosk{imageUri='https://www.lwa-architects.com/wp-content/uploads/2014/12/Harvard-SciCtr_Ext-bikes-992x1250.jpg']
+Device{deviceId='kiosk_2', blockchainAddress='city_1kiosk_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+INFORMATION KIOSK UPDATED IN city_1
+InformationKiosk{imageUri='https://media-cdn.tripadvisor.com/media/photo-s/05/94/cc/10/charles-hotel.jpg']
+Device{deviceId='kiosk_1', blockchainAddress='city_1kiosk_1', status=OFFLINE, enabled=false, lastDeviceEvent=null}
+
+INFORMATION KIOSK UPDATED IN city_1
+InformationKiosk{imageUri='https://www.google.com/maps/place/Cambridge,+MA/@42.3737266,-71.1236297,16.23z/data=!4m5!3m4!1s0x89e370a5cb30cc5f:0xc53a8e6489686c87!8m2!3d42.3736158!4d-71.1097335']
+Device{deviceId='kiosk_2', blockchainAddress='city_1kiosk_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+STREET LIGHT CREATED IN CITY city_1,
+StreetLight{brightness=8}
+Device{deviceId='sl_1', blockchainAddress='city_1sl_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+STREET LIGHT CREATED IN CITY city_1,
+StreetLight{brightness=5}
+Device{deviceId='sl_2', blockchainAddress='city_1sl_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+STREET LIGHT UPDATED IN city_1
+StreetLight{brightness=4}
+Device{deviceId='sl_1', blockchainAddress='city_1sl_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+STREET LIGHT UPDATED IN city_1
+StreetLight{brightness=5}
+Device{deviceId='sl_1', blockchainAddress='city_1sl_1', status=OFFLINE, enabled=false, lastDeviceEvent=null}
+
+PARKING SPACE CREATED IN CITY city_1,
+ParkingSpace{rate=25}
+Device{deviceId='ps_1', blockchainAddress='city_1ps_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+PARKING SPACE CREATED IN CITY city_1,
+ParkingSpace{rate=25}
+Device{deviceId='ps_2', blockchainAddress='city_1ps_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+PARKING SPACE UPDATED IN city_1
+ParkingSpace{rate=50}
+Device{deviceId='ps_1', blockchainAddress='city_1ps_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+PARKING SPACE UPDATED IN city_1
+ParkingSpace{rate=50}
+Device{deviceId='ps_2', blockchainAddress='city_1ps_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+ROBOT CREATED IN CITY city_1,
+Robot{activity='cleaning'}
+Device{deviceId='bot_1', blockchainAddress='city_1bot_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+ROBOT CREATED IN CITY city_1,
+Robot{activity='assisting student'}
+Device{deviceId='bot_2', blockchainAddress='city_1bot_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+ROBOT UPDATED IN city_1
+Robot{activity='cleaning'}
+Device{deviceId='bot_1', blockchainAddress='city_1bot_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+ROBOT UPDATED IN city_1
+Robot{activity='walking dog'}
+Device{deviceId='bot_2', blockchainAddress='city_1bot_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+VEHICLE CREATED IN CITY city_1,
+Vehicle{type=CAR, activity='parked', capacity=4, fee=10}
+Device{deviceId='car_1', blockchainAddress='city_1car_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+VEHICLE CREATED IN CITY city_1,
+Vehicle{type=BUS, activity='on route', capacity=30, fee=1}
+Device{deviceId='bus_1', blockchainAddress='city_1bus_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+VEHICLE UPDATED IN city_1
+Vehicle{type=CAR, activity='driving', capacity=4, fee=10}
+Device{deviceId='car_1', blockchainAddress='city_1car_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+VEHICLE UPDATED IN city_1
+Vehicle{type=BUS, activity='on route', capacity=30, fee=1}
+Device{deviceId='bus_1', blockchainAddress='city_1bus_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+SHOWING DEVICE INFO FOR ID city_1:bus_1
+Vehicle{type=BUS, activity='on route', capacity=30, fee=1}
+Device{deviceId='bus_1', blockchainAddress='city_1bus_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1. Device 1 of 12
+Robot{activity='cleaning'}
+Device{deviceId='bot_1', blockchainAddress='city_1bot_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1. Device 2 of 12
+ParkingSpace{rate=50}
+Device{deviceId='ps_1', blockchainAddress='city_1ps_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1. Device 3 of 12
+InformationKiosk{imageUri='https://media-cdn.tripadvisor.com/media/photo-s/05/94/cc/10/charles-hotel.jpg']
+Device{deviceId='kiosk_1', blockchainAddress='city_1kiosk_1', status=OFFLINE, enabled=false, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1. Device 4 of 12
+ParkingSpace{rate=50}
+Device{deviceId='ps_2', blockchainAddress='city_1ps_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1. Device 5 of 12
+Robot{activity='walking dog'}
+Device{deviceId='bot_2', blockchainAddress='city_1bot_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1. Device 6 of 12
+StreetSign{text='The time is now 9:00 pm'}
+Device{deviceId='ss_1', blockchainAddress='city_1ss_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1. Device 7 of 12
+StreetSign{text='Now playing, Cassablaca'}
+Device{deviceId='ss_2', blockchainAddress='city_1ss_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1. Device 8 of 12
+InformationKiosk{imageUri='https://www.google.com/maps/place/Cambridge,+MA/@42.3737266,-71.1236297,16.23z/data=!4m5!3m4!1s0x89e370a5cb30cc5f:0xc53a8e6489686c87!8m2!3d42.3736158!4d-71.1097335']
+Device{deviceId='kiosk_2', blockchainAddress='city_1kiosk_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1. Device 9 of 12
+Vehicle{type=CAR, activity='driving', capacity=4, fee=10}
+Device{deviceId='car_1', blockchainAddress='city_1car_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1. Device 10 of 12
+StreetLight{brightness=5}
+Device{deviceId='sl_2', blockchainAddress='city_1sl_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1. Device 11 of 12
+Vehicle{type=BUS, activity='on route', capacity=30, fee=1}
+Device{deviceId='bus_1', blockchainAddress='city_1bus_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+
+SHOWING DEVICE INFO FOR ID city_1. Device 12 of 12
+StreetLight{brightness=5}
+Device{deviceId='sl_1', blockchainAddress='city_1sl_1', status=OFFLINE, enabled=false, lastDeviceEvent=null}
+
+
+SENSOR EVENT REGISTERED FOR DEVICE bus_1 IN city_1
+SensorEvent{type=MICROPHONE, value='does this bus go to Central Square?', subject='jane'}
+
+SENSOR EVENT REGISTERED FOR DEVICE bus_1 IN city_1
+SensorEvent{type=CAMERA, value='person boarding bus', subject='jane'}
+
+SENSOR EVENT REGISTERED FOR DEVICE sl_1 IN city_1
+SensorEvent{type=THERMOMETER, value='80', subject='null'}
+
+SENSOR EVENT REGISTERED FOR DEVICE sl_1 IN city_1
+SensorEvent{type=CO2METER, value='500', subject='null'}
+
+SENSOR EVENT REGISTERED FOR DEVICE bot_1 IN city_1
+SensorEvent{type=THERMOMETER, value='98.6', subject='joe'}
+
+SENSOR OUTPUT REGISTERED FOR DEVICE bot_1 IN city_1
+SensorOutput{type=SPEAKER, value='your temperature is normal'}
+
+SPEAKER OUTPUT FROM DEVICE bot_1
+your temperature is normal
+
+SENSOR EVENT REGISTERED FOR ALL DEVICES city_1
+SensorOutput{type=SPEAKER, value='severe weather alert, please take shelter'}
+
+SPEAKER OUTPUT FROM DEVICE bot_1
+severe weather alert, please take shelter
+
+SPEAKER OUTPUT FROM DEVICE ps_1
+severe weather alert, please take shelter
+
+SPEAKER OUTPUT FROM DEVICE kiosk_1
+severe weather alert, please take shelter
+
+SPEAKER OUTPUT FROM DEVICE ps_2
+severe weather alert, please take shelter
+
+SPEAKER OUTPUT FROM DEVICE bot_2
+severe weather alert, please take shelter
+
+SPEAKER OUTPUT FROM DEVICE ss_1
+severe weather alert, please take shelter
+
+SPEAKER OUTPUT FROM DEVICE ss_2
+severe weather alert, please take shelter
+
+SPEAKER OUTPUT FROM DEVICE kiosk_2
+severe weather alert, please take shelter
+
+SPEAKER OUTPUT FROM DEVICE car_1
+severe weather alert, please take shelter
+
+SPEAKER OUTPUT FROM DEVICE sl_2
+severe weather alert, please take shelter
+
+SPEAKER OUTPUT FROM DEVICE bus_1
+severe weather alert, please take shelter
+
+SPEAKER OUTPUT FROM DEVICE sl_1
+severe weather alert, please take shelter
+
+RESIDENT CREATED
+Resident{name='jane', phoneNumber='781-222-3344', blockchainAddress='janes_account', role=ADULT}
+Person{personId='resident_1', biometricId='voice-print='voiceprint-jane',face-print='faceprint-jane''}
+
+
+RESIDENT UPDATED ID:resident_1
+Resident{name='jane', phoneNumber='781-222-3344', blockchainAddress='janes_account', role=ADULT}
+Person{personId='resident_1', biometricId='voice-print='voiceprint-jane',face-print='faceprint-jane''}
+
+VISITOR CREATED
+Visitor{}
+Person{personId='visitor_1', biometricId='iris-print='irisprint-visitor_1''}
+
+
+VISITOR UPDATED ID:visitor_1
+Visitor{}
+Person{personId='visitor_1', biometricId='iris-print='irisprint-visitor_1''}
+
+SHOWING PERSON INFO FOR ID resident_1
+Resident{name='jane', phoneNumber='781-222-3344', blockchainAddress='janes_account', role=ADULT}
+Person{personId='resident_1', biometricId='voice-print='voiceprint-jane',face-print='faceprint-jane''}
+
+
+SHOWING PERSON INFO FOR ID visitor_1
+Visitor{}
+Person{personId='visitor_1', biometricId='iris-print='irisprint-visitor_1''}
+
+
+---------- Cambridge-MA ----------
+
+City{, cityId='city_1', name='Cambridge-MA', location=com.cscie97.smartcity.model.Location@5b6f7412}
+
+---DEVICES IN Cambridge-MA
+Robot{activity='cleaning'}
+Device{deviceId='bot_1', blockchainAddress='city_1bot_1', status=OFFLINE, enabled=true, lastDeviceEvent=
+SensorEvent{type=THERMOMETER, value='98.6', subject='joe'}
+}
+
+ParkingSpace{rate=50}
+Device{deviceId='ps_1', blockchainAddress='city_1ps_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+InformationKiosk{imageUri='https://media-cdn.tripadvisor.com/media/photo-s/05/94/cc/10/charles-hotel.jpg']
+Device{deviceId='kiosk_1', blockchainAddress='city_1kiosk_1', status=OFFLINE, enabled=false, lastDeviceEvent=null}
+
+ParkingSpace{rate=50}
+Device{deviceId='ps_2', blockchainAddress='city_1ps_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+Robot{activity='walking dog'}
+Device{deviceId='bot_2', blockchainAddress='city_1bot_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+StreetSign{text='The time is now 9:00 pm'}
+Device{deviceId='ss_1', blockchainAddress='city_1ss_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+StreetSign{text='Now playing, Cassablaca'}
+Device{deviceId='ss_2', blockchainAddress='city_1ss_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+InformationKiosk{imageUri='https://www.google.com/maps/place/Cambridge,+MA/@42.3737266,-71.1236297,16.23z/data=!4m5!3m4!1s0x89e370a5cb30cc5f:0xc53a8e6489686c87!8m2!3d42.3736158!4d-71.1097335']
+Device{deviceId='kiosk_2', blockchainAddress='city_1kiosk_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+Vehicle{type=CAR, activity='driving', capacity=4, fee=10}
+Device{deviceId='car_1', blockchainAddress='city_1car_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+StreetLight{brightness=5}
+Device{deviceId='sl_2', blockchainAddress='city_1sl_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+Vehicle{type=BUS, activity='on route', capacity=30, fee=1}
+Device{deviceId='bus_1', blockchainAddress='city_1bus_1', status=OFFLINE, enabled=true, lastDeviceEvent=
+SensorEvent{type=CAMERA, value='person boarding bus', subject='jane'}
+}
+
+StreetLight{brightness=5}
+Device{deviceId='sl_1', blockchainAddress='city_1sl_1', status=OFFLINE, enabled=false, lastDeviceEvent=
+SensorEvent{type=CO2METER, value='500', subject='null'}
+}
+
+---PERSONS IN Cambridge-MA
+Resident{name='jane', phoneNumber='781-222-3344', blockchainAddress='janes_account', role=ADULT}
+Person{personId='resident_1', biometricId='voice-print='voiceprint-jane',face-print='faceprint-jane''}
+
+Visitor{}
+Person{personId='visitor_1', biometricId='iris-print='irisprint-visitor_1''}
+
+---------- END Cambridge-MA ----------
+
+Process finished with exit code 0

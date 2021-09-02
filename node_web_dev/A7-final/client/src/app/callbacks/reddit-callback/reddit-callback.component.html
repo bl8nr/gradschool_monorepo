@@ -1,0 +1,49 @@
+<span>
+  <div class="main-container">
+    <section class="height-70">
+      <div class="container">
+          <div class="row mb-5">
+              <div class="col text-center logo">
+                <span class="navbar-brand pointer">
+                  <img class="navbar-logo" src="assets/images/logo-black.svg" alt="multiPost Logo">
+                  <span class="navbar-logo-copy">Reply</span>
+                  <span class="navbar-logo-copy navbar-logo-copy-as">as</span>
+                </span>
+              </div>
+            </div>
+        <div class="row justify-content-center">
+          <div *ngIf="isLoading" class="col-12 col-md-6 col-lg-5 text-center">
+            <i class="fal fa-spinner-third fa-spin fa-4x"></i>
+            <br/>
+            <br/> Activating reddit integeration...
+            <br/>
+            <br/>
+            <button class="btn btn-primary" routerLink="/profiles" [disabled]="true">
+              Continue
+            </button>
+          </div>
+          <div *ngIf="!isLoading && !isErrored" class="col-12 col-md-6 col-lg-5 text-center">
+            <i class="fal fa-check-circle fa-4x"></i>
+            <br/>
+            <br/> Done! Click Continue to go back to your team.
+            <br/>
+            <br/>
+            <button class="btn btn-primary" routerLink="/profiles">
+              Continue
+            </button>
+          </div>
+          <div *ngIf="!isLoading && isErrored" class="col-12 col-md-6 col-lg-5 text-center">
+              <i class="fal fa-exclamation-circle fa-4x"></i>
+              <br/>
+              <br/> An error occured. Click Continue to go back home.
+              <br/>
+              <br/>
+              <button class="btn btn-primary" routerLink="/profiles">
+                Continue
+              </button>
+            </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</span>

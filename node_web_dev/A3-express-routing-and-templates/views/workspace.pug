@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  .row.pt-3
+    .col-sm-12 
+      .card
+        .card-body
+          .h5.card-title #{ workspace.name } Workspace
+          form.form-horizontal.my-5
+            .form-group
+              label.col-sm-2.control-label Workspace Name
+              .col-sm-10
+                input#workspaceName.form-control(type='text', value=workspace.name name='name', disabled='true')
+            .form-group
+              label.col-sm-2.control-label.d-block Workspace Description
+              .col-sm-7.d-inline-block
+                input#description.form-control(type='text', value=workspace.description name='description', disabled='true')
+              .col-sm-2.col-sm-offset-1.d-inline-block
+                input#format.custom-select(name='format', value=workspace.format, disabled='true')
+            .form-group
+              .col-sm-offset-2.col-sm-10
+                a(href='/'): button.btn.btn-primary.mx-2(type='button') View All Workspaces

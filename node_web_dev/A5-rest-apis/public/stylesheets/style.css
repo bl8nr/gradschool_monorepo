@@ -1,0 +1,36 @@
+body {
+}
+
+a {
+}
+
+.navbar-logo-copy {
+    font-weight: 800;
+    letter-spacing: .5px;
+    font-size: 20px;
+}
+.navbar-logo {
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+.reddit-color {
+    color: #ff4500;
+}
+
+.quora-color {
+    color: #a82400;
+}
+
+.stack-exchange-color {
+    color: #1e5397;
+}
+
+.stack-overflow-color {
+    color: #f48024;
+}
+.white-text {
+    color: #ffffff !important;
+}
+

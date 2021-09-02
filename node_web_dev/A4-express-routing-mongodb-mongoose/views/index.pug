@@ -1,0 +1,44 @@
+extends layout/layout
+
+include layout/navbar
+include layout/footer
+
+block content
+    //- render the navbar that doesnt have the logout button
+    +navbar
+    .main-container
+        section.bg-dark.space-lg
+            img.bg-image(alt='Image', src='/images/graphic-bg-clouds-2.png')
+            .container
+                .row.align-items-center.justify-content-between
+                    .col-12.col-md-6.col-lg-5.section-intro
+                        h1.display-3 CSCI E-31
+                        span.lead
+                            | this is the start of my final project. It includes authentication and the ability to manage team items.
+                    .col-12.col-md-6.col-lg-5
+                        .card
+                            .card-body
+                                //- user registration form
+                                form(role='form', action="/register",method="post")
+                                    .form-group
+                                        label(for='exampleInputUsername') Username
+                                        input#exampleInputUsername.form-control.form-control-lg(type='text', required="true", name='username', placeholder='Pick a username')
+                                    .form-group
+                                        label(for='exampleInputEmail') Email address
+                                        input#exampleInputEmail.form-control.form-control-lg(type='email', required="true", name='email', placeholder='Enter email')
+                                        small#emailHelp.form-text We'll never share your email with anyone else.
+                                    .form-group
+                                        label(for='exampleInputPassword') Password
+                                        input#exampleInputPassword.form-control.form-control-lg(type='password', required="true", placeholder='Password', name='password')
+                                    .mb-3
+                                        .custom-control.custom-checkbox
+                                            input#check-agree.custom-control-input(type='checkbox', onchange="document.getElementById('submit').disabled = !this.checked;")
+                                            label.custom-control-label.text-small(for='check-agree')
+                                                | I agree to
+                                                a(href='#') Nothing
+                                    if (error && error.length > 0)
+                                        .alert.alert-danger.alert-dismissible(role="alert", style='font-size:12px;')= error
+                                            a.close(href="#" data-dismiss="alert" aria-label="close") &times;
+                                    button.btn.btn-lg.btn-success.btn-block(type='submit', id='submit', disabled='true' ) Sign up for Nothing
+        //- render footer
+        +footer

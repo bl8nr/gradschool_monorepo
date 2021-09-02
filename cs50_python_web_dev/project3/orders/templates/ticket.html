@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <!-- BEGIN page header -->
+    <div class="row">
+        <div class="col-sm-12">
+            {% if ticket.isSubmitted %}
+                <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+                    <h1 class="display-4">Order Details</h1>
+                    <p class="lead">Showing {{ ticket.orderItems.all|length }} Order Items</p>
+                </div>
+            {% else %}
+                <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+                    <h1 class="display-4">Shopping Cart</h1>
+                    <p class="lead">Showing {{ ticket.orderItems.all|length }} items from your cart</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <!-- END page header -->
+
+    <div class="row">
+
+        <!-- BEGIN order items section -->
+        <div class="col-sm-12 col-md-8 border-right">
+            <div class="row">
+
+                <!-- BEGIN column section for each orderItem in the ticket -->
+                {% for orderItem in ticket.orderItems.all %}
+                    <div class="col-sm-12 col-md-6">
+
+                        <!-- create a form allowing the user to delete this order item if the ticket is not submitted -->
+                        <form method="POST"
+                              action="{% url 'orderItem' ticket_id=shoppingCart.id orderItem_id=orderItem.id %}">
+                            {% csrf_token %}
+                            <input type="hidden" id="method" name="method" value="DELETE">
+                            <div class="card mb-4 shadow-sm">
+                                <div class="card-body">
+                                    <h4 class="my-0 font-weight-normal">{{ orderItem.menuItemId.name }} ({{ orderItem.menuItemId.size }})</h4>
+                                    <h1 class="card-title pricing-card-title">${{ orderItem.totalItemPrice }} <small
+                                            class="text-muted"></small></h1>
+
+                                    <!-- if the orderItem has modifiers show the Toppings and Customizations section -->
+                                    {% if orderItem.modifiers.all|length > 0 %}
+                                        <div class="border-top border-bottom mb-3">
+                                            <h2 class="f-14 pt-3">Toppings & Customizations</h2>
+                                            <ul class="list-group list-group-flush">
+
+                                                <!-- for each modifier in the orderItem, show its name and price adjustment -->
+                                                {% for modifier in orderItem.modifiers.all %}
+                                                    <li class="list-group-item border-0 my-1 py-1 px-0">
+                                                        <span class="float-left">Customization {{ i|add:1 }}</span>
+                                                        <select class="float-right" disabled>
+                                                            <option>
+                                                                {{ modifier.name }}
+                                                                {% if modifier.priceAdjustment > 0.00 %}
+                                                                    +${{ modifier.priceAdjustment }}
+                                                                {% endif %}
+                                                            </option>
+                                                        </select>
+                                                    </li>
+                                                {% endfor %}
+
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+
+                                    <!-- if the ticket has already been submitted (ie its not a shopping cart), dont let the user remove the orderItem -->
+                                    {% if ticket.isSubmitted == False %}
+                                        <button type="submit" class="btn btn-lg btn-block btn-outline-dark">
+                                            Remove from Cart
+                                        </button>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                {% endfor %}
+                <!-- END column section for each orderItem in the ticket -->
+
+            </div>
+        </div>
+        <!-- END order items section -->
+
+        <!-- BEGIN subtotal and checkout section -->
+        <div class="col-sm-12 col-md-4">
+
+            <!-- create form allowing user to checkout -->
+            <form method="POST" action="{% url 'ticket' ticket_id=shoppingCart.id %}">
+                {% csrf_token %}
+                <input type="hidden" id="action" name="action" value="checkout">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Subtotal</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">${{ ticket.subTotal }}</h1>
+
+                        <!-- show status and time of the ticket if its submitted (ie not a shopping cart) -->
+                        {% if ticket.isSubmitted %}
+                            Order Date: {{ ticket.submittedOn }} <br/>
+                            Order Status:
+                            {% if ticket.isCompleted %}
+                                COMPLETED
+                            {% else %}
+                                IN PROGRESS
+                            {% endif %}
+                        {% else %}
+                            <!-- otherwise show the checkout button if there are items in the ticket/cart -->
+                            {% if ticket.orderItems.all|length > 0 %}
+                                <button type="submit" class="btn btn-lg btn-block btn-outline-dark">
+                                    Confirm & Checkout
+                                </button>
+                            {% endif %}
+                        {% endif %}
+
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- END subtotal and checkout section -->
+
+    </div>
+{% endblock %}

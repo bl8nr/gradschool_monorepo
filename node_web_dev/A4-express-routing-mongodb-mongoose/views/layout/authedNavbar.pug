@@ -1,0 +1,14 @@
+mixin authedNavbar
+    .nav-container
+        .bg-dark.navbar-dark
+            .container
+                nav.navbar.navbar-expand-lg
+                    a.navbar-brand(href='/')
+                        span.icon.icon-feather
+                    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav-1', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+                        i.icon-menu.h4
+                    .collapse.navbar-collapse.justify-content-between
+                        ul.navbar-nav
+                        ul.navbar-nav
+                            li.nav-item
+                                a(href='/logout') Logout

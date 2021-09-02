@@ -1,0 +1,142 @@
+Last login: Mon Sep 14 18:58:28 on ttys001
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+Bretts-MacBook-Pro:assignment 1 brett$ java -cp . com.cscie97.ledger.test.TestDriver ledger.script
+NEW LEDGER CREATED
+Name: test
+Description: test ledger 2020
+Seed: harvard
+
+NEW ACCOUNT CREATED
+AccountId: mary
+
+NEW ACCOUNT CREATED
+AccountId: bob
+
+NEW ACCOUNT CREATED
+AccountId: bill
+
+NEW ACCOUNT CREATED
+AccountId: frank
+
+NEW ACCOUNT CREATED
+AccountId: jane
+
+ERROR (15): GET-ACCOUNT-BALANCE FAILED. ACCOUNT COULD NOT BE FOUND IN BLOCKCHAIN
+
+TRANSACTION PROCESSED
+TransactionId: 1
+
+TRANSACTION PROCESSED
+TransactionId: 2
+
+TRANSACTION PROCESSED
+TransactionId: 3
+
+TRANSACTION PROCESSED
+TransactionId: 4
+
+TRANSACTION PROCESSED
+TransactionId: 5
+
+ERROR (29): GET-ACCOUNT-BALANCE FAILED. ACCOUNT COULD NOT BE FOUND IN BLOCKCHAIN
+
+GET ACCOUNT BALANCES
+ERROR (33): GET-ACCOUNT-BALANCES FAILED. NO ACCOUNTS COULD BE FOUND IN BLOCKCHAIN
+
+TRANSACTION PROCESSED
+TransactionId: 6
+
+TRANSACTION PROCESSED
+TransactionId: 7
+
+TRANSACTION PROCESSED
+TransactionId: 8
+
+TRANSACTION PROCESSED
+TransactionId: 9
+
+TRANSACTION PROCESSED
+TransactionId: 10
+
+GET ACCOUNT BALANCE
+mary: 3000
+
+GET ACCOUNT BALANCE
+bob: 3000
+
+GET ACCOUNT BALANCE
+bill: 2000
+
+GET ACCOUNT BALANCE
+frank: 2000
+
+GET ACCOUNT BALANCE
+jane: 0
+
+GET BLOCK
+Block Number: 1
+Account Balance Map: {frank=2000, bob=3000, mary=3000, bill=2000, master=2147473647, jane=0}
+Transactions: {1=ID: 1, 1000 from master to mary, Fee: 10, Note: fund account, 2=ID: 2, 1000 from master to bob, Fee: 10, Note: fund account, 3=ID: 3, 1000 from master to bill, Fee: 10, Note: fund account, 4=ID: 4, 1000 from master to frank, Fee: 10, Note: fund account, 5=ID: 5, 1000 from master to mary, Fee: 10, Note: fund account, 6=ID: 6, 1000 from master to bob, Fee: 10, Note: fund account, 7=ID: 7, 1000 from master to bill, Fee: 10, Note: fund account, 8=ID: 8, 1000 from master to frank, Fee: 10, Note: fund account, 9=ID: 9, 1000 from master to mary, Fee: 10, Note: fund account, 10=ID: 10, 1000 from master to bob, Fee: 10, Note: fund account}
+
+GET TRANSACTION
+ID: 10, 1000 from master to bob, Fee: 10, Note: fund account
+
+TRANSACTION PROCESSED
+TransactionId: 11
+
+GET ACCOUNT BALANCE
+frank: 2000
+
+GET ACCOUNT BALANCE
+jane: 0
+
+TRANSACTION PROCESSED
+TransactionId: 12
+
+TRANSACTION PROCESSED
+TransactionId: 13
+
+TRANSACTION PROCESSED
+TransactionId: 14
+
+TRANSACTION PROCESSED
+TransactionId: 15
+
+TRANSACTION PROCESSED
+TransactionId: 16
+
+TRANSACTION PROCESSED
+TransactionId: 17
+
+TRANSACTION PROCESSED
+TransactionId: 18
+
+TRANSACTION PROCESSED
+TransactionId: 19
+
+TRANSACTION PROCESSED
+TransactionId: 20
+
+GET ACCOUNT BALANCE
+jane: 200
+
+GET ACCOUNT BALANCE
+frank: 1790
+
+GET ACCOUNT BALANCE
+mary: 3180
+
+GET ACCOUNT BALANCE
+bob: 2730
+
+GET ACCOUNT BALANCES
+{frank=1790, bob=2730, mary=3180, bill=2000, master=2147473747, jane=200}
+
+ERROR (106): PROCESS-TRANSACTION FAILED. NOT ENOUGH FUNDS AVAILABLE FOR TRANSACTION
+
+ERROR (110): PROCESS-TRANSACTION FAILED. TRANSACTION FEE DOES NOT MEET THE MINIMUM REQUIREMENTS.
+
+BLOCKCHAIN SUCCESSFULLY VALIDATED

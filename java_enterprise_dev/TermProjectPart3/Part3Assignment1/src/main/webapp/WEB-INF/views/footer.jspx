@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div id="footer" xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8" />
+    <jsp:output omit-xml-declaration="yes" />
+
+    <!-- add spring messaging for i18n -->
+    <spring:message code="label_en_US" var="labelEnUs"/>
+    <spring:message code="label_fr_FR" var="labelFrFr"/>
+    <spring:message code="label_es_ES" var="labelEsEs"/>
+
+    <!-- add spring url for home page -->
+    <spring:url value="/books" var="homeUrl"/>
+
+    <!-- create footer with hyperlinks for different locale params / i18n translations -->
+    <ul class="nav footer">
+        <li class="nav-item">
+            <a class="nav-link" href="${homeUrl}?lang=en_US">${labelEnUs}</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="${homeUrl}?lang=fr_FR">${labelFrFr}</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="${homeUrl}?lang=es_ES">${labelEsEs}</a>
+        </li>
+    </ul>
+</div>

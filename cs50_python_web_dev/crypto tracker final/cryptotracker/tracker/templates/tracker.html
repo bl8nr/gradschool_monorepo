@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <!-- BEGIN header -->
+    <div class="dashhead">
+        <div class="dashhead-titles">
+            <h6 class="dashhead-subtitle">Crypto Tracker</h6>
+            <h2 class="dashhead-title">
+                {% if isWatchlist %}
+                    Watchlist
+                {% else %}
+                    Dashboard
+                {% endif %}
+            </h2>
+        </div>
+    </div>
+    <!-- END header -->
+
+    <hr class="mt-3">
+
+    <!-- BEGIN coin master list table -->
+    <section>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="hr-divider mt-5">
+                    <h3 class="hr-divider-content hr-divider-heading">Coin Master List</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    <table class="table" data-sort="table">
+                        <thead>
+                        <tr>
+                            <th class="header clear-border"> {# empty #} </th>
+                            <th class="header clear-border headerSortDown">Symbol</th>
+                            <th class="header clear-border">Common Name</th>
+                            <th class="header clear-border">Volume</th>
+                            <th class="header clear-border">Change</th>
+                            <th class="header clear-border">Current Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <!-- for every coin in the coinlist, create an appropriate table row -->
+                        {% for coin in coinlist %}
+                            <tr>
+                                <td><img class="table-icon" src="{{ coin.image }}"></td>
+                                <td>
+                                    <a href="{% url 'coin' coin.id %}">
+                                        {{ coin.symbol|upper }}
+                                    </a>
+                                </td>
+                                <td>{{ coin.name }}</td>
+                                <td>{{ coin.total_volume }}</td>
+                                <td>{{ coin.price_change_percentage_24h }}</td>
+                                <td>$ {{ coin.current_price }}</td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="hr-divider mb-3">
+                    <h3 class="hr-divider-content hr-divider-heading">End of List</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END coin master list table -->
+
+{% endblock %}

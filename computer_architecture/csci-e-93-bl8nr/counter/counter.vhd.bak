@@ -1,0 +1,20 @@
+entity counter is
+	port (pb1, pb2: in bit;
+		led1, led2: out bit);
+end entity counter;
+-- Assign pins as follows on the DE2-70:
+-- Signal Pin Device
+-- led1 PIN_AJ7 LEDR17 leftmost red LED
+-- led2 PIN_AD8 LEDR16 second to leftmost red LED
+-- pb1 PIN_U29 KEY3 leftmost pushbutton
+-- pb2 PIN_U30 KEY2 second to leftmost pushbutton
+architecture dataflow of counter is
+	attribute chip_pin: string;
+	attribute chip_pin of led1: signal is "F19";
+	attribute chip_pin of led2: signal is "G19";
+	attribute chip_pin of pb1: signal is "R24";
+	attribute chip_pin of pb2: signal is "N21";
+begin
+	led1 <= (not pb1) and (not pb2);
+	led2 <= (not pb1) or (not pb2);
+end architecture dataflow;

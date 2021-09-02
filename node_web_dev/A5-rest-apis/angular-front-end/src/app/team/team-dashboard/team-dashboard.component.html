@@ -1,0 +1,96 @@
+<span *ngIf="!isLoading">
+  <!-- breadcrumbs -->
+  <app-breadcrumbs *ngIf="!loading" [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+
+  <section class="bg-white space-sm">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col">
+          <div class="media align-items-center">
+            <img alt="Image" src="assets/images/placeholder.svg" class="avatar avatar-lg avatar-square rounded">
+            <div class="media-body">
+              <h1 class="mb-0">{{ teamService.team.teamName }}</h1>
+              <h2 class="lead mb-2">{{ teamService.team.teamDescription }}</h2>
+              <div class="d-flex align-items-center">
+                <span class="badge badge-primary mr-3">Basic</span>
+                <ul class="list-inline text-small d-inline-block">
+                  <li class="list-inline-item">
+                    <!-- <li class="list-inline-item"><i class="icon-message mr-1"></i> 19</li>
+                                  <li class="list-inline-item"><i class="icon-attachment mr-1"></i> 12</li> -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto">
+          <a [routerLink]="['/home']" class="btn btn-success">Go back home</a>
+          <span class="social-icons">
+            <i class="fab fa-reddit social-icon faded ml-2"></i>
+            <i class="fab fa-quora social-icon quora-color ml-2"></i>
+            <i class="fab fa-stack-overflow social-icon faded ml-2"></i>
+            <i class="fab fa-stack-exchange social-icon faded ml-2"></i>
+          </span>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="flush-with-above space-0">
+    <div class="bg-white">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <!-- <li class="nav-item">
+                <a class="nav-link active show" id="overview-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">Notifications</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="billing-tab" data-toggle="tab" href="#billing" role="tab" aria-controls="billing" aria-selected="false" (click)="handleChangeTab('members')">Teammates</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false" (click)="handleChangeTab('settings')">Settings</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" id="notifications-tab" data-toggle="tab" href="#notifications" role="tab" aria-controls="notifications" aria-selected="false" (click)="handleChangeTab('integrations')">Integrations</a>
+              </li> -->
+            </ul>
+          </div>
+          <!--end of col-->
+        </div>
+        <!--end of row-->
+      </div>
+      <!--end of container-->
+    </div>
+  </section>
+
+
+
+
+  <section class="space-sm">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-12">
+          <app-team-settings *ngIf="currentTab === 'settings'"></app-team-settings>
+          <app-team-members *ngIf="currentTab === 'members'"></app-team-members>
+          <app-team-integrations *ngIf="currentTab === 'integrations'"></app-team-integrations>
+        </div>
+      </div>
+    </div>
+  </section>
+</span>
+
+<!-- ******************** -->
+<!-- page loading spinner -->
+<!-- ******************** -->
+<section class="height-70" *ngIf="isLoading">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 col-lg-5 text-center">
+        <i class="fas fa-spinner-third fa-spin fa-4x"></i>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ************************ -->
+<!-- END page loading spinner -->
+<!-- ************************ -->

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <!-- required bootstrap meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- load required bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- load required theme font -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+
+    <!-- load the static css file -->
+    {% load static %}
+    <link href="{% static 'tracker/css/application.css' %}" rel="stylesheet">
+    <link href="{% static 'tracker/css/toolkit-light.css' %}" rel="stylesheet">
+    <link href="{% static 'tracker/css/styles.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-zrnmn8R8KkWl12rAZFt4yKjxplaDaT7/EUkKm7AovijfrQItFWR7O/JJn4DAa/gx" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js" crossorigin="anonymous"></script>
+
+    {% load static %}
+    <script src="{% static 'tracker/js/jquery.min.js' %}" crossorigin="anonymous"></script>
+    <script src="{% static 'tracker/js/tether.min.js' %}" crossorigin="anonymous"></script>
+    <script src="{% static 'tracker/js/chart.js' %}" crossorigin="anonymous"></script>
+    <script src="{% static 'tracker/js/tablesorter.min.js' %}" crossorigin="anonymous"></script>
+    <script src="{% static 'tracker/js/toolkit.js' %}" crossorigin="anonymous"></script>
+    <script src="{% static 'tracker/js/application.js' %}" crossorigin="anonymous"></script>
+
+    <title>CryptoTracker</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        {% if user.username %}
+            <div class="col-md-3 sidebar">
+                <nav class="sidebar-nav">
+                    <div class="sidebar-header">
+                        <a class="sidebar-brand img-responsive" href="/">
+                            <span class="sidebar-brand-icon ml-4"><i class="fas fa-coins"></i></span>
+                        </a>
+                    </div>
+                    <div class="nav-toggleable-md pt-5">
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-header">
+                                <a href="{% url 'index' %}">
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-header">Watchlist</li>
+                            {% for watchlistcoin in user.watchlist.all %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'coin' watchlistcoin.coinId %}">{{ watchlistcoin.coinName }}</a>
+                                </li>
+                            {% endfor %}
+                            <li class="nav-header">Settings</li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        {% else %}
+            <div class="col-md-3 sidebar">
+                <!-- empty sidebar is user is not authenticated -->
+            </div>
+        {% endif %}
+        <div class="col-md-9 content">
+            <!-- template generated content fills the tag below -->
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

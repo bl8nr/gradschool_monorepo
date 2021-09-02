@@ -1,0 +1,71 @@
+Last login: Mon Nov 16 21:49:35 on ttys002
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+Bretts-MacBook-Pro:submisson 2 brett$ javac com/cscie97/smartcity/controller/*.java com/cscie97/smartcity/model/*.java com/cscie97/smartcity/authentication/*.java com/cscie97/smartcity/ledger/*.java com/cscie97/smartcity/test/*.java
+Bretts-MacBook-Pro:submisson 2 brett$ java -cp . com.cscie97.smartcity.test.TestDriver Assignment_4_sample_script.script
+Creating administrative user "root_user"
+SmartCityModelService Initialized
+SmartCityLedgerService Initialized
+SmartCityControllerService Initialized
+
+LOGGED IN USER { userId: smcs }
+AUTH TOKEN CREATED { userId: smcs, token: 1ce1d03a-9b93-42a9-ba36-b6407fea81d0 }
+com.cscie97.smartcity.controller.SmartCityControllerService@65b3120a has been registered as an Observer of the SmartCityModelService
+
+LOGGED IN USER { userId: root_user }
+AUTH TOKEN CREATED { userId: root_user, token: 89f5b2bd-7c7c-44a7-bb59-f18a4da6e239 }
+
+NEW PERMISSION CREATED { Name: User Administrator, ID: auth_user_admin, Description: Create, Update, Delete Users }
+
+NEW PERMISSION CREATED { Name: User Administrator, ID: auth_resource_admin, Description: Create, Update, Delete Resources }
+
+NEW PERMISSION CREATED { Name: Control Robot, ID: scms_control_robot, Description: Full Control of Robots }
+
+NEW PERMISSION CREATED { Name: Drive Car, ID: scms_drive_car, Description: Drive a car }
+
+NEW PERMISSION CREATED { Name: Drive Car, ID: scms_ride_bus, Description: Drive a car }
+
+NEW PERMISSION CREATED { Name: Create, Update City, ID: scms_define_city, Description: Create or update a City }
+
+NEW PERMISSION CREATED { Name: Create, Update City, ID: scms_manage_city, Description: Create or update a City }
+
+NEW PERMISSION CREATED { Name: Create, Update Device, ID: scms_manage_device, Description: Define a new City }
+NEW ROLE CREATED { ID: adult_role, Name: Adult Role, Description: Has all permissions of an adult }
+NEW ROLE CREATED { ID: child_role, Name: Child Role, Description: Has all permissions of a child }
+NEW ROLE CREATED { ID: public_admin_role, Name: Public Administrator Role, Description: Has all permissions of a public administrator }
+NEW ROLE CREATED { ID: admin_role, Name: Admin Role, Description: Has all permissions of an administrator }
+PERMISSION ADDED TO ROLE { permissionId: auth_user_admin, roleId: admin_role }
+PERMISSION ADDED TO ROLE { permissionId: scms_control_robot, roleId: admin_role }
+PERMISSION ADDED TO ROLE { permissionId: scms_drive_car, roleId: admin_role }
+PERMISSION ADDED TO ROLE { permissionId: scms_define_city, roleId: admin_role }
+PERMISSION ADDED TO ROLE { permissionId: scms_control_robot, roleId: public_admin_role }
+PERMISSION ADDED TO ROLE { permissionId: scms_drive_car, roleId: public_admin_role }
+PERMISSION ADDED TO ROLE { permissionId: scms_control_robot, roleId: adult_role }
+PERMISSION ADDED TO ROLE { permissionId: scms_drive_car, roleId: adult_role }
+PERMISSION ADDED TO ROLE { permissionId: scms_ride_bus, roleId: adult_role }
+PERMISSION ADDED TO ROLE { permissionId: scms_control_robot, roleId: child_role }
+PERMISSION ADDED TO ROLE { permissionId: scms_ride_bus, roleId: child_role }
+USER CREDENTIAL UPDATED { userID: resident_1, credentialType: PASSWORD, credential: password }
+NEW USER CREATED { ID: resident_1, Name: resident adult Jane }
+USER CREDENTIAL UPDATED { userID: resident_2, credentialType: PASSWORD, credential: password }
+NEW USER CREATED { ID: resident_2, Name: resident child Billy }
+USER CREDENTIAL UPDATED { userID: visitor_1, credentialType: PASSWORD, credential: password }
+NEW USER CREATED { ID: visitor_1, Name: Anonymous }
+USER CREDENTIAL UPDATED { userID: admin_1, credentialType: PASSWORD, credential: password }
+NEW USER CREATED { ID: admin_1, Name: Debra Smart }
+USER CREDENTIAL UPDATED { userID: resident_1, credentialType: BIOMETRIC, credential: voiceprint:jane-voiceprint }
+USER CREDENTIAL UPDATED { userID: resident_2, credentialType: BIOMETRIC, credential: voiceprint:billy-voiceprint }
+USER CREDENTIAL UPDATED { userID: resident_2, credentialType: BIOMETRIC, credential: faceprint:billy-faceprint }
+USER CREDENTIAL UPDATED { userID: visitor_1, credentialType: BIOMETRIC, credential: faceprint:adam-faceprint }
+USER CREDENTIAL UPDATED { userID: admin_1, credentialType: PASSWORD, credential: secret }
+ROLE ADDED TO USER { userId: resident_1, roleID: adult_role }
+ROLE ADDED TO USER { userId: resident_2, roleID: child_role }
+ROLE ADDED TO USER { userId: visitor_1, roleID: adult_role }
+ROLE ADDED TO USER { userId: admin_1, roleID: admin_role }
+ERROR (66): CREATE_RESOURCE_ROLE CITY1_PUBLIC_ADMINISTRATOR_RESOURCE_ROLE FAILED, FILED TO FIND ROLE OR RESOURCE
+ERROR (67): CREATE_RESOURCE_ROLE CITY2_PUBLIC_ADMINISTRATOR_RESOURCE_ROLE FAILED, FILED TO FIND ROLE OR RESOURCE
+ERROR (71): ADD_ROLE_TO_USER RESIDENT_1 FAILED, FAILED TO FIND ROLE OR USER
+ERROR (72): ADD_ROLE_TO_USER RESIDENT_1 FAILED, FAILED TO FIND ROLE OR USER
+Bretts-MacBook-Pro:submisson 2 brett$

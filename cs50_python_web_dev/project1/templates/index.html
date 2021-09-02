@@ -1,0 +1,106 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="my-5">
+                    <h1>Book Review Project 1</h1>
+                    <h4>Leave a Book review today!</h4>
+                    <h4>Sign in or register to get started.</h4>
+                </div>
+            </div>
+            <div class="col-sm-6">
+
+                {# auth registration form #}
+                <div id="registerForm" class="jumbotron my-5 collapse">
+                    <h1 class="display-4">Register</h1>
+                    <p class="lead">Register today to begin reviewing books</p>
+                    <hr class="my-4">
+                    <form action="{{ url_for('auth.register') }}" method="post">
+                        <input
+                                type="name"
+                                name="name"
+                                id="registrationFormFieldName"
+                                class="form-control my-3"
+                                placeholder="Name"
+                                required>
+                        <input
+                                type="email"
+                                name="email"
+                                id="registrationFormFieldEmail"
+                                class="form-control my-3"
+                                placeholder="Email address"
+                                required>
+                        <input
+                                type="password"
+                                name="password"
+                                id="registrationFormFieldPassword"
+                                class="form-control my-3"
+                                placeholder="Password"
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}"
+                                title="Your password must contain one number, one upper and lowercase letter and a least 4 total chars"
+                                required>
+                        <button class="btn btn-primary btn-lg d-block mx-auto" type="submit">
+                            Register
+                        </button>
+                        <div class="text-center pt-4">
+                            <span>Already have an account?</span>
+                            <a href="javascript:;" id="alreadyHaveAnAccountBtn">Click here sign in!</a>
+                        </div>
+                    </form>
+                </div>
+                {# end auth registration form #}
+
+                {# auth signup form #}
+                <div id="signInForm" class="jumbotron my-5 collapse">
+                    <h1 class="display-4">Sign In</h1>
+                    <p class="lead">Sign In to begin reviewing books</p>
+                    <hr class="my-4">
+                    <form action="{{ url_for('auth.login') }}" method="post">
+                        <input
+                                type="email"
+                                name="email"
+                                id="signInFormFieldEmail"
+                                class="form-control my-3"
+                                placeholder="Email address"
+                                required>
+                        <input
+                                type="password"
+                                name="password"
+                                id="signInFormFieldPassword"
+                                class="form-control my-3"
+                                placeholder="Password"
+                                required>
+                        <button class="btn btn-primary btn-lg d-block mx-auto" type="submit">
+                            Sign in
+                        </button>
+                        <div class="text-center pt-4">
+                            <span>Don't have an account?</span>
+                            <a href="javascript:;" id="dontHaveAnAccountYetBtn">Click here to create one!</a>
+                        </div>
+                    </form>
+                </div>
+                {# end auth signup form #}
+
+            </div>
+        </div>
+    </div>
+
+    {# below is some simple jquery which controls the toggle from signup form to registration form #}
+    <script>
+        $(document).ready(function () {
+            $('#signInForm').show();
+        });
+
+        $('#alreadyHaveAnAccountBtn').click(function () {
+            $('#registerForm').hide();
+            $('#signInForm').show();
+        });
+
+        $('#dontHaveAnAccountYetBtn').click(function () {
+            $('#signInForm').hide();
+            $('#registerForm').show();
+        });
+    </script>
+{% endblock %}

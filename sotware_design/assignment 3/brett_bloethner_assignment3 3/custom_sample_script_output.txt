@@ -1,0 +1,583 @@
+Bretts-MacBook-Pro:src brett$ java -cp . com.cscie97.smartcity.test.TestDriver Assignment_3_custom_sample_script.script
+SmartCityModelService Initialized
+SmartCityLedgerService Initialized
+SmartCityControllerService Initialized
+com.cscie97.smartcity.controller.SmartCityControllerService@2626b418 has been registered as an Observer of the SmartCityModelService
+City Cambridge-MA created. ID: city_1
+
+---------- Cambridge-MA ----------
+
+City{, cityId='city_1', name='Cambridge-MA', location=com.cscie97.smartcity.model.Location@5387f9e0}
+
+---DEVICES IN Cambridge-MA
+---PERSONS IN Cambridge-MA
+---------- END Cambridge-MA ----------
+
+STREET SIGN CREATED IN CITY city_1,
+StreetSign{text='Welcome to Harvard Square'}
+Device{deviceId='ss_1', blockchainAddress='city_1ss_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+STREET SIGN CREATED IN CITY city_1,
+StreetSign{text='Brattle Theatre'}
+Device{deviceId='ss_2', blockchainAddress='city_1ss_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+STREET SIGN UPDATED IN city_1
+StreetSign{text='The time is now 9:00 pm'}
+Device{deviceId='ss_1', blockchainAddress='city_1ss_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+STREET SIGN UPDATED IN city_1
+StreetSign{text='Now playing, Casablanca'}
+Device{deviceId='ss_2', blockchainAddress='city_1ss_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+INFORMATION KIOSK CREATED IN CITY city_1,
+InformationKiosk{imageUri='https://media-cdn.tripadvisor.com/media/photo-s/05/94/cc/10/charles-hotel.jpg']
+Device{deviceId='kiosk_1', blockchainAddress='city_1ik_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+INFORMATION KIOSK CREATED IN CITY city_1,
+InformationKiosk{imageUri='https://www.lwa-architects.com/wp-content/uploads/2014/12/Harvard-SciCtr_Ext-bikes-992x1250.jpg']
+Device{deviceId='kiosk_2', blockchainAddress='city_1ik_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+INFORMATION KIOSK UPDATED IN city_1
+InformationKiosk{imageUri='https://media-cdn.tripadvisor.com/media/photo-s/05/94/cc/10/charles-hotel.jpg']
+Device{deviceId='kiosk_1', blockchainAddress='city_1ik_1', status=OFFLINE, enabled=false, lastDeviceEvent=null}
+
+INFORMATION KIOSK UPDATED IN city_1
+InformationKiosk{imageUri='https://www.google.com/maps/place/Cambridge,+MA/@42.3737266,-71.1236297,16.23z/data=!4m5!3m4!1s0x89e370a5cb30cc5f:0xc53a8e6489686c87!8m2!3d42.3736158!4d-71.1097335']
+Device{deviceId='kiosk_2', blockchainAddress='city_1ik_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+STREET LIGHT CREATED IN CITY city_1,
+StreetLight{brightness=8}
+Device{deviceId='sl_1', blockchainAddress='city_1sl_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+STREET LIGHT CREATED IN CITY city_1,
+StreetLight{brightness=5}
+Device{deviceId='sl_2', blockchainAddress='city_1sl_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+STREET LIGHT UPDATED IN city_1
+StreetLight{brightness=4}
+Device{deviceId='sl_1', blockchainAddress='city_1sl_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+STREET LIGHT UPDATED IN city_1
+StreetLight{brightness=5}
+Device{deviceId='sl_1', blockchainAddress='city_1sl_1', status=OFFLINE, enabled=false, lastDeviceEvent=null}
+
+PARKING SPACE CREATED IN CITY city_1,
+ParkingSpace{rate=25}
+Device{deviceId='ps_1', blockchainAddress='city_1ps_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+PARKING SPACE CREATED IN CITY city_1,
+ParkingSpace{rate=25}
+Device{deviceId='ps_2', blockchainAddress='city_1ps_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+PARKING SPACE UPDATED IN city_1
+ParkingSpace{rate=50}
+Device{deviceId='ps_1', blockchainAddress='city_1ps_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+PARKING SPACE UPDATED IN city_1
+ParkingSpace{rate=50}
+Device{deviceId='ps_2', blockchainAddress='city_1ps_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+ROBOT CREATED IN CITY city_1,
+Robot{activity='cleaning'}
+Device{deviceId='bot_1', blockchainAddress='city_1bot_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+ROBOT CREATED IN CITY city_1,
+Robot{activity='assisting student'}
+Device{deviceId='bot_2', blockchainAddress='city_1bot_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+ROBOT CREATED IN CITY city_1,
+Robot{activity='cleaning stuff'}
+Device{deviceId='bot_3', blockchainAddress='city_1bot_3', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+ROBOT CREATED IN CITY city_1,
+Robot{activity='assisting and old person'}
+Device{deviceId='bot_4', blockchainAddress='city_1bot_4', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+ROBOT UPDATED IN city_1
+Robot{activity='cleaning'}
+Device{deviceId='bot_1', blockchainAddress='city_1bot_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+ROBOT UPDATED IN city_1
+Robot{activity='walking dog'}
+Device{deviceId='bot_2', blockchainAddress='city_1bot_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+VEHICLE CREATED IN CITY city_1,
+Vehicle{type=CAR, activity='parked', capacity=4, fee=10}
+Device{deviceId='car_1', blockchainAddress='city_1car_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+ERROR (78): DEFINE VEHICLE FAILED, FAILED TO CREATE LEDGER ACCOUNT
+
+VEHICLE CREATED IN CITY city_1,
+Vehicle{type=BUS, activity='on route', capacity=30, fee=1}
+Device{deviceId='bus_1', blockchainAddress='city_1bus_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+VEHICLE UPDATED IN city_1
+Vehicle{type=CAR, activity='driving', capacity=4, fee=10}
+Device{deviceId='car_1', blockchainAddress='city_1car_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+VEHICLE UPDATED IN city_1
+Vehicle{type=BUS, activity='on route', capacity=30, fee=1}
+Device{deviceId='bus_1', blockchainAddress='city_1bus_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+SHOWING DEVICE INFO FOR ID city_1:bus_1
+Vehicle{type=BUS, activity='on route', capacity=30, fee=1}
+Device{deviceId='bus_1', blockchainAddress='city_1bus_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+SHOWING DEVICE INFO FOR ID city_1. Device 1 of 15
+Robot{activity='cleaning'}
+Device{deviceId='bot_1', blockchainAddress='city_1bot_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+SHOWING DEVICE INFO FOR ID city_1. Device 2 of 15
+ParkingSpace{rate=50}
+Device{deviceId='ps_1', blockchainAddress='city_1ps_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+SHOWING DEVICE INFO FOR ID city_1. Device 3 of 15
+InformationKiosk{imageUri='https://media-cdn.tripadvisor.com/media/photo-s/05/94/cc/10/charles-hotel.jpg']
+Device{deviceId='kiosk_1', blockchainAddress='city_1ik_1', status=OFFLINE, enabled=false, lastDeviceEvent=null}
+
+SHOWING DEVICE INFO FOR ID city_1. Device 4 of 15
+ParkingSpace{rate=50}
+Device{deviceId='ps_2', blockchainAddress='city_1ps_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+SHOWING DEVICE INFO FOR ID city_1. Device 5 of 15
+Robot{activity='cleaning stuff'}
+Device{deviceId='bot_3', blockchainAddress='city_1bot_3', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+SHOWING DEVICE INFO FOR ID city_1. Device 6 of 15
+Robot{activity='walking dog'}
+Device{deviceId='bot_2', blockchainAddress='city_1bot_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+SHOWING DEVICE INFO FOR ID city_1. Device 7 of 15
+StreetSign{text='The time is now 9:00 pm'}
+Device{deviceId='ss_1', blockchainAddress='city_1ss_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+SHOWING DEVICE INFO FOR ID city_1. Device 8 of 15
+StreetSign{text='Now playing, Casablanca'}
+Device{deviceId='ss_2', blockchainAddress='city_1ss_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+SHOWING DEVICE INFO FOR ID city_1. Device 9 of 15
+InformationKiosk{imageUri='https://www.google.com/maps/place/Cambridge,+MA/@42.3737266,-71.1236297,16.23z/data=!4m5!3m4!1s0x89e370a5cb30cc5f:0xc53a8e6489686c87!8m2!3d42.3736158!4d-71.1097335']
+Device{deviceId='kiosk_2', blockchainAddress='city_1ik_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+SHOWING DEVICE INFO FOR ID city_1. Device 10 of 15
+Robot{activity='assisting and old person'}
+Device{deviceId='bot_4', blockchainAddress='city_1bot_4', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+SHOWING DEVICE INFO FOR ID city_1. Device 11 of 15
+Vehicle{type=CAR, activity='driving', capacity=4, fee=10}
+Device{deviceId='car_1', blockchainAddress='city_1car_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+SHOWING DEVICE INFO FOR ID city_1. Device 12 of 15
+Vehicle{type=CAR, activity='parked', capacity=4, fee=10}
+Device{deviceId='car_2', blockchainAddress='city_1car_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+SHOWING DEVICE INFO FOR ID city_1. Device 13 of 15
+Vehicle{type=BUS, activity='on route', capacity=30, fee=1}
+Device{deviceId='bus_1', blockchainAddress='city_1bus_1', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+SHOWING DEVICE INFO FOR ID city_1. Device 14 of 15
+StreetLight{brightness=5}
+Device{deviceId='sl_2', blockchainAddress='city_1sl_2', status=OFFLINE, enabled=true, lastDeviceEvent=null}
+
+SHOWING DEVICE INFO FOR ID city_1. Device 15 of 15
+StreetLight{brightness=5}
+Device{deviceId='sl_1', blockchainAddress='city_1sl_1', status=OFFLINE, enabled=false, lastDeviceEvent=null}
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bus_1, type, microphone, value, does this bus go to Central Square?, subject, resident_1]
+ERROR (95): CREATE SENSOR-EVENT FAILED, SMARTCITYCONTROLLERSERVICE COMMAND: FAILED TO SHOWPERSON WHEN SUBJECTID WAS PROVIDED
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bus_1, type, camera, value, person boards bus, subject, resident_1]
+ERROR (96): CREATE SENSOR-EVENT FAILED, SMARTCITYCONTROLLERSERVICE COMMAND: FAILED TO SHOWPERSON WHEN SUBJECTID WAS PROVIDED
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:sl_1, type, thermometer, value, 80]
+ERROR (97): CREATE SENSOR-EVENT FAILED, SMARTCITYCONTROLLERSERVICE UNPROCESSABLE THERMOMETER EVENT RECEIVED
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:sl_1, type, co2meter, value, 500]
+Recording CO2 Meter Reading...
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bot_1, type, thermometer, value, 98.6, subject, resident_2]
+ERROR (99): CREATE SENSOR-EVENT FAILED, SMARTCITYCONTROLLERSERVICE UNPROCESSABLE THERMOMETER EVENT RECEIVED
+
+SENSOR OUTPUT REGISTERED FOR DEVICE bot_1 IN city_1
+SensorOutput{type=SPEAKER, value='your temperature is normal'}
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_1: your temperature is normal
+
+SENSOR EVENT REGISTERED FOR ALL DEVICES city_1
+SensorOutput{type=SPEAKER, value='severe weather alert, please take shelter'}
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_1: severe weather alert, please take shelter
+SIMULATED SPEAKER OUTPUT FROM DEVICE ps_1: severe weather alert, please take shelter
+SIMULATED SPEAKER OUTPUT FROM DEVICE kiosk_1: severe weather alert, please take shelter
+SIMULATED SPEAKER OUTPUT FROM DEVICE ps_2: severe weather alert, please take shelter
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_3: severe weather alert, please take shelter
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_2: severe weather alert, please take shelter
+SIMULATED SPEAKER OUTPUT FROM DEVICE ss_1: severe weather alert, please take shelter
+SIMULATED SPEAKER OUTPUT FROM DEVICE ss_2: severe weather alert, please take shelter
+SIMULATED SPEAKER OUTPUT FROM DEVICE kiosk_2: severe weather alert, please take shelter
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_4: severe weather alert, please take shelter
+SIMULATED SPEAKER OUTPUT FROM DEVICE car_1: severe weather alert, please take shelter
+SIMULATED SPEAKER OUTPUT FROM DEVICE car_2: severe weather alert, please take shelter
+SIMULATED SPEAKER OUTPUT FROM DEVICE bus_1: severe weather alert, please take shelter
+SIMULATED SPEAKER OUTPUT FROM DEVICE sl_2: severe weather alert, please take shelter
+SIMULATED SPEAKER OUTPUT FROM DEVICE sl_1: severe weather alert, please take shelter
+
+RESIDENT CREATED
+Resident{name='jane', phoneNumber='781-222-3344', blockchainAddress='janes_account', role=ADULT}
+Person{personId='resident_1', biometricId='voice-print='voiceprint-jane',face-print='faceprint-jane''}
+
+RESIDENT CREATED
+Resident{name='joe', phoneNumber='781-222-3345', blockchainAddress='joes_account', role=CHILD}
+Person{personId='resident_2', biometricId='voice-print='voiceprint-joe',face-print='faceprint-joe''}
+
+RESIDENT UPDATED ID:resident_1
+Resident{name='jane', phoneNumber='781-222-3344', blockchainAddress='janes_account', role=ADULT}
+Person{personId='resident_1', biometricId='voice-print='voiceprint-jane',face-print='faceprint-jane''}
+
+VISITOR CREATED
+Visitor{}
+Person{personId='visitor_1', biometricId='iris-print='}
+
+VISITOR UPDATED ID:visitor_1
+Visitor{}
+Person{personId='visitor_1', biometricId='iris-print='}
+
+SHOWING PERSON INFO FOR ID resident_1
+Resident{name='jane', phoneNumber='781-222-3344', blockchainAddress='janes_account', role=ADULT}
+Person{personId='resident_1', biometricId='voice-print='voiceprint-jane',face-print='faceprint-jane''}
+
+SHOWING PERSON INFO FOR ID visitor_1
+Visitor{}
+Person{personId='visitor_1', biometricId='iris-print='}
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:sl_1, type, camera, value, fire]
+Executing EmergencyOne command...
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_1: There is a FIRE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE ps_1: There is a FIRE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE kiosk_1: There is a FIRE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE ps_2: There is a FIRE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_3: There is a FIRE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_2: There is a FIRE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE ss_1: There is a FIRE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE ss_2: There is a FIRE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE kiosk_2: There is a FIRE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_4: There is a FIRE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE car_1: There is a FIRE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE car_2: There is a FIRE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE bus_1: There is a FIRE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE sl_2: There is a FIRE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE sl_1: There is a FIRE emergency in Cambridge-MA, please find shelter immediately
+Dispatching Robot bot_1 to event location (travel distance 0.29888406) with activity: address FIRE at lat 42.377 long -71.1167
+Dispatching Robot bot_2 to event location (travel distance 0.31078345) with activity: address FIRE at lat 42.377 long -71.1167
+Dispatching Robot bot_3 to event location (travel distance 0.32338306) with activity: Help people find shelter
+Dispatching Robot bot_4 to event location (travel distance 0.3277047) with activity: Help people find shelter
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:sl_1, type, camera, value, flood]
+Executing EmergencyOne command...
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_1: There is a FLOOD emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE ps_1: There is a FLOOD emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE kiosk_1: There is a FLOOD emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE ps_2: There is a FLOOD emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_3: There is a FLOOD emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_2: There is a FLOOD emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE ss_1: There is a FLOOD emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE ss_2: There is a FLOOD emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE kiosk_2: There is a FLOOD emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_4: There is a FLOOD emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE car_1: There is a FLOOD emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE car_2: There is a FLOOD emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE bus_1: There is a FLOOD emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE sl_2: There is a FLOOD emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE sl_1: There is a FLOOD emergency in Cambridge-MA, please find shelter immediately
+Dispatching Robot bot_1 to event location (travel distance 0.29888406) with activity: address FLOOD at lat 42.377 long -71.1167
+Dispatching Robot bot_2 to event location (travel distance 0.31078345) with activity: address FLOOD at lat 42.377 long -71.1167
+Dispatching Robot bot_3 to event location (travel distance 0.32338306) with activity: Help people find shelter
+Dispatching Robot bot_4 to event location (travel distance 0.3277047) with activity: Help people find shelter
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:sl_1, type, camera, value, earthquake]
+Executing EmergencyOne command...
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_1: There is a EARTHQUAKE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE ps_1: There is a EARTHQUAKE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE kiosk_1: There is a EARTHQUAKE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE ps_2: There is a EARTHQUAKE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_3: There is a EARTHQUAKE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_2: There is a EARTHQUAKE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE ss_1: There is a EARTHQUAKE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE ss_2: There is a EARTHQUAKE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE kiosk_2: There is a EARTHQUAKE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_4: There is a EARTHQUAKE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE car_1: There is a EARTHQUAKE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE car_2: There is a EARTHQUAKE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE bus_1: There is a EARTHQUAKE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE sl_2: There is a EARTHQUAKE emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE sl_1: There is a EARTHQUAKE emergency in Cambridge-MA, please find shelter immediately
+Dispatching Robot bot_1 to event location (travel distance 0.29888406) with activity: address EARTHQUAKE at lat 42.377 long -71.1167
+Dispatching Robot bot_2 to event location (travel distance 0.31078345) with activity: address EARTHQUAKE at lat 42.377 long -71.1167
+Dispatching Robot bot_3 to event location (travel distance 0.32338306) with activity: Help people find shelter
+Dispatching Robot bot_4 to event location (travel distance 0.3277047) with activity: Help people find shelter
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:sl_1, type, camera, value, severe weather]
+Executing EmergencyOne command...
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_1: There is a SEVERE_WEATHER emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE ps_1: There is a SEVERE_WEATHER emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE kiosk_1: There is a SEVERE_WEATHER emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE ps_2: There is a SEVERE_WEATHER emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_3: There is a SEVERE_WEATHER emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_2: There is a SEVERE_WEATHER emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE ss_1: There is a SEVERE_WEATHER emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE ss_2: There is a SEVERE_WEATHER emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE kiosk_2: There is a SEVERE_WEATHER emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_4: There is a SEVERE_WEATHER emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE car_1: There is a SEVERE_WEATHER emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE car_2: There is a SEVERE_WEATHER emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE bus_1: There is a SEVERE_WEATHER emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE sl_2: There is a SEVERE_WEATHER emergency in Cambridge-MA, please find shelter immediately
+SIMULATED SPEAKER OUTPUT FROM DEVICE sl_1: There is a SEVERE_WEATHER emergency in Cambridge-MA, please find shelter immediately
+Dispatching Robot bot_1 to event location (travel distance 0.29888406) with activity: address SEVERE_WEATHER at lat 42.377 long -71.1167
+Dispatching Robot bot_2 to event location (travel distance 0.31078345) with activity: address SEVERE_WEATHER at lat 42.377 long -71.1167
+Dispatching Robot bot_3 to event location (travel distance 0.32338306) with activity: Help people find shelter
+Dispatching Robot bot_4 to event location (travel distance 0.3277047) with activity: Help people find shelter
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:sl_2, type, camera, value, traffic_accident]
+Executing EmergencyTwo command...
+Executing speaker output from origin sensing device with dialog: Stay calm, help is on its way.
+SIMULATED SPEAKER OUTPUT FROM DEVICE sl_2: Stay calm, help is on its way.
+Dispatching Robot bot_3 to event location (travel distance 0.13766329) with activity: address TRAFFIC_ACCIDENT at lat 42.3749 long -71.1218
+Dispatching Robot bot_1 to event location (travel distance 0.16627543) with activity: address TRAFFIC_ACCIDENT at lat 42.3749 long -71.1218
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:sl_1, type, co2meter, value, 1200]
+Recording CO2 Meter Reading...
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:sl_2, type, co2meter, value, 1300]
+Recording CO2 Meter Reading...
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:ps_1, type, co2meter, value, 1400]
+Recording CO2 Meter Reading...
+Executing CO2Event command...
+Setting enabled value on car with id car_1 to: false
+Setting enabled value on car with id car_2 to: false
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:sl_1, type, co2meter, value, 900]
+Recording CO2 Meter Reading...
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:sl_2, type, co2meter, value, 800]
+Recording CO2 Meter Reading...
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bot_1, type, co2meter, value, 700]
+Recording CO2 Meter Reading...
+Executing CO2Event command...
+Setting enabled value on car with id car_1 to: true
+Setting enabled value on car with id car_2 to: true
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bot_1, type, camera, value, littering, subject, resident_1]
+Executing LitterEvent command...
+Executing speaker output from origin sensing device with dialog: Please do not litter.
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_1: Please do not litter.
+Dispatching Robot bot_1 to event location (travel distance 0.0) with activity: clean garbage at lat 42.3732 long -71.1195
+Transaction processed for 50 (+10 fee) from janes_account to cambridge-account with transactionId: 736194
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:kiosk_1, type, microphone, value, broken_glass_sound]
+Executing BrokenGlass command...
+Dispatching Robot bot_3 to event location (travel distance 0.14663745) with activity: clean up broken glass at lat 42.3723 long -71.123
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bot_2, type, camera, value, person_seen, subject, resident_1]
+Person successfully updated. resident_1: lat 42.3729 long -71.1192
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bot_1, type, microphone, value, can you help me find my child resident_2, subject, resident_1]
+Executing MissingChild command...
+Executing speaker output from origin sensing device with dialog: person resident_1 is at lat 42.3729 long -71.1192, a robot is retrieving now, stay where you are.
+SIMULATED SPEAKER OUTPUT FROM DEVICE bot_1: person resident_1 is at lat 42.3729 long -71.1192, a robot is retrieving now, stay where you are.
+Dispatching Robot bot_1 to event location (travel distance 0.0) with activity: retrieve person resident_1 and bring to lat 42.3732 long -71.1195 of microphone
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:ps_1, type, camera, value, Vehicle city_1:car_1 parked for 1 hour.]
+Executing ParkingEvent command...
+Transaction processed for 50 (+10 fee) from city_1car_1 to city_1ps_1 with transactionId: 298180
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bus_1, type, microphone, value, Does this bus go to central square?, subject, resident_1]
+Executing BusRoute command...
+Executing speaker output from origin sensing device with dialog: Yes, this bus goes to central square
+SIMULATED SPEAKER OUTPUT FROM DEVICE bus_1: Yes, this bus goes to central square
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bus_1, type, camera, value, Person boards bus, subject, resident_1]
+Executing BoardBus command...
+Executing speaker output from origin sensing device with dialog: hello, good to see you resident_1
+SIMULATED SPEAKER OUTPUT FROM DEVICE bus_1: hello, good to see you resident_1
+Transaction processed for 1 (+10 fee) from janes_account to city_1bus_1 with transactionId: 509984
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bus_1, type, camera, value, Person boards bus, subject, resident_2]
+Executing BoardBus command...
+Executing speaker output from origin sensing device with dialog: hello, good to see you resident_2
+SIMULATED SPEAKER OUTPUT FROM DEVICE bus_1: hello, good to see you resident_2
+Transaction processed for 1 (+10 fee) from joes_account to city_1bus_1 with transactionId: 771475
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bus_1, type, camera, value, Person boards bus, subject, visitor_1]
+Executing BoardBus command...
+Executing speaker output from origin sensing device with dialog: hello, good to see you visitor_1
+SIMULATED SPEAKER OUTPUT FROM DEVICE bus_1: hello, good to see you visitor_1
+Bus rider is not a Resident. Bus fare has been waived.
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:kiosk_2, type, microphone, value, what movies are showing tonight?, subject, resident_1]
+Executing MovieInfo command...
+Executing speaker output from origin sensing device with dialog: Casablanca is showing at 9 pm
+SIMULATED SPEAKER OUTPUT FROM DEVICE kiosk_2: Casablanca is showing at 9 pm
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:kiosk_2, type, microphone, value, reserve 3 seats for the 9 pm showing of Casablanca., subject, resident_1]
+Executing MovieReservation command...
+Transaction processed for 10 (+10 fee) from janes_account to city_1ik_2 with transactionId: 120134
+Executing speaker output from origin sensing device with dialog: your seats are reserved; please arrive a few minutes early.
+SIMULATED SPEAKER OUTPUT FROM DEVICE kiosk_2: your seats are reserved; please arrive a few minutes early.
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bus_1, type, camera, value, Person boards bus, subject, resident_10]
+ERROR (189): CREATE SENSOR-EVENT FAILED, SMARTCITYCONTROLLERSERVICE COMMAND: FAILED TO SHOWPERSON WHEN SUBJECTID WAS PROVIDED
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bus_1, type, camera, value, Person boards bus, subject, resident_8]
+ERROR (190): CREATE SENSOR-EVENT FAILED, SMARTCITYCONTROLLERSERVICE COMMAND: FAILED TO SHOWPERSON WHEN SUBJECTID WAS PROVIDED
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:kiosk_4, type, microphone, value, reserve 3 seats for the 9 pm showing of Casablanca., subject, resident_1]
+ERROR (193): CREATE SENSOR-EVENT FAILED, DEVICE WITH THAT CITY/DEVICE ID DOES NOT EXIST
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:sl_2, type, microphone, value, what movies are showing tonight?, subject, resident_1]
+Executing MovieInfo command...
+ERROR (196): CREATE SENSOR-EVENT FAILED, SMARTCITYCONTROLLERSERVICE FAILED TO EXECUTE EXECUTE METHOD ON CONCRETE COMMAND
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:sl_1, type, co2meter, value, 900]
+Recording CO2 Meter Reading...
+Executing CO2Event command...
+Setting enabled value on car with id car_1 to: true
+Setting enabled value on car with id car_2 to: true
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:sl_2, type, co2meter, value, 800]
+Recording CO2 Meter Reading...
+Executing CO2Event command...
+Setting enabled value on car with id car_1 to: true
+Setting enabled value on car with id car_2 to: true
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bot_1, type, co2meter, value, 7000]
+Recording CO2 Meter Reading...
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:sl_2, type, co2meter, value, 800]
+Recording CO2 Meter Reading...
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bot_1, type, co2meter, value, 9000]
+Recording CO2 Meter Reading...
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bot_1, type, co2meter, value, 4000]
+Recording CO2 Meter Reading...
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:bot_1, type, co2meter, value, 3000]
+Recording CO2 Meter Reading...
+Executing CO2Event command...
+Setting enabled value on car with id car_1 to: false
+Setting enabled value on car with id car_2 to: false
+END SENSOR EVENT PROCESSING
+
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:sl_1, type, camera, value, severe weat]
+ERROR (208): CREATE SENSOR-EVENT FAILED, SMARTCITYCONTROLLERSERVICE FAILED TO PROCESS EVENT, UNPROCESSABLE EVENT RECEIVED: SEVERE WEAT
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:kiosk_1, type, camera, value, broken_glass_sound]
+ERROR (211): CREATE SENSOR-EVENT FAILED, SMARTCITYCONTROLLERSERVICE FAILED TO PROCESS EVENT, UNPROCESSABLE EVENT RECEIVED: BROKEN_GLASS_SOUND
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:ps_1, type, camera, value, Vehicle city_1:car_1 parked for 1000 hour.]
+Executing ParkingEvent command...
+ERROR (214): CREATE SENSOR-EVENT FAILED, SMARTCITYCONTROLLERSERVICE FAILED TO EXECUTE EXECUTE METHOD ON CONCRETE COMMAND
+
+SENSOR EVENT RECEIVED, BEGIN SENSOR EVENT PROCESSING
+EVENT DETAILS: [create, sensor-event, city_1:sl_1, type, thermometer, value, 80]
+ERROR (217): CREATE SENSOR-EVENT FAILED, SMARTCITYCONTROLLERSERVICE UNPROCESSABLE THERMOMETER EVENT RECEIVED

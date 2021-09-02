@@ -1,0 +1,87 @@
+<app-breadcrumbs [breadcrumbs]='breadcrumbs'></app-breadcrumbs>
+<section class="space-sm">
+  <div class="container">
+    <!-- account page body -->
+    <div class="row">
+      <div class="col-12 col-md-9 mb-1 order-md-2">
+
+        <!-- begin header row -->
+        <div class="row justify-content-center">
+          <div class="col">
+            <h1 class="h2 mb-2">Your Teams</h1>
+            <span>Add and remove teams you've been invited to or are a member of.</span>
+          </div>
+        </div>
+        <hr/>
+        <!-- end header row -->
+
+        <!--end of section-->
+
+        <!--end of row-->
+        <div class="row">
+          <div class="col">
+            <table class="table table-borderless table-hover align-items-center">
+              <tbody>
+
+                <tr class="bg-white">
+                  <th scope="row">
+                    <a class="media align-items-center" href="#">
+                      <img alt="Image" src="assets/img/logo-snapchat.svg" class="avatar rounded avatar-sm" />
+                      <div class="media-body">
+                        <span class="h6 mb-0">Snapchat</span>
+                        <span class="text-muted">Social Media</span>
+                      </div>
+                    </a>
+                  </th>
+                  <td>Mike</td>
+                  <td>13/12/2017</td>
+                  <td class="text-right">
+
+                    <button class="btn btn-sm btn-outline-success" type="button">
+                      Accept Invite
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" type="button">
+                      Decline Invite
+                    </button>
+
+                  </td>
+                </tr>
+                <tr class="table-divider"></tr>
+
+                <tr class="bg-white">
+                  <th scope="row">
+                    <a class="media align-items-center" href="#">
+                      <img alt="Image" src="assets/img/logo-slack.svg" class="avatar rounded avatar-sm" />
+                      <div class="media-body">
+                        <span class="h6 mb-0">Slack</span>
+                        <span class="text-muted">Social Media</span>
+                      </div>
+                    </a>
+                  </th>
+                  <td>brettbl</td>
+                  <td>1/12/2017</td>
+                  <td class="text-right">
+
+                    <button class="btn btn-sm btn-outline-danger" type="button">
+                      Leave Team
+                    </button>
+
+
+                  </td>
+                </tr>
+                <tr class="table-divider"></tr>
+
+              </tbody>
+            </table>
+          </div>
+          <!--end of col-->
+        </div>
+        <!--end of row-->
+
+
+      </div>
+      <app-account-sidebar class="col-12 col-md-3 mb-1 order-md-1"></app-account-sidebar>
+    </div>
+    <!-- end account page body -->
+  </div>
+</section>

@@ -1,0 +1,41 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity adder8bit is
+	Port (a : in std_ulogic_vector(7 downto 0);
+			b : in std_ulogic_vector(7 downto 0);
+			output : out std_ulogic_vector(7 downto 0) );
+end adder8bit;
+
+architecture Behavioral of adder8bit is
+	component fulladder is
+		Port(	a: in std_ulogic;
+				b: in  std_ulogic;
+				carryIn: in std_ulogic;
+				output: out std_ulogic;
+				carryOut: out std_ulogic	);
+	end component;
+	
+	signal carryOut1: std_ulogic;
+	signal output1: std_ulogic;
+	signal carryOut2: std_ulogic;
+	signal output2: std_ulogic;
+	signal carryOut3: std_ulogic;
+	signal output3: std_ulogic;
+	signal carryOut4: std_ulogic;
+	signal output4: std_ulogic;
+	
+	signal 
+	
+	begin
+	
+	f1: fulladder port map (a => bcd(0), b => add(0), carryIn => '0', output => output1, carryOut => carryOut1 );
+  f2: fulladder port map (a => bcd(1), b => add(1), carryIn => carryOut1, output => output2, carryOut => carryOut2 );
+  f3: fulladder port map (a => bcd(2), b => add(2), carryIn => carryOut2, output => output3, carryOut => carryOut3 );
+  f4: fulladder port map (a => bcd(3), b => add(3), carryIn => carryOut3, output => output4, carryOut => carryOut4 );
+  
+  output(0) <= output1;
+  output(1) <= output2;
+  output(2) <= output3;
+  output(3) <= output4;
+end Behavioral;

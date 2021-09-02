@@ -1,0 +1,98 @@
+<!-- add the mid section top menu -->
+<app-mid-menu></app-mid-menu>
+
+<!-- profile settings body -->
+<section class="py-0" *ngIf="!isLoading">
+  <div class="row">
+    <div class="col-10 offset-md-1">
+
+      <!-- header section with reddit profile icon -->
+      <div class="row">
+        <div class="col-12">
+          <div class="media flex-wrap mb-0 align-items-center">
+            <img alt="Image" src="{{ profile.accountInfo.icon_img }}" class="avatar avatar-md mb-3 mb-md-0">
+            <div class="media-body">
+              <div>
+                <h3 class="mb-0 d-inline-block">u/{{ profile.accountInfo.name }}</h3>
+                <a href="https://www.reddit.com{{ profile.accountInfo.subreddit.url }}" target="_blank" class="ml-1">
+                  <i class="fal fa-external-link-square fa-1x"></i>
+                </a>
+              </div>
+              <small>
+                Change your profile image by
+                <a href="https://www.reddit.com/user/{{ profile.accountInfo.name }}/about/edit" target="_blank">editing your profile on reddit.</a>
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-3">
+
+      <!-- delete profile section -->
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-12 col-md-8 order-md-1">
+              <form class="row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#deleteTeamModal">Remove this profile</button>
+                  </div>
+                  <small>Once you delete a profile, there is no going back. Please be certain.</small>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+</section>
+<!-- END profile settings body -->
+
+<!-- delete team modal -->
+<div *ngIf="!isLoading" class="modal fade" id="deleteTeamModal" tabindex="-1" role="dialog" aria-labelledby="deleteTeamModalLabel" aria-hidden="true"
+  data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Are you absolutely sure?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" *ngIf="!profileHasBeenDeleted && !profileIsBeingDeleted">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        This action cannot be undone. This will permanently delete the
+        <strong>u/{{ profile.accountInfo.name }}</strong> profile and remove all member associations and queued posts.
+        <br/>
+        <br/> Please type in the name of the profle ({{ profile.accountInfo.name }}) to confirm.
+        <div class="form-group mb-0 mt-1">
+          <input class="form-control form-control-md" type="text" [(ngModel)]="deleteConfirm">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger w-100" (click)="handleDeleteProfile(profile._id)" [disabled]="profile.accountInfo.name !== deleteConfirm"
+          *ngIf="!profileHasBeenDeleted">
+          I understand the consequences, delete this profile
+        </button>
+        <button type="button" class="btn btn-success w-100" (click)="handleDeletedSuccessClicked()" *ngIf="profileHasBeenDeleted" data-dismiss="modal">
+          Profile successfully deleted. Click here to return home.
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END delete team modal -->
+
+<!-- only display spinner if settings.component is loading -->
+<section class="height-70" *ngIf="isLoading">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 col-lg-5 text-center">
+        <i class="fas fa-spinner-third fa-spin fa-4x" style="color:#4582EC;"></i>
+      </div>
+    </div>
+  </div>
+</section>

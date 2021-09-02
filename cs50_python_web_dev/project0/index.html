@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Articles of the US Constitution | Homepage</title>
+
+    <!-- required bootstrap meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- load bootstrap and custom stylesheets -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- load fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Italianno|Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- begin navigation bar -->
+    <nav class="tac navbar navbar-expand-lg navbar-light bg-light screen-only">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <!-- this text is filled in via CSS media query -->
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Articles
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="article_1.html">Article I</a>
+                            <a class="dropdown-item" href="article_2.html">Article II</a>
+                            <a class="dropdown-item" href="article_3.html">Article III</a>
+                            <a class="dropdown-item" href="article_4.html">Article IV</a>
+                            <a class="dropdown-item" href="article_5.html">Article V</a>
+                            <a class="dropdown-item" href="article_6.html">Article VI</a>
+                            <a class="dropdown-item" href="article_7.html">Article VII</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sources.html">Sources</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- end navigation bar -->
+
+    <div class="container">
+
+        <!-- header -->
+        <div class="row">
+            <div class="col-sm-12 pt-3">
+                <h1>Article of the US Constitution</h1>
+                <h5><span class="font-italic font-weight-light">Kind of boring, but I picked it because it contained a lot of text</span></h5>
+            </div>
+        </div>
+        <div class="row pt-5 pb-5">
+
+            <!-- begin left side column. includes preamble and links to articles -->
+            <div class="col-md-6">
+                <div class="pt-3">
+                    <div class="card w-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Preamble</h5>
+                            <p id="preamble" class="card-text">We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to
+                                ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-4 pb-5">
+                    <div class="card w-100">
+                        <div id="articles-list" class="card-body">
+                            <h5 class="card-title">Articles</h5>
+                            <ul>
+                                <li>
+                                    <a class="d-block pt2 pb-2" href="./article_1.html">Article 1 - The Legislative
+                                        Branch</a>
+                                </li>
+                                <li>
+                                    <a class="d-block pt2 pb-2" href="./article_2.html">Article 2 - The Executive
+                                        Branch</a>
+                                </li>
+                                <li>
+                                    <a class="d-block pt2 pb-2" href="./article_3.html">Article 3 - The Judicial
+                                        Branch</a>
+                                </li>
+                                <li>
+                                    <a class="d-block pt2 pb-2" href="./article_4.html">Article 4 - The States</a>
+                                </li>
+                                <li>
+                                    <a class="d-block pt2 pb-2" href="./article_5.html">Article 5 - Amendment</a>
+                                </li>
+                                <li>
+                                    <a class="d-block pt2 pb-2" href="./article_6.html">Article 6 - Debts, Supremacy,
+                                        Oaths</a>
+                                </li>
+                                <li>
+                                    <a class="d-block pt2 pb-2" href="./article_7.html">Article 7 - Ratification</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end left side column -->
+
+            <!-- begin right side column. Inludes only and image of the USC -->
+            <div class="col-md-6">
+                <img class="fit-to-parent" src="images/usc.jpg" alt="U.S. Constitution">
+            </div>
+            <!-- end right side column -->
+
+        </div>
+    </div>
+    <!-- end homepage body -->
+
+    <!-- load js frameworks for boostrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

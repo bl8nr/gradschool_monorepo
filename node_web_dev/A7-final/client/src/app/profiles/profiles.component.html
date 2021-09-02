@@ -1,0 +1,35 @@
+<!-- add the main app navbar component -->
+<app-navbar></app-navbar>
+
+<div *ngIf="!isLoading" class="main-container background h-100" style="padding-top:70px;">
+  <section class="space-sm py-0 h-100">
+    <div class="container h-100">
+      <div class="row h-100">
+
+        <!-- add the sidebar that lists all the users available profiles -->
+        <app-profiles-sidebar [profiles]="profileService.profiles" [selectedProfileId]="profileService.selectedProfileId" class="col-12 col-md-2 mb-4 mb-md-0 py-4 accounts-column"></app-profiles-sidebar>
+
+        <!-- router outlet for all of /profiles/* child routes -->
+        <div class="col-12 col-md-9 main-column bg-white py-4 h-100">
+          <router-outlet></router-outlet>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- only display spinner if profiles.component is loading -->
+<span *ngIf="isLoading">
+  <div class="main-container">
+    <section class="height-70" *ngIf="isLoading">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-6 col-lg-5 text-center">
+            <i class="fas fa-spinner-third fa-spin fa-4x"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</span>

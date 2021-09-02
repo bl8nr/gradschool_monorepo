@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Flak App | Project 2 CSCI-E 33a</title>
+
+    {# load bootstrap from CDN in head because its css #}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    {# load all custom css in head, this is processed by flask-assets #}
+    {% assets "scss_all" %}
+        <link rel=stylesheet type=text/css href="{{ ASSET_URL }}">
+    {% endassets %}
+</head>
+<body>
+
+{# ------------------------------------------ #}
+{# BEGIN HTML MARKUP FOR THE PAGE/PAGE LAYOUT #}
+{# ------------------------------------------ #}
+
+{# BEGIN navigation bar #}
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="javascript:;">Flak Chat</a>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="javascript:;" id="displayNameModalButton">Change Display Name</a>
+        </li>
+    </ul>
+</nav>
+{# END navigation bar #}
+
+{# BEGIN main page container #}
+<div class="container-fluid">
+    <div class="row">
+
+        {# BEGIN side column for channels and users #}
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Channels</span>
+                    <a class="d-flex align-items-center text-muted" href="javascript:;" id="newChannelModalButton">
+                        New Channel
+                    </a>
+                </h6>
+
+                {# channelList is repalced with handlebars templates showing current channels #}
+                <span id="channelList"></span>
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Users</span>
+                </h6>
+
+                {# userList is repalced with handlebars templates showing current users #}
+                <span id="userList"></span>
+            </div>
+        </nav>
+        {# END side column for channels and users #}
+
+        {# BEGIN middle page body for message thread #}
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-8 pt-3 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 class="h2" id="channelNameHeader">
+                    {# channelNameHeader is dynamically filled with the current channel name via JS #}
+                </h1>
+            </div>
+
+            <div class="chat-thread-container" id="messageThreadContainer">
+                {# messageThread is repalced with handlebars templates showing current messages #}
+                <span id="messageThread"></span>
+            </div>
+
+            <hr/>
+            <form class="row" id="messageComposerForm">
+                <div class="col-sm-10">
+                    <div class="card w-100 d-inline-block">
+                        <div class="card-body p-2">
+                            <textarea id="messageComposerTextArea"
+                                      class="card-text text-left w-100 border-0"
+                                      required></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 text-center">
+                    <button type="submit" class="btn btn-primary mt-2">Send</button>
+                </div>
+            </form>
+        </main>
+        {# END middle page body for message thread #}
+
+        {# BEING right side sidebar for consistancy and spacing #}
+        <nav class="col-md-2 d-none d-md-block bg-light">
+            <div class="sidebar-sticky">
+            </div>
+        </nav>
+        {# END right side sidebar for consistancy and spacing #}
+
+    </div>
+</div>
+{# END main page container #}
+
+{# ------------------------------------------ #}
+{# END HTML MARKUP FOR THE PAGE/PAGE LAYOUT #}
+{# ------------------------------------------ #}
+
+
+{# ---------------------------- #}
+{# BEGIN HTML MARKUP FOR MODALS #}
+{# ---------------------------- #}
+
+{# BEGIN new channel modal #}
+<div class="modal fade" id="newChannelModal" tabindex="-1" role="dialog" aria-labelledby="newChannelModal"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form id="newChannelModalForm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Crete a New Channel</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input class="form-control"
+                           type="text"
+                           name="newChannelModalTextField"
+                           id="newChannelModalTextField"
+                           placeholder="Channel Name (required)"
+                           required/>
+                </div>
+                <div class="alert alert-danger" role="alert" id="channelAlreadyExistsAlert">
+                    Channel Already Exists. Please pick a different name.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Channel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{#  END new channel modal #}
+
+{# BEGIN new/change display name modal #}
+<div class="modal fade" id="displayNameModal" tabindex="-1" role="dialog" aria-labelledby="displayNameModal"
+     aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <form id="displayNameModalForm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Display Name</h5>
+                </div>
+                <div class="modal-body">
+                    <input class="form-control"
+                           type="text"
+                           name="displayNameModalTextField"
+                           id="displayNameModalTextField"
+                           placeholder="Display Name (required)"
+                           required/>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save Display
+                        Name
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{# END new/change display name modal #}
+
+{# -------------------------- #}
+{# END HTML MARKUP FOR MODALS #}
+{# -------------------------- #}
+
+
+{# -------------------------- #}
+{# BEGIN HANDLEBARS TEMPLATES #}
+{# -------------------------- #}
+
+{# BEGIN handlebars template for the message thread #}
+{% raw %}
+<script id="messageThreadTemplate" type="text/x-handlebars-template">
+    {{#each this}}
+    <div class="row pb-2">
+        <div class="col-sm-12 {{#if_current_user sender }} {{/if_current_user}}">
+            <div class="card mw-50 d-inline-block">
+                <div class="card-body p-2">
+                    <p class="card-text text-left">
+                        {{ message }}
+                    </p>
+                </div>
+            </div>
+            <p class="text-muted">{{ getUserDisplayNameById sender }} {{ prettifyDate timestamp }}</p>
+        </div>
+    </div>
+    {{/each}}
+</script>
+{% endraw %}
+{# END handlebars template for the message thread #}
+
+{# BEGIN handlebars template for the channel list #}
+{% raw %}
+<script id="channelListTemplate" type="text/x-handlebars-template">
+    <ul class="nav flex-column mb-2" id="channels">
+        {{#each this}}
+        <li class="nav-item" onClick="selectChannel('{{ id }}')">
+            <a class="nav-link" href="javascript:;">
+                <!-- add channel icon here -->
+                {{ name }}
+            </a>
+        </li>
+        {{/each}}
+    </ul>
+</script>
+{% endraw %}
+{# END handlebars template for the channel list #}
+
+{# BEGIN handlebars template for the users list #}
+{% raw %}
+<script id="userListTemplate" type="text/x-handlebars-template">
+    <ul class="nav flex-column mb-2" id="users">
+        {{#each this}}
+        <li class="nav-item" onClick="selectUser('{{ id }}')">
+            <span class="nav-link text-muted" href="javascript:;">
+                <!-- add user icon here -->
+                {{ displayName }}
+            </span>
+        </li>
+        {{/each}}
+    </ul>
+</script>
+{% endraw %}
+{# END handlebars template for the users list #}
+
+{# ------------------------ #}
+{# END HANDLEBARS TEMPLATES #}
+{# ------------------------ #}
+
+{# load other JS in the end of body for perforamance boost becasue it's not required early #}
+
+{# load handlebars runtime for on the fly compiling #}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.4.2/handlebars.runtime.min.js"
+        crossorigin="anonymous"></script>
+
+{# load handlebars #}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.4.2/handlebars.min.js"
+        crossorigin="anonymous"></script>
+
+{# load boostrap required JS #}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+{# load boostrap required JS #}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+
+{# load boostrap required JS #}
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+{# load socketio js #}
+<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"
+        integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+
+{# load all application JS, this is processed by flask-assets  #}
+{% assets "js_all" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets %}
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+<!-- load the for loop template tag -->
+{% load get_range %}
+
+{% block body %}
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+
+        <!-- BEGIN page header -->
+        <h1 class="display-4">{{ menuCategory.name }}</h1>
+        <p class="lead">{{ menuCategory.description }}</p>
+        <!-- END page header -->
+
+        <!-- BEGIN menu item cards -->
+
+
+        <div class="card-deck mb-3 pt-5 text-center">
+            <div class="row">
+
+                <!-- render 1 card for every menu item in the current menu category -->
+                {% for menuItem in menuCategory.menuItems.all %}
+                    <div class="col-sm-12 col-md-4">
+                        <form method="POST" action="{% url 'orderItems' ticket_id=shoppingCart.id %}">
+                            {% csrf_token %}
+                            <input type="hidden" id="menuItemId" name="menuItemId" value="{{ menuItem.id }}">
+                            <div class="card mb-4 shadow-sm">
+                                <div class="card-header">
+                                    <h4 class="my-0 font-weight-normal">{{ menuItem.name }}</h4>
+                                </div>
+                                <div class="card-body">
+                                    <h1 class="card-title pricing-card-title">
+                                        ${{ menuItem.price }}
+                                        <small class="text-muted">/{{ menuItem.size }}</small>
+                                    </h1>
+
+                                    <!-- if modifiers are allowed then render the modifiers section -->
+                                    {% if menuItem.maximumModifiersAllowed > 0 %}
+
+                                        <!-- BEGIN modifiers (toppings and customizations) section -->
+                                        <div class="border-top border-bottom mb-3">
+                                            <h2 class="f-14 pt-3">Toppings & Customizations</h2>
+                                            <ul class="list-group list-group-flush">
+
+                                                <!-- for each allowed modifier count, render a HTML select to choose the modifier -->
+                                                {% for i in menuItem.maximumModifiersAllowed|get_range %}
+                                                    <li class="list-group-item border-0 my-1 py-1 px-0">
+                                                        <span class="float-left">Custom. {{ i|add:1 }}</span>
+                                                        <select id="customization{{ i }}" name="customization{{ i }}"
+                                                                class="float-right">
+
+                                                            <!-- make each supported modifier and option the user can select -->
+                                                            {% for modifier in menuItem.supportedModifiers.all %}
+                                                                <option value="{{ modifier.id }}">
+                                                                    {{ modifier.name }}
+                                                                    {% if modifier.priceAdjustment > 0.00 %}
+                                                                        +{{ modifier.priceAdjustment }}
+                                                                    {% endif %}
+                                                                </option>
+                                                            {% endfor %}
+                                                        </select>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                        <!-- END modifiers (toppings and customizations) section -->
+
+                                    {% endif %}
+
+                                    <button type="submit" class="btn btn-lg btn-block btn-outline-dark">Add To Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

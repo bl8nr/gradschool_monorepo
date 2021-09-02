@@ -1,0 +1,72 @@
+extends ../layout/layout
+
+include ../layout/authedNavbar
+include ../layout/footer
+
+
+block content
+    //- load the navbar with the logout button
+    +authedNavbar
+
+    .main-container
+        section
+            .container
+                .row.flex-md-row.card.card-lg
+                    .col-12.col-md-7.card-body.bg-secondary
+                        .text-center.mb-5
+                            h1.h2.mb-2 Let's create a new team
+                            span Fill out the form and press 'create new team'
+                        .row.justify-content-center
+                            .col-12.col-lg-9
+                                //- new team form
+                                form(role='form', action="/teams/create", method="post")
+                                    .form-row.form-group
+                                        .col
+                                            input#teamName.form-control.form-control-lg(type='text', name='teamName' placeholder='Team Name', required='true')
+                                    .form-row.form-group
+                                        .col
+                                            input#teamDescription.form-control.form-control-lg(type='text', name='teamDescription', placeholder='Team Description', required='true')
+                                    .form-row.form-group
+                                        .col
+                                            input#organizationName.form-control.form-control-lg(type='text', name='organizationName', placeholder='Organization Name', required='true')
+                                    .form-row.form-group
+                                        .col
+                                            input#billingEmail.form-control.form-control-lg(type='email', name='billingEmail' placeholder='Admin Email', required='true')
+                                            small Email must be formatted as a proper email address.
+                                    .form-row.form-group
+                                        .col
+                                            button.btn.btn-block.btn-success.btn-lg(type='submit') Create Team
+                    .col-12.col-md-5.card-body
+                        //- no content of substance here but i wanted to keep it to add copy to it for the final
+                        div
+                            .mb-5.text-center
+                                h3.h2.mb-2 Features & Benefits
+                                span Ill add some subtext about teams later
+                            ul.list-unstyled.list-spacing-sm.mb-5
+                                li.row
+                                    .col-2.col-md-1
+                                        i.icon-check.h5.text-muted
+                                    .col-10
+                                        | Bullet / feature 1
+                                li.row.align-items-center
+                                    .col-2.col-md-1
+                                        i.icon-check.h5.text-muted
+                                    .col-10 Bullet / feature 2
+                                li.row
+                                    .col-2.col-md-1
+                                        i.icon-check.h5.text-muted
+                                    .col-10 Bullet / feature 3
+                                li.row.align-items-center
+                                    .col-2.col-md-1
+                                        i.icon-check.h5.text-muted
+                                    .col-10 Bullet / feature 4
+                                li.row
+                                    .col-2.col-md-1
+                                        i.icon-check.h5.text-muted
+                                    .col-10 Bullet / feature 5
+                                li.row.align-items-center
+                                    .col-2.col-md-1
+                                        i.icon-check.h5.text-muted
+                                    .col-10 Bullet / feature 6
+        //- render footer
+        +footer

@@ -1,0 +1,6 @@
+This directory should contain all of the code for the high-level-
+language implementation of Problem Set 3, part 8.
+
+Build app with "make all" command
+
+Run app with "make run" command

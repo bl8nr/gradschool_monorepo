@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <!-- add spring messaging for i18n -->
+    <spring:message code="label_book_information" var="labelBookInformation"/>
+    <spring:message code="label_book_title" var="labelBookTitle"/>
+    <spring:message code="label_book_publisher" var="labelBookPublisher"/>
+    <spring:message code="label_book_price" var="labelBookPrice"/>
+    <spring:message code="label_book_category" var="labelBookCategory"/>
+    <spring:message code="label_book_isbn" var="labelBookISBN"/>
+    <spring:message code="label_book_update" var="labelBookUpdate"/>
+
+    <!-- add spring url for home page -->
+    <spring:url value="/books" var="editBookUrl"/>
+
+    <h1>${labelBookInformation}</h1>
+    <div id="bookInfo">
+
+        <c:if test="${not empty message}">
+            <div id="message" class="alert alert-primary" role="alert">
+                ${message.message}
+            </div>
+        </c:if>
+
+        <!-- create simple table showing book details -->
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th scope="row">${labelBookTitle}</th>
+                    <td>${book.title}</td>
+                </tr>
+                <tr>
+                    <th scope="row">${labelBookCategory}</th>
+                    <td>${book.category}</td>
+                </tr>
+                <tr>
+                    <th scope="row">${labelBookPublisher}</th>
+                    <td>${book.publisher}</td>
+                </tr>
+                <tr>
+                    <th scope="row">${labelBookISBN}</th>
+                    <td>${book.isbn}</td>
+                </tr>
+                <tr>
+                    <th scope="row">${labelBookPrice}</th>
+                    <td>${book.price}</td>
+                </tr>
+            </tbody>
+        </table>
+        <a class="btn btn-primary" href="${editBookUrl}/${book.id}?form">${labelBookUpdate}</a>
+    </div>
+</div>

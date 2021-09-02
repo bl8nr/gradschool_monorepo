@@ -1,0 +1,40 @@
+<app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+<h1>
+    Testing this app against the spec for assignment 5...
+</h1>
+<h3>
+    Viewing the team collection
+</h3>
+<ul>
+    <li>Click on the user icon/dropdown menu in the top right</li>
+    <li>The Team collection (teams that the logged in user has access to, could be 0) will be listed in between the 'Your Profile' and 'New Team' selections</li>
+</ul>
+<h3>
+    Creating a team
+</h3>
+<ul>
+    <li>Click on the user icon/dropdown menu in the top right</li>
+    <li>Click 'New Team'</li>
+    <li>Complete the wizard, adding a name (don't end your name in a space), description, and email</li>
+    <li>After the wizard it completed youll be directed to that teams page</li>
+    <li>The team has been created, notice if you go to the home page it now shows up in the navbar dropdown and you can click it to view it</li>
+</ul>
+<h3>
+    Modifying a Team
+</h3>
+<ul>
+    <li>Click on the user icon/dropdown menu in the top right</li>
+    <li>Click on one of teams in the dropdown (youll be sent ot that teams settings page)</li>
+    <li>Change any of the settings you want and click save changes. Notice on refresh, that the changes have persisted</li>
+</ul>
+<h3>
+    Deleting a Team
+</h3>
+<ul>
+    <li>Click on the user icon/dropdown menu in the top right</li>
+    <li>Click on one of teams in the dropdown (youll be sent ot that teams settings page)</li>
+    <li>Scroll to the bottom of the page a click 'Delete this team'</li>
+    <li>Confirm the teams name to enable the delete button then press delete and press the green success button to return home</li>
+    <li>Notice the team has been deleted and is not longer in the dropdown menu or accessible via /teams/:teamId</li>
+</ul>
+<!-- <app-permalink-search-hero></app-permalink-search-hero> -->

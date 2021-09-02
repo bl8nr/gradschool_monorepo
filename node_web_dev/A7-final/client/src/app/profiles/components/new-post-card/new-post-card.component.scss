@@ -1,0 +1,58 @@
+.schedule-header {
+  font-size: 16px;
+  line-height: 1.5em;
+  color: #59626a;
+  font-weight: 500;
+}
+
+.schedule {
+  border-top: 1px solid #e9ecef;
+}
+
+.schedule-custom {
+  border-left: 1px solid #e9ecef;
+  border-top: 1px solid #e9ecef;
+  background: #f8f9fa;
+}
+
+.schedule-not-custom {
+  border-left: 1px solid #e9ecef;
+  background: #e9ecef;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #adb5bd;
+  margin-bottom: 0.75rem;
+  display: block;
+  font-weight: 500;
+}
+
+.schedule-btn-label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.performance-menu {
+  border-left: 1px dotted #e9ecef;
+  font-size: 12px;
+  line-height: 1.5em;
+  font-weight: 500;
+}
+
+.performance-menu-item {
+  color: #4582eC;
+  cursor: pointer;
+  &:hover {
+    color: #1559cf
+  }
+}
+
+.form-label {
+  font-size: 18px;
+  line-height: 1.5em;
+  color: #59626a;
+  word-wrap: break-word;
+  font-weight: bold;
+}

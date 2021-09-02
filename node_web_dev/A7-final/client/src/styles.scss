@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+.body {
+  height: 100vh;
+}
+
+body::-webkit-scrollbar { 
+    display: none; 
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.theme-blue {
+    color: #4582EC;
+}
+
+.reddit-color {
+    color: #ff4500;
+}
+
+.quora-color {
+    color: #a82400;
+}
+
+.stack-exchange-color {
+    color: #1e5397;
+}
+
+.stack-overflow-color {
+    color: #f48024;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+@keyframes blink {50% { color: transparent }}
+.loader__dot { animation: 1s blink infinite }
+.loader__dot:nth-child(2) { animation-delay: 250ms }
+.loader__dot:nth-child(3) { animation-delay: 500ms }

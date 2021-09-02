@@ -1,0 +1,20 @@
+Info: Read atom netlist
+Info: Directory C:/Users/Brett Bloethner/Desktop/github/csci-e-93-bl8nr/counter/board/fpgaxchange exists --if you continue the contents of the directory may be overwritten
+Info: Generating FPGA Xchange file C:/Users/Brett Bloethner/Desktop/github/csci-e-93-bl8nr/counter/board/fpgaxchange/counter.fx
+Info: Atom 52 (display1Segments[7]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
+Info: Atom 54 (display1Segments[6]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
+Info: Atom 56 (display1Segments[5]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
+Info: Atom 58 (display1Segments[4]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
+Info: Atom 60 (display1Segments[3]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
+Info: Atom 62 (display1Segments[2]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
+Info: Atom 64 (display1Segments[1]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
+Info: Atom 66 (display2Segments[7]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
+Info: Atom 68 (display2Segments[6]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
+Info: Atom 70 (display2Segments[5]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
+Info: Atom 72 (display2Segments[4]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
+Info: Atom 74 (display2Segments[3]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
+Info: Atom 76 (display2Segments[2]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
+Info: Atom 78 (display2Segments[1]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
+Info: Atom 80 (count) has key 'input,2.5 V,--,--,Off,--,0,--,0,--,--'
+Info: Atom 82 (reset) has key 'input,2.5 V,--,--,Off,--,0,--,0,--,--'
+Info: FPGA Xchange file C:/Users/Brett Bloethner/Desktop/github/csci-e-93-bl8nr/counter/board/fpgaxchange/counter.fx generated successfully

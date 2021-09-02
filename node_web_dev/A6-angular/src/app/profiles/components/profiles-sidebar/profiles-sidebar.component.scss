@@ -1,0 +1,32 @@
+.account-header {
+  font-size: 13px;
+  font-weight: 600;
+  height: 20px;
+}
+
+.account-image {
+  height: 42px;
+  width: 42px;
+}
+
+.account-sub-header {
+  font-size: 13px;
+  font-weight: 400;
+  height: 18px;
+}
+
+.account-inactive {
+  opacity: .4;
+  cursor: pointer;
+  &:hover {
+      transition: opacity .25s ease-in-out;
+      opacity: 1;
+  }
+};
+
+.account-active {
+  border-right-width: 3px;
+  border-right-style: solid;
+  border-right-color: #4582EC;
+  background: #ffffff !important;
+}
